@@ -50,16 +50,16 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 	
 	@Test
-	void testUnJugadorEsDueñoDeUnBarrioLuegoDeComprarlo() {
+	void testUnJugadorEsPropietarioDeUnBarrioLuegoDeComprarlo() {
 		
 //		Jugador unJugador = new Jugador();
 //		Casillero unCasillero = new Casillero(CordobaNorte.instanciaUnica());
 //		
 //		unJugador.recibirDinero(100000);
 //		unJugador.caerEn(unCasillero);
-//		unJugador.Comprar();
+//		unJugador.comprar();
 		
-//		Assert.assertTrue(unJugador.esDueñoDe(CordobaNorte.instanciaUnica());
+//		Assert.assertTrue(unJugador.esDuenoDe(CordobaNorte.instanciaUnica());
 		assertTrue(true);
 	}
 	
