@@ -6,7 +6,6 @@ import java.util.*;
 
 import org.junit.Test;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
 import modelo.Efecto;
 import modelo.Jugador;
