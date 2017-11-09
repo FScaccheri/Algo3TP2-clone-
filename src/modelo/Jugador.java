@@ -7,11 +7,11 @@ public class Jugador {
 		return capital;
 	}
 	
-	public void setCapital( double capital ) {
-		this.capital+=capital;
-	}
 	public void aumentarCapital(double i) {
 		capital+=i;
 	}
 
+	public void disminuirCapital(double i) {
+		capital-=i;
+	}
 }
