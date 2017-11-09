@@ -6,7 +6,10 @@ public class Jugador {
 	public double getCapital() {
 		return capital;
 	}
-
+	
+	public void setCapital( double capital ) {
+		this.capital+=capital;
+	}
 	public void aumentarCapital(double i) {
 		capital+=i;
 	}
