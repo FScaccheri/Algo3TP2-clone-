@@ -13,7 +13,7 @@ public class Tablero {
 		casilleros.add(unCasillero);
 	};
 	
-	//La posicion del primer casillero añadido, es 0, es decir, la del segundo es 1, y asi sucesivamente;
+	//La posicion del primer casillero anadido, es 0, es decir, la del segundo es 1, y asi sucesivamente;
 	public int posicion(Casillero unCasillero) {
 		return casilleros.indexOf(unCasillero);
 	}
