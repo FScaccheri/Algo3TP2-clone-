@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import modelo.ImpuestoAlLujo;
 import modelo.Jugador;
-import modelo.Quini6;
 
 public class ImpuestoAlLujoTest {
 
@@ -16,10 +15,11 @@ public class ImpuestoAlLujoTest {
 		Jugador jugador = new Jugador();
 		
 		jugador.aumentarCapital(100000);
+		double capitalInicial = jugador.getCapital();
 
 		impLujo.activarEfecto(jugador);
 
-		assertEquals( 90000 , jugador.getCapital(), 0);
+		assertEquals( capitalInicial*0.9, jugador.getCapital(), 0);
 	}
 
 }
