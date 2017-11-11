@@ -1,6 +1,6 @@
 package modelo;
 
-public class Servicio implements Efecto {
+public class Servicio implements Activable {
 	private
 	Jugador propietario;
 	Servicio asociado;

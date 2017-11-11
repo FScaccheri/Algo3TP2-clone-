@@ -7,7 +7,6 @@ import java.util.*;
 import org.junit.Test;
 
 
-import modelo.Efecto;
 import modelo.Jugador;
 import modelo.Quini6;
 

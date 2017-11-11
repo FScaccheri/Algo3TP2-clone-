@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.HashMap;
 
-public class Carcel implements Efecto{
+public class Carcel implements Activable{
 
 	private static final double FIANZA = 45000;
 	private HashMap<Jugador, Integer> presos;

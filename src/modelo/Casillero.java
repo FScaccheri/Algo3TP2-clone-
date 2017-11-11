@@ -2,5 +2,5 @@ package modelo;
 
 public class Casillero {
 	private
-	Efecto efecto;
+	Activable efecto;
 }

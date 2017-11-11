@@ -1,6 +1,6 @@
 package modelo;
 
-public class ImpuestoAlLujo implements Efecto {
+public class ImpuestoAlLujo implements Activable {
 	
 	private static double VALOR_IMPUESTO = 0.1;
 	@Override

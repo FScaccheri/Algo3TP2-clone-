@@ -1,6 +1,6 @@
 package modelo;
 
-public interface Efecto {
+public interface Activable {
 
 	void activarEfecto(Jugador jugador);
 

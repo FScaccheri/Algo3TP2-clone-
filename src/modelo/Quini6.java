@@ -1,7 +1,7 @@
 package modelo;
 import java.util.*;
 
-public class Quini6 implements Efecto {
+public class Quini6 implements Activable {
 	
 	HashMap<Jugador, Integer> ganadores;
 	private static final double PRIMERPREMIO = 50000;
