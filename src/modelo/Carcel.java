@@ -18,7 +18,8 @@ public class Carcel implements Efecto{
 		
 		return turnosTranscurridos;
 	}
-	
+
+	// Tiene muchos 'if else'. @Franco S.
 	public void activarEfecto(Jugador jugador) {
 		
 		if ( !this.presos.containsKey(jugador))
@@ -27,11 +28,11 @@ public class Carcel implements Efecto{
 			
 		else {
 			
-			if ( turnosTranscurridos(jugador) < 3) { 
+			if ( turnosTranscurridos(jugador) < 2) { 
 				
 				this.presos.put(jugador, turnosTranscurridos(jugador) + 1);
-
-				if (turnosTranscurridos(jugador) == 3)
+				
+				if (turnosTranscurridos(jugador) == 2)
 					
 					this.presos.remove(jugador);
 				
@@ -48,7 +49,7 @@ public class Carcel implements Efecto{
 
 	public void liberarJugadorPorFianza(Jugador jugador) {
 		
-		if ( turnosTranscurridos(jugador) > 1) {
+		if ( turnosTranscurridos(jugador) > 0) {
 
 			jugador.disminuirCapital(FIANZA);
 		

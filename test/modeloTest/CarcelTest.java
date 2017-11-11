@@ -29,11 +29,10 @@ public class CarcelTest {
 		
 		Carcel carcel = new Carcel();
 		
+		carcel.activarEfecto(jugador);		
+		carcel.activarEfecto(jugador);
 		carcel.activarEfecto(jugador);
 		
-		carcel.activarEfecto(jugador);
-		carcel.activarEfecto(jugador);
-		carcel.activarEfecto(jugador);
 		
 		assertFalse( carcel.estaPreso(jugador));
 		
