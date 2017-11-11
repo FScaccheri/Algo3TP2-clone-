@@ -4,9 +4,8 @@ import java.util.*;
 public class Quini6 implements Efecto {
 	
 	HashMap<Jugador, Integer> ganadores;
-	int veces_activado = 0;
-	private static double PRIMERPREMIO = 50000;
-	private static double SEGUNDOPREMIO = 30000;
+	private static final double PRIMERPREMIO = 50000;
+	private static final double SEGUNDOPREMIO = 30000;
 	
 	public Quini6() {
 		this.ganadores = new HashMap<Jugador, Integer>();
