@@ -1,7 +1,8 @@
 package modelo;
 
 public class Jugador {
-	double capital = 0;
+	private static final int CAPITALINICIAL = 100000;
+	double capital = CAPITALINICIAL;
 	int ultimaTirada = 0;
 	
 	public double getCapital() {
