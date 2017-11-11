@@ -26,4 +26,5 @@ public class Jugador {
 	public int getUltimaTirada() {
 		return ultimaTirada;
 	}
+
 }

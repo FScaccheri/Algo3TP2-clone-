@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import junit.framework.Assert;
+import modelo.Carcel;
 import modelo.Jugador;
 
 public class JugadorTest {
@@ -49,4 +51,6 @@ public class JugadorTest {
 		
 		assertEquals(capitalInicial - 60000, jugador.getCapital(), 0);
 	}
+	
+	
 }
