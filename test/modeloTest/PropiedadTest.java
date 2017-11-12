@@ -153,4 +153,19 @@ public class PropiedadTest {
 
 		assertEquals(capitalInicial + 200, propietario.getCapital(), 0);
 	}
+	
+	@Test
+	public void CuandoUnJugadorCaeEnUnaPropiedadDeLaCualEsPropietarioNoDisminuyeSuCapital() {
+		Propiedad propiedad = new Propiedad(5000, 200);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);
+		
+		double capitalInicial = propietario.getCapital();
+		
+		propiedad.activarEfecto(propietario);
+
+		assertEquals(capitalInicial, propietario.getCapital(), 0);
+	}
+	
 }
