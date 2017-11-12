@@ -7,7 +7,7 @@ public class Jugador {
 	double capital = CAPITALINICIAL;
 	int ultimaTirada = 0;
 	private int posicion;
-	int cantidadDePropiedades = 0;
+	int cantidadDeAdquiridos = 0;
 	
 	public double getCapital() {
 		return capital;
@@ -45,12 +45,12 @@ public class Jugador {
 		
 	}
 	
-	public void adquirir(Propiedad propiedadPorAdquirir) {
-		this.disminuirCapital(propiedadPorAdquirir.getPrecioVenta());
-		cantidadDePropiedades++;
+	public void adquirir(Adquirible elementoPorAdquirir) {
+		this.disminuirCapital(elementoPorAdquirir.getPrecioVenta());
+		cantidadDeAdquiridos++;
 	}
 
 	public int cantidadDePropiedades() {
-		return cantidadDePropiedades;
+		return cantidadDeAdquiridos;
 	}
 }

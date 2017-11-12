@@ -28,7 +28,6 @@ public abstract class Adquirible implements Activable{
 	}
 
 	public void adquirir(Jugador jugador) {
-		jugador.disminuirCapital(precio_venta);
 		jugador.adquirir(this);
 		propietario = jugador;
 	}
