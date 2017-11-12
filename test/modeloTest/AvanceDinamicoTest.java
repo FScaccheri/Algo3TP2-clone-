@@ -77,6 +77,7 @@ public class AvanceDinamicoTest {
 		assertTrue(unJugador.getPosicion() == 4);
 	}
 	
+	//Las Siguientes pruebas para los casos de ultima tirada 7 8 9 y 10, se realiaron para un jugador con cantidad inicial de dinero igual a 100000 @Franco R.
 	@Test
 	public void testAlCaerUnJugadorEnAvanceDinamicoConTirada7AvanzaRestoDeCapitalDividido7() {
 		
@@ -89,7 +90,7 @@ public class AvanceDinamicoTest {
 		
 		aDinamico.activarEfecto(unJugador);
 		
-		assertTrue(unJugador.getPosicion() == 0+(20000%7));
+		assertEquals(unJugador.getPosicion(), 0+(120000%7));
 	}
 	
 	@Test
@@ -104,7 +105,7 @@ public class AvanceDinamicoTest {
 		
 		aDinamico.activarEfecto(unJugador);
 		
-		assertTrue(unJugador.getPosicion() == 3+(6000%8));
+		assertTrue(unJugador.getPosicion() == 3+(106000%8));
 	}
 	
 	@Test
@@ -119,7 +120,7 @@ public class AvanceDinamicoTest {
 		
 		aDinamico.activarEfecto(unJugador);
 		
-		assertTrue(unJugador.getPosicion() == 4+(94000%9));
+		assertTrue(unJugador.getPosicion() == 4+(194000%9));
 	}
 	
 	@Test
@@ -134,7 +135,7 @@ public class AvanceDinamicoTest {
 		
 		aDinamico.activarEfecto(unJugador);
 		
-		assertTrue(unJugador.getPosicion() == 18+(73000%10));
+		assertTrue(unJugador.getPosicion() == 18+(173000%10));
 	}
 	
 //	@Test
