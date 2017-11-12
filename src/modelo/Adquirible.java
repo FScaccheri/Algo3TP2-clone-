@@ -29,6 +29,7 @@ public abstract class Adquirible implements Activable{
 
 	public void adquirir(Jugador jugador) {
 		jugador.disminuirCapital(precio_venta);
+		jugador.adquirir(this);
 		propietario = jugador;
 	}
 
@@ -39,4 +40,7 @@ public abstract class Adquirible implements Activable{
 
 	public abstract void activarEfecto(Jugador jugador);
 
+	public double getPrecioVenta() {
+		return precio_venta;
+	}
 }

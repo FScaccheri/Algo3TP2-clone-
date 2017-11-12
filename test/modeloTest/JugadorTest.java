@@ -7,6 +7,7 @@ import org.junit.Test;
 import junit.framework.Assert;
 import modelo.Carcel;
 import modelo.Jugador;
+import modelo.Propiedad;
 
 public class JugadorTest {
 
@@ -52,5 +53,32 @@ public class JugadorTest {
 		assertEquals(capitalInicial - 60000, jugador.getCapital(), 0);
 	}
 	
+	@Test
+	public void testAdquirirUnaPropiedadAumentaLaCantidadDePropiedadesQueTiene() {
+		
+		Jugador unJugador = new Jugador();
+		Propiedad propiedad1 = new Propiedad(100,10);
+		Propiedad propiedad2 = new Propiedad(100,10);
+		Propiedad propiedad3 = new Propiedad(100,10);
+		Propiedad propiedad4 = new Propiedad(100,10);
+		Propiedad propiedad5 = new Propiedad(100,10);
+		Propiedad propiedad6 = new Propiedad(100,10);
+		Propiedad propiedad7 = new Propiedad(100,10);
+		Propiedad propiedad8 = new Propiedad(100,10);
+		Propiedad propiedad9 = new Propiedad(100,10);
+		unJugador.aumentarCapital(10000);
+		
+		propiedad1.adquirir(unJugador);
+		propiedad2.adquirir(unJugador);
+		propiedad3.adquirir(unJugador);
+		propiedad4.adquirir(unJugador);
+		propiedad5.adquirir(unJugador);
+		propiedad6.adquirir(unJugador);
+		propiedad7.adquirir(unJugador);
+		propiedad8.adquirir(unJugador);
+		propiedad9.adquirir(unJugador);
+		
+		assertTrue(unJugador.cantidadDePropiedades() == 9);
+	}
 	
 }

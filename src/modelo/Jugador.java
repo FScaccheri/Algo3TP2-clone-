@@ -1,10 +1,13 @@
 package modelo;
 
+import java.util.LinkedList;
+
 public class Jugador {
 	private static final int CAPITALINICIAL = 100000;
 	double capital = CAPITALINICIAL;
 	int ultimaTirada = 0;
 	private int posicion;
+	int cantidadDePropiedades = 0;
 	
 	public double getCapital() {
 		return capital;
@@ -41,5 +44,13 @@ public class Jugador {
 		this.posicion = nuevaPosicion;
 		
 	}
+	
+	public void adquirir(Propiedad propiedadPorAdquirir) {
+		this.disminuirCapital(propiedadPorAdquirir.getPrecioVenta());
+		cantidadDePropiedades++;
+	}
 
+	public int cantidadDePropiedades() {
+		return cantidadDePropiedades;
+	}
 }
