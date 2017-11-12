@@ -1,27 +1,22 @@
 package modelo;
 
-public class Servicio implements Activable {
+public class Servicio extends Adquirible {
 	private
-	Jugador propietario;
 	Servicio asociado;
-	int multiplicadorDeCosto;
-	
-	public Servicio( int multiplicador ) {
-		this.multiplicadorDeCosto = multiplicador;
+
+	public Servicio( double precioVenta, double alquiler ) {
+		this.precio_venta = precioVenta;
+		this.alquiler = alquiler;
 	}
-	
-	public void adquirir( Jugador jugador ) {
-		this.propietario = jugador;
-	}
-	
-	public boolean esPropietario( Jugador jugador ) {
-		return propietario == jugador;
-	}
-	
+
+
 	@Override
 	public void activarEfecto( Jugador jugador ) {
-		if ( !this.esPropietario(jugador) )
-		jugador.disminuirCapital( jugador.getUltimaTirada() * this.multiplicadorDeCosto );
+		if ( this.tienePropietario()  && !this.esPropietario(jugador)) {
+			jugador.disminuirCapital( jugador.getUltimaTirada() * this.alquiler );
+			propietario.aumentarCapital( jugador.getUltimaTirada() * this.alquiler );
+
+		}
 	}
 
 }
