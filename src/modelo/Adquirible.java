@@ -9,16 +9,14 @@ public abstract class Adquirible implements Activable{
 		this.precio_venta = precio_venta;
 	}
 
-	public boolean tienePropietario() {
-		return getPropietario() != null;
-	}
-
-	public Jugador getPropietario() {
-		return propietario;
-	}
-
-	public boolean esPropietario(Jugador jugador) {
-		return jugador == propietario;
+	abstract public double getAlquiler(Jugador jugador);
+	
+	@Override
+	public void activarEfecto(Jugador jugador) {
+		if(tienePropietario() && !esPropietario(jugador)) {
+			jugador.disminuirCapital(getAlquiler(jugador));
+			getPropietario().aumentarCapital(getAlquiler(jugador));
+		}
 	}
 	
 	public void adquirir(Jugador jugador) {
@@ -32,7 +30,16 @@ public abstract class Adquirible implements Activable{
 		propietario = null;
 	}
 	
-	public double getPrecioVenta() {
-		return precio_venta;
+	public Jugador getPropietario() {
+		return propietario;
 	}
+
+	public boolean tienePropietario() {
+		return getPropietario() != null;
+	}
+
+	public boolean esPropietario(Jugador jugador) {
+		return jugador == propietario;
+	}
+	
 }

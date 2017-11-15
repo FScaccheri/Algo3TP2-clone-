@@ -17,10 +17,8 @@ public class Propiedad extends Adquirible {
 		return false;
 	}
 	
-	public void activarEfecto(Jugador jugador) {
-		if(tienePropietario() && !esPropietario(jugador)) {
-			jugador.disminuirCapital(alquiler);
-			getPropietario().aumentarCapital(alquiler);
-		}
+	@Override
+	public double getAlquiler(Jugador jugador) {
+		return alquiler;
 	}
 }

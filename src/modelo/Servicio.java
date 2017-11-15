@@ -10,14 +10,9 @@ public class Servicio extends Adquirible {
 		this.alquiler = alquiler;
 	}
 
-
 	@Override
-	public void activarEfecto( Jugador jugador ) {
-		if ( this.tienePropietario()  && !this.esPropietario(jugador)) {
-			jugador.disminuirCapital( jugador.getUltimaTirada() * this.alquiler );
-			getPropietario().aumentarCapital( jugador.getUltimaTirada() * this.alquiler );
-
-		}
+	public double getAlquiler(Jugador jugador) {
+		return jugador.getUltimaTirada() * this.alquiler;
 	}
 
 }
