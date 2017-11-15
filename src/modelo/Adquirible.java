@@ -2,17 +2,11 @@ package modelo;
 
 public abstract class Adquirible implements Activable{
 
-	protected Jugador propietario;
-	protected double precio_venta;
-	protected double alquiler;
-
-	public Adquirible() {
-		super();
-	}
-	
-	public Adquirible( double precio_venta, double alquiler ) {
+	private Jugador propietario;
+	private double precio_venta;
+		
+	public Adquirible( double precio_venta) {
 		this.precio_venta = precio_venta;
-		this.alquiler = alquiler;
 	}
 
 	public boolean tienePropietario() {
@@ -26,19 +20,18 @@ public abstract class Adquirible implements Activable{
 	public boolean esPropietario(Jugador jugador) {
 		return jugador == propietario;
 	}
-
+	
 	public void adquirir(Jugador jugador) {
-		jugador.adquirir(this);
+		jugador.disminuirCapital(precio_venta);
 		propietario = jugador;
+		jugador.adquirir(this);
 	}
 
 	public void vender() {
 		propietario.aumentarCapital(precio_venta/2);
 		propietario = null;
 	}
-
-	public abstract void activarEfecto(Jugador jugador);
-
+	
 	public double getPrecioVenta() {
 		return precio_venta;
 	}

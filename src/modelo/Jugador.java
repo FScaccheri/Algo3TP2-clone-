@@ -45,8 +45,7 @@ public class Jugador {
 		
 	}
 	
-	public void adquirir(Adquirible elementoPorAdquirir) {
-		this.disminuirCapital(elementoPorAdquirir.getPrecioVenta());
+	public void adquirir(Adquirible elementoPorAdquirir) { 
 		cantidadDeAdquiridos++;
 	}
 
