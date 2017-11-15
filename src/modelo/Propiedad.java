@@ -2,11 +2,14 @@ package modelo;
 
 public class Propiedad extends Adquirible {
 	
-	private InformeDeAlquileres alquileres;
+	private
+	InformeDeAlquileres alquileres;
+	InformeDeConstruccion construccion;
 
-	public Propiedad(double precio_venta, InformeDeAlquileres informeDeAlquileres) {
+	public Propiedad(double precio_venta, InformeDeAlquileres informeDeAlquileres, InformeDeConstruccion informeDeConstruccion) {
 		super(precio_venta);
-		this.alquileres = informeDeAlquileres;
+		alquileres = informeDeAlquileres;
+		construccion = informeDeConstruccion;
 	}
 
 	public int getCantidadDeCasas() {
