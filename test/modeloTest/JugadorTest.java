@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 import modelo.Carcel;
+import modelo.InformeDeAlquileres;
 import modelo.Jugador;
 import modelo.Propiedad;
 
@@ -57,15 +58,16 @@ public class JugadorTest {
 	public void testAdquirirUnaPropiedadAumentaLaCantidadDePropiedadesQueTiene() {
 		
 		Jugador unJugador = new Jugador();
-		Propiedad propiedad1 = new Propiedad(100,10);
-		Propiedad propiedad2 = new Propiedad(100,10);
-		Propiedad propiedad3 = new Propiedad(100,10);
-		Propiedad propiedad4 = new Propiedad(100,10);
-		Propiedad propiedad5 = new Propiedad(100,10);
-		Propiedad propiedad6 = new Propiedad(100,10);
-		Propiedad propiedad7 = new Propiedad(100,10);
-		Propiedad propiedad8 = new Propiedad(100,10);
-		Propiedad propiedad9 = new Propiedad(100,10);
+		InformeDeAlquileres alquileres = new InformeDeAlquileres(10, 0, 0, 0);
+		Propiedad propiedad1 = new Propiedad(100, alquileres);
+		Propiedad propiedad2 = new Propiedad(100, alquileres);
+		Propiedad propiedad3 = new Propiedad(100, alquileres);
+		Propiedad propiedad4 = new Propiedad(100, alquileres);
+		Propiedad propiedad5 = new Propiedad(100, alquileres);
+		Propiedad propiedad6 = new Propiedad(100, alquileres);
+		Propiedad propiedad7 = new Propiedad(100, alquileres);
+		Propiedad propiedad8 = new Propiedad(100, alquileres);
+		Propiedad propiedad9 = new Propiedad(100, alquileres);
 		unJugador.aumentarCapital(10000);
 		
 		propiedad1.adquirir(unJugador);
