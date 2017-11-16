@@ -85,4 +85,24 @@ public class JugadorTest {
 		assertTrue(unJugador.cantidadDePropiedades() == 9);
 	}
 	
+//	@Test
+//	public void testConstruirUnaCasaEnUnaPropiedadAdquiridaAumentaLaCantidadDeCasasDelJugador() {
+//		Jugador unJugador = new Jugador();
+//		InformeDeAlquileres alquileres = new InformeDeAlquileres(10, 0, 0, 0);
+//		InformeDeConstruccion construccion = new InformeDeConstruccion();
+//		Propiedad propiedad1 = new Propiedad(100, alquileres, construccion);
+//		unJugador.aumentarCapital(10000);
+//		propiedad1.adquirir(unJugador);
+//		
+//		propiedad1.construirCasa();
+//		
+//		assertEquals(1,unJugador.getCantidadDeCasas());
+//	}
+//	
+//	@Test
+//	public void testUnJugadorComienzaConCantidadDeCasasNula() {
+//		Jugador unJugador = newJugador();
+//		
+//		assertEquals(0,unJugador.getCantidadDeCasas());
+//	}
 }

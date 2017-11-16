@@ -170,4 +170,39 @@ public class PropiedadTest {
 		assertEquals(capitalInicial, propietario.getCapital(), 0);
 	}
 	
+	@Test
+	public void testConstruirUnaCasaEnUnaPropiedadAumentaLaCantidadDeCasasEnEsaPropiedad() {
+
+		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200, 0, 0, 0), new InformeDeConstruccion());
+		Jugador unJugador = new Jugador();
+		propiedad.adquirir(unJugador);
+		propiedad.construirCasa();
+		
+		assertEquals(1,propiedad.getCantidadDeCasas());
+	}
+	
+	@Test
+	public void testUnaPropiedadTieneCantidadDeCasasInicialCero() {
+		
+		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200,0,0,0),new InformeDeConstruccion());
+		
+		assertEquals(0, propiedad.getCantidadDeCasas());
+	}
+	
+	@Test
+	public void testUnaPropiedadTieneCantidadDeHotelesInicialCero() {
+		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200,0,0,0),new InformeDeConstruccion());
+		
+		assertEquals(0,propiedad.getCantidadDeHoteles());
+	}
+	
+	@Test
+	public void testConstuirUnHotelEnUnaPropiedadAumentaLaCantidadDeHoteles() {
+		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200,0,0,0),new InformeDeConstruccion());
+		Jugador unJugador = new Jugador();
+		propiedad.adquirir(unJugador);
+		propiedad.construirHotel();
+		
+		assertEquals(1,propiedad.getCantidadDeHoteles());
+	}
 }
