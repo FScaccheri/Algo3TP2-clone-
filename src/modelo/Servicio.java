@@ -15,9 +15,4 @@ public class Servicio extends Adquirible {
 		return jugador.getUltimaTirada() * this.alquiler;
 	}
 
-	@Override
-	public void adquirir(Jugador jugador) {
-		super.adquirir(jugador);
-		jugador.adquirir(this);
-	}
 }
