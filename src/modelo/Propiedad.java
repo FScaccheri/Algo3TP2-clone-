@@ -38,4 +38,10 @@ public class Propiedad extends Adquirible {
 	public int getCantidadDeHoteles() {
 		if (conHotel) {	return 1;} else { return 0; }
 	}
+	
+	@Override
+	public void adquirir(Jugador jugador) {
+		super.adquirir(jugador);
+		jugador.adquirir(this);
+	}
 }

@@ -19,10 +19,14 @@ public abstract class Adquirible implements Activable{
 		}
 	}
 	
+	//Jugador guarda los Servicios y Propiedades en colecciones distintas, para distinguir entre
+	//servicio y propiedad, tiene dos metodos, uno que recibe una Propiedad y uno que recibe un
+	//Servicio, por lo tanto, Servicio y Propiedad sobreescriben adquirir y llaman al metodo
+	//adquirir de Jugador REFACTOR URGENTE SOLO MEDIDA PROVISORIA PARA PROBAR FUNCIONALIDAD
+	//@FrancoR
 	public void adquirir(Jugador jugador) {
 		jugador.disminuirCapital(precio_venta);
 		propietario = jugador;
-		jugador.adquirir(this);
 	}
 
 	public void vender() {

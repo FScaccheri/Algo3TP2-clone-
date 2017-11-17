@@ -7,7 +7,13 @@ public class Jugador {
 	double capital = CAPITALINICIAL;
 	int ultimaTirada = 0;
 	private int posicion;
-	int cantidadDeAdquiridos = 0;
+	LinkedList<Propiedad> propiedades;
+	LinkedList<Servicio> servicios;
+	
+	public Jugador() {
+		propiedades = new LinkedList<Propiedad>();
+		servicios = new LinkedList<Servicio>();
+	}
 	
 	public double getCapital() {
 		return capital;
@@ -45,11 +51,23 @@ public class Jugador {
 		
 	}
 	
-	public void adquirir(Adquirible elementoPorAdquirir) { 
-		cantidadDeAdquiridos++;
+	public void adquirir(Propiedad elementoPorAdquirir) { 
+		propiedades.add(elementoPorAdquirir);
+	}
+	
+	public void adquirir(Servicio elementoPorAdquirir) {
+		servicios.add(elementoPorAdquirir);
 	}
 
 	public int cantidadDePropiedades() {
-		return cantidadDeAdquiridos;
+		return propiedades.size();
+	}
+	
+	public int getCantidadDeCasas() {
+		int casas = 0;
+		for (int i = 0; i<propiedades.size();i++) {
+			casas += propiedades.get(i).getCantidadDeCasas();
+		};
+		return casas;
 	}
 }
