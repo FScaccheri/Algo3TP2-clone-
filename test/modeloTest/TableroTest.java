@@ -11,7 +11,7 @@ public class TableroTest {
 	@Test
 	public void testAgregadoUnCasilleroAlTableroPuedoConocerSuOrden() {
 		
-		Tablero unTablero = new Tablero();
+		Tablero unTablero = Tablero.getInstancia();
 		Casillero casillero1 = new Casillero();
 		Casillero casillero2 = new Casillero();
 		Casillero casillero3 = new Casillero();
