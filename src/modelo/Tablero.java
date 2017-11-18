@@ -24,9 +24,8 @@ public class Tablero {
 	public void agregar(Casillero unCasillero) {
 		unCasillero.setPosicion( new Posicion(unCasillero) );
 		casilleros.add(unCasillero);
-	};
+	}
 	
-	//La posicion del primer casillero anadido, es 0, es decir, la del segundo es 1, y asi sucesivamente;
 	public Posicion posicion(Casillero unCasillero) {
 		return casilleros.get(casilleros.indexOf(unCasillero)).getPosicion();
 	}

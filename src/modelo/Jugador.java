@@ -7,9 +7,11 @@ public class Jugador {
 	double capital = CAPITALINICIAL;
 	int ultimaTirada = 0;
 	Posicion posicion = null;
+	Movimiento movimiento;
 	ColeccionDeAdquiribles adquiridos;
 	
 	public Jugador() {
+		movimiento = new MovimientoBasico();
 		adquiridos = new ColeccionDeAdquiribles();
 	}
 	
@@ -53,12 +55,14 @@ public class Jugador {
 		this.posicion = posicion;
 	}
 	
-	public void avanzar( int posiciones ) {
-		for ( int i = 0; i < posiciones; i++ ) {
-			this.posicion = this.posicion.siguiente();
-		}
-		
+	public void mover(int posiciones) {
+		this.movimiento.mover(this, posiciones);	
 	}
+	
+	public void mover(int posiciones, Movimiento movimiento) {
+		movimiento.mover(this, posiciones);
+	}
+
 	
 	public void adquirir(Adquirible elementoPorAdquirir) { 
 		adquiridos.agregar(elementoPorAdquirir);
