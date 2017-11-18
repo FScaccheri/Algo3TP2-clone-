@@ -7,7 +7,7 @@ public class Policia implements Activable{
 
 	public void activarEfecto(Jugador jugador) {
 
-		jugador.moverAPosicion(POSICIONCARCEL);
+		//jugador.moverAPosicion(POSICIONCARCEL);
 		
 	}
 

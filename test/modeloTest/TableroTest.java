@@ -8,9 +8,9 @@ import modelo.*;
 
 public class TableroTest {
 
-	@Test
+/*	@Test
 	public void testAgregadoUnCasilleroAlTableroPuedoConocerSuOrden() {
-		
+		Tablero.reset();
 		Tablero unTablero = Tablero.getInstancia();
 		Casillero casillero1 = new Casillero();
 		Casillero casillero2 = new Casillero();
@@ -26,6 +26,26 @@ public class TableroTest {
 		assertTrue(unTablero.posicion(casillero2) == 1);
 		assertTrue(unTablero.posicion(casillero3) == 2);
 		assertTrue(unTablero.posicion(casillero4) == 3);
+	}*/
+	@Test
+	public void testLosCasillerosSeAgreganEnOrden() {
+		Tablero.reset();
+		Tablero tablero = Tablero.getInstancia();
+		Casillero casillero1 = new Casillero();
+		Casillero casillero2 = new Casillero();
+		
+		tablero.agregar(casillero1);
+		tablero.agregar(casillero2);
+		
+		assertTrue( casillero2 == tablero.casilleroSiguiente(casillero1) );
 	}
-
+	
+	@Test
+	public void testSoloExisteUnaInstanciadDeTablero() {
+		Tablero.reset();
+		Tablero tablero1 = Tablero.getInstancia();
+		Tablero tablero2 = Tablero.getInstancia();
+		
+		assertEquals( tablero1, tablero2 );
+	}
 }

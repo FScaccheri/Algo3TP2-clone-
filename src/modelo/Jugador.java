@@ -6,7 +6,7 @@ public class Jugador {
 	private static final int CAPITALINICIAL = 100000;
 	double capital = CAPITALINICIAL;
 	int ultimaTirada = 0;
-	private int posicion;
+	Posicion posicion = null;
 	ColeccionDeAdquiribles adquiridos;
 	
 	public Jugador() {
@@ -36,16 +36,27 @@ public class Jugador {
 		return ultimaTirada;
 	}
 
-	public int getPosicion() {
+	public Posicion getPosicion() {
 
 		return this.posicion ;
 	}
 
 	//Metodo provisional para "mover" al Jugador, hasta que se implemente correctamente
 	//el movimiento. @Franco S.
-	public void moverAPosicion(int nuevaPosicion) {
-		
-		this.posicion = nuevaPosicion;
+//	public void moverAPosicion(Posicion nuevaPosicion) {
+//		
+//		this.posicion = nuevaPosicion;
+//		
+//	}
+//	
+	public void setPosicion(Posicion posicion) {
+		this.posicion = posicion;
+	}
+	
+	public void avanzar( int posiciones ) {
+		for ( int i = 0; i < posiciones; i++ ) {
+			this.posicion = this.posicion.siguiente();
+		}
 		
 	}
 	

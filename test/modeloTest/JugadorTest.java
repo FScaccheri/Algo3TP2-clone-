@@ -139,4 +139,5 @@ public class JugadorTest {
 		
 		assertEquals(3,unJugador.getCantidadDeCasas());
 	}
+	
 }

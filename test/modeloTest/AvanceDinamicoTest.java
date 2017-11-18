@@ -2,11 +2,38 @@ package modeloTest;
 
 import static org.junit.Assert.*;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import modelo.*;
 
 public class AvanceDinamicoTest {
-
+	
+	private static Casillero casillero1 = new Casillero();
+	private static Casillero casillero2 = new Casillero();
+	private static Casillero casillero3 = new Casillero();
+	private static Casillero casillero4 = new Casillero();
+	private static Casillero casillero5 = new Casillero();
+	private static Casillero casillero6 = new Casillero();
+	private static Casillero casillero7 = new Casillero();
+	private static Casillero casillero8 = new Casillero();
+	private static Casillero casillero9 = new Casillero();
+	
+	@BeforeClass 
+	public static void setUp() {
+		Tablero.reset();
+		Tablero tablero = Tablero.getInstancia();
+		tablero.agregar(casillero1);
+		tablero.agregar(casillero2);
+		tablero.agregar(casillero3);
+		tablero.agregar(casillero4);
+		tablero.agregar(casillero5);
+		tablero.agregar(casillero6);
+		tablero.agregar(casillero7);
+		tablero.agregar(casillero8);
+		tablero.agregar(casillero9);
+		
+	}
+	
 	@Test
 	public void testAlCaerUnJugadorEnAvanceDinamicoConUnaTiradaDe2Avanza0() {
 		
@@ -14,11 +41,11 @@ public class AvanceDinamicoTest {
 		AvanceDinamico aDinamico = new AvanceDinamico();
 		
 		unJugador.setUltimaTirada(2);
-		unJugador.moverAPosicion(0);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
-		aDinamico.activarEfecto(unJugador);
+		aDinamico.activarEfecto(unJugador); //avanza 0 lugares
 		
-		assertTrue(unJugador.getPosicion() == 0);
+		assertEquals(unJugador.getPosicion(),Tablero.getInstancia().posicion(casillero1));
 	}
 	
 	@Test
@@ -28,11 +55,11 @@ public class AvanceDinamicoTest {
 		AvanceDinamico aDinamico = new AvanceDinamico();
 		
 		unJugador.setUltimaTirada(3);
-		unJugador.moverAPosicion(0);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
-		aDinamico.activarEfecto(unJugador);
+		aDinamico.activarEfecto(unJugador); //avanza 1 lugares
 		
-		assertTrue(unJugador.getPosicion() == 1);
+		assertEquals(unJugador.getPosicion(),Tablero.getInstancia().posicion(casillero2));
 	}
 	
 	@Test
@@ -42,11 +69,11 @@ public class AvanceDinamicoTest {
 		AvanceDinamico aDinamico = new AvanceDinamico();
 		
 		unJugador.setUltimaTirada(4);
-		unJugador.moverAPosicion(0);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
-		aDinamico.activarEfecto(unJugador);
+		aDinamico.activarEfecto(unJugador); //avanza 2 lugares
 		
-		assertTrue(unJugador.getPosicion() == 2);
+		assertEquals(unJugador.getPosicion(),Tablero.getInstancia().posicion(casillero3));
 	}
 	
 	@Test
@@ -56,11 +83,11 @@ public class AvanceDinamicoTest {
 		AvanceDinamico aDinamico = new AvanceDinamico();
 		
 		unJugador.setUltimaTirada(5);
-		unJugador.moverAPosicion(0);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
-		aDinamico.activarEfecto(unJugador);
+		aDinamico.activarEfecto(unJugador); //avanza 3 lugares
 		
-		assertTrue(unJugador.getPosicion() == 3);
+		assertEquals(unJugador.getPosicion(),Tablero.getInstancia().posicion(casillero4));
 	}
 	
 	@Test
@@ -70,11 +97,11 @@ public class AvanceDinamicoTest {
 		AvanceDinamico aDinamico = new AvanceDinamico();
 		
 		unJugador.setUltimaTirada(6);
-		unJugador.moverAPosicion(0);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
-		aDinamico.activarEfecto(unJugador);
+		aDinamico.activarEfecto(unJugador); //avanza 4 lugares
 		
-		assertTrue(unJugador.getPosicion() == 4);
+		assertEquals(unJugador.getPosicion(),Tablero.getInstancia().posicion(casillero5));
 	}
 	
 	//Las Siguientes pruebas para los casos de ultima tirada 7 8 9 y 10, se realiaron para un jugador con cantidad inicial de dinero igual a 100000 @Franco R.
@@ -86,11 +113,11 @@ public class AvanceDinamicoTest {
 		unJugador.aumentarCapital(20000);
 		
 		unJugador.setUltimaTirada(7);
-		unJugador.moverAPosicion(0);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
 		aDinamico.activarEfecto(unJugador);
-		
-		assertEquals(unJugador.getPosicion(), 0+(120000%7));
+		//120000%7=6 -> avanza 6 lugares
+		assertEquals(unJugador.getPosicion(), Tablero.getInstancia().posicion(casillero7));
 	}
 	
 	@Test
@@ -101,11 +128,11 @@ public class AvanceDinamicoTest {
 		unJugador.aumentarCapital(6000);
 		
 		unJugador.setUltimaTirada(8);
-		unJugador.moverAPosicion(3);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero5));
 		
 		aDinamico.activarEfecto(unJugador);
-		
-		assertTrue(unJugador.getPosicion() == 3+(106000%8));
+		//106000%8=0 -> avanza 0 lugares
+		assertEquals(unJugador.getPosicion(), Tablero.getInstancia().posicion(casillero5));
 	}
 	
 	@Test
@@ -113,14 +140,14 @@ public class AvanceDinamicoTest {
 		
 		Jugador unJugador = new Jugador();
 		AvanceDinamico aDinamico = new AvanceDinamico();
-		unJugador.aumentarCapital(94000);
+		unJugador.aumentarCapital(9400);
 		
 		unJugador.setUltimaTirada(9);
-		unJugador.moverAPosicion(4);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero4));
 		
 		aDinamico.activarEfecto(unJugador);
-		
-		assertTrue(unJugador.getPosicion() == 4+(194000%9));
+		//194000%9=9 -> avanza 5 lugares
+		assertEquals(unJugador.getPosicion(), Tablero.getInstancia().posicion(casillero9));
 	}
 	
 	@Test
@@ -131,11 +158,11 @@ public class AvanceDinamicoTest {
 		unJugador.aumentarCapital(73000);
 		
 		unJugador.setUltimaTirada(10);
-		unJugador.moverAPosicion(18);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
 		aDinamico.activarEfecto(unJugador);
-		
-		assertTrue(unJugador.getPosicion() == 18+(173000%10));
+		//173000%10=0 -> avanza 0 lugares
+		assertEquals(unJugador.getPosicion(), Tablero.getInstancia().posicion(casillero1));
 	}
 	
 //	@Test
