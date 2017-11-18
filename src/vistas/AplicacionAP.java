@@ -30,7 +30,7 @@ public class AplicacionAP extends Application{
 		
 		stage.setTitle("AlgoBay - Grupo 3(?)");
 		
-		Button botonJugar = new Button("¡Jugar!");
+		Button botonJugar = new Button("Jugar!");
 		botonJugar.setAlignment(Pos.CENTER);
 		botonJugar.setPrefSize(100, 50);
 		botonJugar.setFont(Font.font("Arial", FontWeight.BOLD , 15));
