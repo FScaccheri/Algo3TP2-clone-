@@ -10,7 +10,7 @@ import modelo.Jugador;
 public class ImpuestoAlLujoTest {
 
 	@Test
-	public void JugadorAfectadoPierde10PorCientoDeSuCapital() {
+	public void testJugadorAfectadoPierde10PorCientoDeSuCapital() {
 		ImpuestoAlLujo impLujo = new ImpuestoAlLujo();
 		Jugador jugador = new Jugador();
 		

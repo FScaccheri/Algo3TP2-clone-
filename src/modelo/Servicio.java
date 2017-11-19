@@ -1,18 +1,33 @@
 package modelo;
 
 public class Servicio extends Adquirible {
-	private
-	Servicio asociado;
-	double alquiler;
 
-	public Servicio( double precioVenta, double alquiler ) {
+	private Servicio asociado;
+	private double alquilerSimple;
+	private double alquilerCombo;
+
+	public Servicio( double precioVenta, double alquilerSimple, double alquilerCombo ) {
 		super(precioVenta);
-		this.alquiler = alquiler;
+		this.alquilerSimple = alquilerSimple;
+		this.alquilerCombo = alquilerCombo;
 	}
-	
+
+	public void asociar( Servicio socio ) {
+		if ( !this.estaEnCombo() ) {
+			this.asociado = socio;
+			socio.asociar(this);
+		}
+	}
+
+	private boolean estaEnCombo() {
+		return ( this.asociado != null && (this.getPropietario() == this.asociado.getPropietario() ));
+	}
+
 	@Override
-	public double getAlquiler(Jugador jugador) {
-		return jugador.getUltimaTirada() * this.alquiler;
+	public double getAlquiler( Jugador jugador ) {
+		if ( this.estaEnCombo() )
+			return jugador.getUltimaTirada() * this.alquilerCombo;
+		return jugador.getUltimaTirada() * this.alquilerSimple;
 	}
 
 }

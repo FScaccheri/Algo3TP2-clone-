@@ -6,7 +6,7 @@ public class AvanceDinamico implements Activable{
 	
 	public void activarEfecto(Jugador unJugador) {
 		int posiciones = unJugador.getUltimaTirada();
-		unJugador.mover(posiciones, this.movimientoDinamico);
+		unJugador.avanzar(posiciones, this.movimientoDinamico);
 	}
 
 }
