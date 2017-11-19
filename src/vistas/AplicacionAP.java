@@ -8,11 +8,13 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -28,8 +30,9 @@ public class AplicacionAP extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		stage.setTitle("AlgoBay - Grupo 3(?)");
+		stage.setTitle("AlgoPoly - Grupo 3(?)");
 		
+		// Seteo del contenedor (VBox) de la pantalla de bienvenida
 		Button botonJugar = new Button("Jugar!");
 		botonJugar.setAlignment(Pos.CENTER);
 		botonJugar.setPrefSize(100, 50);
@@ -48,12 +51,26 @@ public class AplicacionAP extends Application{
 		
 		Scene escenaBienvenida=  new Scene(contenedorBienvenida, 1000, 700);	
 		
-		stage.setScene(escenaBienvenida);
 		
 		
-		VBox contenedorPrincipal = new VBox();
-		Scene escenaPrincipal = new Scene(contenedorPrincipal , 1000, 700);
+		// Contenedor (BorderPane) de la pantalla de juego
+		BorderPane contenedorJuego = new BorderPane();
+		Scene escenaPrincipal = new Scene(contenedorJuego , 1000, 700);
+		//Contenedor (VBox) de la pantalla de tablero
+		VBox contenedorTablero = new VBox();
+		// Seteo de imagen de fondo (tablero)
+		Image tablero = new Image("file:src/vistas/imagenes/monopoly board.jpg");
+		BackgroundImage imagenTablero = new BackgroundImage(tablero, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+		// Seteo de imagenes de jugadores (sus piezas)
+		Image imagenPieza = new Image("file:src/vistas/imagenes/monopoly racecar.jpg");
+		ImageView vistaPieza = new ImageView();
+		vistaPieza.setImage(imagenPieza);
+		contenedorTablero.setBackground(new Background(imagenTablero));
+		contenedorTablero.getChildren().add(vistaPieza);
+		contenedorJuego.setCenter(contenedorTablero);
 		
+		
+		// Seteo de Handlers
 		BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, escenaPrincipal);
 		botonJugar.setOnAction(botonJugarEventHandler);
 		
@@ -61,7 +78,7 @@ public class AplicacionAP extends Application{
 		botonSalida.setOnAction(botonSalidaEventHandler);
 		
 	
-		
+		stage.setScene(escenaBienvenida);
 		
 		stage.show();
 		
