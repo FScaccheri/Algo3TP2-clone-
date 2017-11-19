@@ -43,14 +43,6 @@ public class Jugador {
 		return this.posicion ;
 	}
 
-	//Metodo provisional para "mover" al Jugador, hasta que se implemente correctamente
-	//el movimiento. @Franco S.
-//	public void moverAPosicion(Posicion nuevaPosicion) {
-//		
-//		this.posicion = nuevaPosicion;
-//		
-//	}
-//	
 	public void setPosicion(Posicion posicion) {
 		this.posicion = posicion;
 	}

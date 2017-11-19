@@ -34,7 +34,7 @@ public class ColeccionDeAdquiribles {
 		contenidos.add(elemento);
 	}
 	
-	public void eliminar(Adquirible elemento) {
+	public void eliminar(Alquilable elemento) {
 		contenidos.remove(elemento);
 	}
 }

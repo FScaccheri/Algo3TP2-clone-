@@ -9,7 +9,7 @@ public class Servicio extends Adquirible {
 		super(precioVenta);
 		this.alquiler = alquiler;
 	}
-
+	
 	@Override
 	public double getAlquiler(Jugador jugador) {
 		return jugador.getUltimaTirada() * this.alquiler;

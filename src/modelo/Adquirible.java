@@ -1,6 +1,6 @@
 package modelo;
 
-public abstract class Adquirible implements Activable{
+public abstract class Adquirible implements Activable, Alquilable{
 
 	private Jugador propietario;
 	private double precio_venta;
@@ -9,6 +9,10 @@ public abstract class Adquirible implements Activable{
 		this.precio_venta = precio_venta;
 	}
 
+	/* (non-Javadoc)
+	 * @see modelo.Alquilable#getAlquiler(modelo.Jugador)
+	 */
+	@Override
 	abstract public double getAlquiler(Jugador jugador);
 	
 	@Override
