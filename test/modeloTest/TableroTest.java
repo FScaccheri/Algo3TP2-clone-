@@ -48,4 +48,26 @@ public class TableroTest {
 		
 		assertEquals( tablero1, tablero2 );
 	}
+	
+	@Test
+	public void testSePuedeObtenerUnCasilleroConociendoSuPosicion() {
+		Tablero.reset();
+		Tablero tablero = Tablero.getInstancia();
+		Casillero casillero = new Casillero();
+		
+		tablero.agregar(casillero);
+		
+		assertEquals(tablero.getCasillero(casillero.getPosicion()),casillero);
+	}
+	
+	@Test
+	public void testSePuedeConocerLaPosicionDeUnCasillero() {
+		Tablero.reset();
+		Tablero tablero = Tablero.getInstancia();
+		Casillero casillero = new Casillero();
+		
+		tablero.agregar(casillero);
+		
+		assertEquals(tablero.posicion(casillero),casillero.getPosicion());
+	}
 }
