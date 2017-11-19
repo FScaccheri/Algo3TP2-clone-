@@ -47,6 +47,10 @@ public class Jugador {
 		this.posicion = posicion;
 	}
 	
+	public void setMovimiento(Movimiento movimiento) {
+		this.movimiento = movimiento;
+	}
+	
 	public void avanzar(int posiciones) {
 		this.movimiento.mover(this, posiciones);	
 	}

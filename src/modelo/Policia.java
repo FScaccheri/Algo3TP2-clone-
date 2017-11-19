@@ -2,18 +2,13 @@ package modelo;
 
 public class Policia implements Activable{
 
-
-	private static final int POSICIONCARCEL = 5;
-
+	private Casillero carcel;
+	
+	public Policia(Casillero carcel) {
+		this.carcel = carcel;
+	}
+	
 	public void activarEfecto(Jugador jugador) {
-
-		//jugador.moverAPosicion(POSICIONCARCEL);
-		
+		jugador.setPosicion( this.carcel.getPosicion() );		
 	}
-
-	public int getPosicionCarcel() {
-		
-		return POSICIONCARCEL;
-	}
-
 }
