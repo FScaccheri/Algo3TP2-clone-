@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import modelo.Edificio;
+import modelo.Adquirible;
 import modelo.Terreno;
 import modelo.excepciones.ConstruccionImposible;
 
@@ -31,11 +31,11 @@ public class TerrenoTest {
 	}
 
 	@Test
-	public void AlCrearTerrenoGetEdificiosDevuelveUnArrayVacio() {
+	public void AlCrearTerrenoGetAdquiriblesDevuelveUnArrayVacio() {
 		Terreno terreno = new Terreno(0, 0);
 		
-		ArrayList<Edificio> edificios = terreno.getEdificios();
-		int cantElementos = edificios.size();
+		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		int cantElementos = Adquiribles.size();
 		
 		assertEquals(cantElementos, 0);
 	}
@@ -61,7 +61,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnaCasaGetCantidadDeCasasDevuelveUno() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		
@@ -71,14 +71,14 @@ public class TerrenoTest {
 	}
 
 	@Test
-	public void AlAgregarUnaCasaGetEdificiosDevuelveUnArrayConUnEdificio() {
+	public void AlAgregarUnaCasaGetAdquiriblesDevuelveUnArrayConUnAdquirible() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		
-		ArrayList<Edificio> edificios = terreno.getEdificios();
-		int cantElementos = edificios.size();
+		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		int cantElementos = Adquiribles.size();
 		
 		assertEquals(cantElementos, 1);
 	}
@@ -86,7 +86,7 @@ public class TerrenoTest {
 	@Test
 	public void AlLlegarALaCantidadMaximaDeCasasConstruccionDeCasaPosibleDevuelveFalse() {
 		Terreno terreno = new Terreno(1, 1);
-		Edificio casa = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		
@@ -96,7 +96,7 @@ public class TerrenoTest {
 	@Test
 	public void AlLlegarALaCantidadMaximaDeCasasConstruccionDeHotelPosibleDevuelveTrue() {
 		Terreno terreno = new Terreno(1, 1);
-		Edificio casa = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		
@@ -104,21 +104,21 @@ public class TerrenoTest {
 	}
 	
 	@Test
-	public void AlAgregarUnaCasaGetEdificiosDevuelveUnArrayConLaMismaCasa() {
+	public void AlAgregarUnaCasaGetAdquiriblesDevuelveUnArrayConLaMismaCasa() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		
-		ArrayList<Edificio> edificios = terreno.getEdificios();
+		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
 		
-		assertTrue(edificios.get(0)==casa);
+		assertTrue(Adquiribles.get(0)==casa);
 	}
 	
 	@Test
 	public void AlAgregarMasCasasQueLaCantidadMaximaLanzaConstruccionImposible() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		terreno.agregarCasa(casa);
@@ -134,7 +134,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelGetCantidadDeHotelesDevuelveUno() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarHotel(hotel);
 		
@@ -146,7 +146,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelTieneHotelesDevuelveTrue() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarHotel(hotel);
 		
@@ -154,35 +154,35 @@ public class TerrenoTest {
 	}
 
 	@Test
-	public void AlAgregarUnHotelGetEdificiosDevuelveUnArrayConUnEdificio() {
+	public void AlAgregarUnHotelGetAdquiriblesDevuelveUnArrayConUnAdquirible() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarHotel(hotel);
 		
-		ArrayList<Edificio> edificios = terreno.getEdificios();
-		int cantElementos = edificios.size();
+		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		int cantElementos = Adquiribles.size();
 		
 		assertEquals(cantElementos, 1);
 	}
 	
 	@Test
-	public void AlAgregarUnHotelGetEdificiosDevuelveUnArrayConElMismoHotel() {
+	public void AlAgregarUnHotelGetAdquiriblesDevuelveUnArrayConElMismoHotel() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarHotel(hotel);
 		
-		ArrayList<Edificio> edificios = terreno.getEdificios();
+		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
 		
-		assertTrue(edificios.get(0)==hotel);
+		assertTrue(Adquiribles.get(0)==hotel);
 	}
 
 	@Test
 	public void AlAgregarUnHotelConstruccionDeCasaPosibleDevuelveFalse() {
 		Terreno terreno = new Terreno(1, 1);
-		Edificio casa = new Edificio(0);
-		Edificio hotel = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		terreno.agregarHotel(hotel);
@@ -193,8 +193,8 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelConstruccionDeHotelPosibleDevuelveTrueSiNoEsElMaximo() {
 		Terreno terreno = new Terreno(1, 2);
-		Edificio casa = new Edificio(0);
-		Edificio hotel = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		terreno.agregarHotel(hotel);
@@ -205,8 +205,8 @@ public class TerrenoTest {
 	@Test
 	public void AlLlegarALaCantidadMaximaDeHotelesConstruccionDeHotelPosibleDevuelveFalse() {
 		Terreno terreno = new Terreno(1, 1);
-		Edificio casa = new Edificio(0);
-		Edificio hotel = new Edificio(0);
+		Adquirible casa = new Adquirible(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		terreno.agregarHotel(hotel);
@@ -217,7 +217,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarMasHotelesQueLaCantidadMaximaLanzaConstruccionImposible() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		terreno.agregarHotel(hotel);
 		terreno.agregarHotel(hotel);
@@ -233,7 +233,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelEnUnTerrenoQueNoTieneLaCantidadMaximaDeCasasLanzaConstruccionImposible() {
 		Terreno terreno = new Terreno(2, 2);
-		Edificio hotel = new Edificio(0);
+		Adquirible hotel = new Adquirible(0);
 		
 		try {
 			terreno.agregarHotel(hotel);
@@ -246,8 +246,8 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelGetCantidadDeCasasDevuelveCero() {
 		Terreno terreno = new Terreno(2, 2);
-		Edificio hotel = new Edificio(0);
-		Edificio casa = new Edificio(0);
+		Adquirible hotel = new Adquirible(0);
+		Adquirible casa = new Adquirible(0);
 		
 		terreno.agregarCasa(casa);
 		terreno.agregarCasa(casa);

@@ -26,11 +26,12 @@ public class Propiedad extends Rentable {
 		alquiler = new Alquiler(alquilerBase, alquilerUnaCasa, alquilerDosCasas, alquilerUnHotel);
 		terreno = new Terreno(2, 1);
 	}
-
+	
+	
 	public void construirCasa() {
 		if(!terreno.construccionDeCasaPosible())
 			throw new ConstruccionImposible();
-		Edificio casa = new Edificio(costoCasa);
+		Adquirible casa = new Adquirible(costoCasa);
 		casa.adquirir(getPropietario());
 		terreno.agregarCasa(casa);
 		alquiler.aumentarAlquiler();
@@ -39,7 +40,7 @@ public class Propiedad extends Rentable {
 	public void construirHotel() {
 		if(!terreno.construccionDeHotelPosible())
 			throw new ConstruccionImposible();
-		Edificio hotel = new Edificio(costoHotel);
+		Adquirible hotel = new Adquirible(costoHotel);
 		hotel.adquirir(getPropietario());
 		terreno.agregarHotel(hotel);
 		alquiler.aumentarAlquiler();
