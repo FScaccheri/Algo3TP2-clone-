@@ -8,6 +8,7 @@ import modelo.Carcel;
 import modelo.Casillero;
 import modelo.Jugador;
 import modelo.Posicion;
+import modelo.Tablero;
 
 public class CarcelTest {
 	
@@ -78,6 +79,29 @@ public class CarcelTest {
 		
 		assertTrue( carcel.estaPreso(jugador) );
 		assertEquals( posicionCarcel, jugador.getPosicion());
+
+	}
+	
+	@Test
+	public void testJugadorLiberadoPuedeMoverse() {
+		Jugador jugador = new Jugador();			
+		Carcel carcel = new Carcel();		
+		Tablero.reset();
+		Tablero tablero = Tablero.getInstancia();
+		Casillero casillero1 = new Casillero();
+		Casillero casillero2 = new Casillero();
+		Casillero casillero3 = new Casillero();
+		tablero.agregar(casillero1);
+		tablero.agregar(casillero2);
+		tablero.agregar(casillero3);
+			
+		jugador.setPosicion(casillero1.getPosicion());
+		carcel.activarEfecto(jugador);	
+		carcel.liberar(jugador);
+		jugador.avanzar(2);
+		
+		assertFalse( carcel.estaPreso(jugador) );
+		assertEquals( casillero3.getPosicion(), jugador.getPosicion());
 
 	}
 

@@ -28,9 +28,13 @@ public class Carcel implements Activable{
 		return (this.presos.containsKey(jugador));
 	}
 
+	public void liberar(Jugador jugador) {
+		this.presos.remove(jugador);
+		jugador.setMovimiento(new MovimientoBasico());
+	}
 	public void liberarJugadorPorFianza(Jugador jugador) {
 			jugador.disminuirCapital(FIANZA);
-			this.presos.remove(jugador);
+			this.liberar(jugador);
 	}
 
 }
