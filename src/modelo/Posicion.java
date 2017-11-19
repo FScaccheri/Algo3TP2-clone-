@@ -12,7 +12,7 @@ public class Posicion {
 			return new Posicion( tablero.casilleroSiguiente(this.casillero) );
 		}
 
-		private Casillero getCasillero() {
+		public Casillero getCasillero() {
 			return this.casillero;
 		}
 		

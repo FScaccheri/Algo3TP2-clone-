@@ -18,4 +18,8 @@ public class Casillero {
 	public Posicion getPosicion() {
 		return this.posicion;
 	}
+	
+	public void caeEn(Jugador jugador) {
+		this.efecto.activarEfecto(jugador);
+	}
 }

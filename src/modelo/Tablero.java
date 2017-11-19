@@ -30,10 +30,16 @@ public class Tablero {
 		return casilleros.get(casilleros.indexOf(unCasillero)).getPosicion();
 	}
 		
+	public Casillero getCasillero(Posicion posicion) {
+		return casilleros.get(casilleros.indexOf(posicion.getCasillero()));
+	}
 	
 	public Casillero casilleroSiguiente(Casillero casillero) {
 		return casilleros.get( casilleros.indexOf(casillero) + 1);
 
 	}
 	
+	public void caerEn(Jugador jugador, Posicion posicion) {
+		this.getCasillero(posicion).caeEn(jugador);
+	}
 }
