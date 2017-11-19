@@ -8,7 +8,7 @@ public class Propiedad extends Rentable {
 	private Terreno terreno;
 	private double costoCasa;
 	private double costoHotel;
-		
+	
 	private Propiedad(double precioDeVenta, double costoCasa) {
 		super(precioDeVenta);
 		this.costoCasa = costoCasa;

@@ -17,16 +17,6 @@ public class Terreno {
 		this.cantidadDeHotelesMaxima = cantidadDeHotelesMaxima;
 	}
 
-	public int getCantidadDeCasas() {
-		if(tieneHoteles())
-			return 0;
-		return casas.size();
-	}
-
-	public int getCantidadDeHoteles() {
-		return hoteles.size();
-	}
-
 	public void agregarCasa(Adquirible casa) {
 		if(!construccionDeCasaPosible())
 			throw new ConstruccionImposible();
@@ -46,16 +36,26 @@ public class Terreno {
 		Adquiribles.addAll(hoteles);
 		return Adquiribles;
 	}
-
-	public boolean tieneHoteles() {
-		return getCantidadDeHoteles() != 0;
-	}
-
+	
 	public boolean construccionDeCasaPosible() {
 		return (cantidadDeCasasMaxima != getCantidadDeCasas()) && !tieneHoteles();
 	}
 
 	public boolean construccionDeHotelPosible() {
 		return !construccionDeCasaPosible() && (cantidadDeHotelesMaxima != getCantidadDeHoteles());
+	}
+	
+	public int getCantidadDeCasas() {
+		if(tieneHoteles())
+			return 0;
+		return casas.size();
+	}
+
+	public int getCantidadDeHoteles() {
+		return hoteles.size();
+	}
+
+	public boolean tieneHoteles() {
+		return getCantidadDeHoteles() != 0;
 	}
 }
