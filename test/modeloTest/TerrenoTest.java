@@ -47,9 +47,21 @@ public class TerrenoTest {
 	}
 	
 	@Test
+	public void AlCrearTerrenoConstruccionDeCasaPosibleDevuelveTrue() {
+		Terreno terreno = new Terreno(1, 0);
+		assertTrue(terreno.construccionDeCasaPosible());
+	}
+	
+	@Test
+	public void AlCrearTerrenoConstruccionDeHotelPosibleDevuelveFalse() {
+		Terreno terreno = new Terreno(1, 1);
+		assertFalse(terreno.construccionDeHotelPosible());
+	}
+	
+	@Test
 	public void AlAgregarUnaCasaGetCantidadDeCasasDevuelveUno() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0, 0);
+		Edificio casa = new Edificio(0);
 		
 		terreno.agregarCasa(casa);
 		
@@ -61,7 +73,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnaCasaGetEdificiosDevuelveUnArrayConUnEdificio() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0, 0);
+		Edificio casa = new Edificio(0);
 		
 		terreno.agregarCasa(casa);
 		
@@ -72,9 +84,29 @@ public class TerrenoTest {
 	}
 	
 	@Test
+	public void AlLlegarALaCantidadMaximaDeCasasConstruccionDeCasaPosibleDevuelveFalse() {
+		Terreno terreno = new Terreno(1, 1);
+		Edificio casa = new Edificio(0);
+		
+		terreno.agregarCasa(casa);
+		
+		assertFalse(terreno.construccionDeCasaPosible());
+	}
+	
+	@Test
+	public void AlLlegarALaCantidadMaximaDeCasasConstruccionDeHotelPosibleDevuelveTrue() {
+		Terreno terreno = new Terreno(1, 1);
+		Edificio casa = new Edificio(0);
+		
+		terreno.agregarCasa(casa);
+		
+		assertTrue(terreno.construccionDeHotelPosible());
+	}
+	
+	@Test
 	public void AlAgregarUnaCasaGetEdificiosDevuelveUnArrayConLaMismaCasa() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0, 0);
+		Edificio casa = new Edificio(0);
 		
 		terreno.agregarCasa(casa);
 		
@@ -86,7 +118,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarMasCasasQueLaCantidadMaximaLanzaConstruccionImposible() {
 		Terreno terreno = new Terreno(2, 0);
-		Edificio casa = new Edificio(0, 0);
+		Edificio casa = new Edificio(0);
 		
 		terreno.agregarCasa(casa);
 		terreno.agregarCasa(casa);
@@ -102,7 +134,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelGetCantidadDeHotelesDevuelveUno() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0, 0);
+		Edificio hotel = new Edificio(0);
 		
 		terreno.agregarHotel(hotel);
 		
@@ -114,7 +146,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelTieneHotelesDevuelveTrue() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0, 0);
+		Edificio hotel = new Edificio(0);
 		
 		terreno.agregarHotel(hotel);
 		
@@ -124,7 +156,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelGetEdificiosDevuelveUnArrayConUnEdificio() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0, 0);
+		Edificio hotel = new Edificio(0);
 		
 		terreno.agregarHotel(hotel);
 		
@@ -137,7 +169,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelGetEdificiosDevuelveUnArrayConElMismoHotel() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0, 0);
+		Edificio hotel = new Edificio(0);
 		
 		terreno.agregarHotel(hotel);
 		
@@ -147,9 +179,45 @@ public class TerrenoTest {
 	}
 
 	@Test
+	public void AlAgregarUnHotelConstruccionDeCasaPosibleDevuelveFalse() {
+		Terreno terreno = new Terreno(1, 1);
+		Edificio casa = new Edificio(0);
+		Edificio hotel = new Edificio(0);
+		
+		terreno.agregarCasa(casa);
+		terreno.agregarHotel(hotel);
+		
+		assertFalse(terreno.construccionDeCasaPosible());
+	}
+	
+	@Test
+	public void AlAgregarUnHotelConstruccionDeHotelPosibleDevuelveTrueSiNoEsElMaximo() {
+		Terreno terreno = new Terreno(1, 2);
+		Edificio casa = new Edificio(0);
+		Edificio hotel = new Edificio(0);
+		
+		terreno.agregarCasa(casa);
+		terreno.agregarHotel(hotel);
+		
+		assertTrue(terreno.construccionDeHotelPosible());
+	}
+	
+	@Test
+	public void AlLlegarALaCantidadMaximaDeHotelesConstruccionDeHotelPosibleDevuelveFalse() {
+		Terreno terreno = new Terreno(1, 1);
+		Edificio casa = new Edificio(0);
+		Edificio hotel = new Edificio(0);
+		
+		terreno.agregarCasa(casa);
+		terreno.agregarHotel(hotel);
+		
+		assertFalse(terreno.construccionDeHotelPosible());
+	}
+	
+	@Test
 	public void AlAgregarMasHotelesQueLaCantidadMaximaLanzaConstruccionImposible() {
 		Terreno terreno = new Terreno(0, 2);
-		Edificio hotel = new Edificio(0, 0);
+		Edificio hotel = new Edificio(0);
 		
 		terreno.agregarHotel(hotel);
 		terreno.agregarHotel(hotel);
@@ -165,7 +233,7 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelEnUnTerrenoQueNoTieneLaCantidadMaximaDeCasasLanzaConstruccionImposible() {
 		Terreno terreno = new Terreno(2, 2);
-		Edificio hotel = new Edificio(0, 0);
+		Edificio hotel = new Edificio(0);
 		
 		try {
 			terreno.agregarHotel(hotel);
@@ -178,8 +246,8 @@ public class TerrenoTest {
 	@Test
 	public void AlAgregarUnHotelGetCantidadDeCasasDevuelveCero() {
 		Terreno terreno = new Terreno(2, 2);
-		Edificio hotel = new Edificio(0, 0);
-		Edificio casa = new Edificio(0, 0);
+		Edificio hotel = new Edificio(0);
+		Edificio casa = new Edificio(0);
 		
 		terreno.agregarCasa(casa);
 		terreno.agregarCasa(casa);

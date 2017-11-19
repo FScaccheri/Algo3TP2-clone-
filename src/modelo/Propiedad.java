@@ -1,42 +1,64 @@
 package modelo;
 
-public class Propiedad extends Adquirible {
+import modelo.excepciones.ConstruccionImposible;
+
+public class Propiedad extends Rentable {
 	
-	private
-	InformeDeAlquileres alquileres;
-	InformeDeConstruccion construccion;
-	int casas = 0;
-	boolean conHotel = false;
-
-	public Propiedad(double precio_venta, InformeDeAlquileres informeDeAlquileres, InformeDeConstruccion informeDeConstruccion) {
-		super(precio_venta);
-		alquileres = informeDeAlquileres;
-		construccion = informeDeConstruccion;
+	private Alquiler alquiler;
+	private Terreno terreno;
+	private double costoCasa;
+	private double costoHotel;
+		
+	private Propiedad(double precioDeVenta, double costoCasa) {
+		super(precioDeVenta);
+		this.costoCasa = costoCasa;
+	}
+	
+	public Propiedad(double precioDeVenta, double alquilerBase, double alquilerUnaCasa, double costoCasa) {
+		this(precioDeVenta, costoCasa);
+		alquiler = new Alquiler(alquilerBase, alquilerUnaCasa);
+		terreno = new Terreno(1, 0);
+	}
+	
+	public Propiedad(double precioDeVenta, double alquilerBase, double alquilerUnaCasa, double alquilerDosCasas, double alquilerUnHotel, double costoCasa, double costoHotel) {
+		this(precioDeVenta, costoCasa);
+		this.costoHotel = costoHotel;
+		alquiler = new Alquiler(alquilerBase, alquilerUnaCasa, alquilerDosCasas, alquilerUnHotel);
+		terreno = new Terreno(2, 1);
 	}
 
-	public int getCantidadDeCasas() {
-		return casas;
+	public void construirCasa() {
+		if(!terreno.construccionDeCasaPosible())
+			throw new ConstruccionImposible();
+		Edificio casa = new Edificio(costoCasa);
+		casa.adquirir(getPropietario());
+		terreno.agregarCasa(casa);
+		alquiler.aumentarAlquiler();
 	}
-
-	public boolean tieneHotel() {
-		return conHotel;
+	
+	public void construirHotel() {
+		if(!terreno.construccionDeHotelPosible())
+			throw new ConstruccionImposible();
+		Edificio hotel = new Edificio(costoHotel);
+		hotel.adquirir(getPropietario());
+		terreno.agregarHotel(hotel);
+		alquiler.aumentarAlquiler();
 	}
 	
 	@Override
 	public double getAlquiler(Jugador jugador) {
-		return alquileres.getAlquilerBase();
+		return alquiler.getAlquiler();
 	}
 	
-	public void construirCasa() {
-		casas++;
+	public int getCantidadDeCasas() {
+		return terreno.getCantidadDeCasas();
 	}
-	
-	public void construirHotel() {
-		conHotel = true;
-	}
-	
+
 	public int getCantidadDeHoteles() {
-		if (conHotel) {	return 1;} else { return 0; }
+		return terreno.getCantidadDeHoteles();
 	}
 	
+	public boolean tieneHotel() {
+		return terreno.tieneHoteles();
+	}	
 }

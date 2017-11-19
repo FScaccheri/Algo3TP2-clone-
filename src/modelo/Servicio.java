@@ -1,6 +1,6 @@
 package modelo;
 
-public class Servicio extends Adquirible {
+public class Servicio extends Rentable {
 
 	private Servicio asociado;
 	private double alquilerSimple;

@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import modelo.excepciones.ConstruccionImposible;
 
 public class Terreno {
-	private ArrayListLimitado<Edificio> casas;
-	private ArrayListLimitado<Edificio> hoteles;
+	private ArrayList<Edificio> casas;
+	private ArrayList<Edificio> hoteles;
+	private int cantidadDeCasasMaxima;
+	private int cantidadDeHotelesMaxima;
 	
 	public Terreno(int cantidadDeCasasMaxima, int cantidadDeHotelesMaxima){
-		casas = new ArrayListLimitado<Edificio>(cantidadDeCasasMaxima, new ConstruccionImposible());
-		hoteles = new ArrayListLimitado<Edificio>(cantidadDeHotelesMaxima, new ConstruccionImposible());
+		casas = new ArrayList<Edificio>();
+		hoteles = new ArrayList<Edificio>();
+		this.cantidadDeCasasMaxima = cantidadDeCasasMaxima;
+		this.cantidadDeHotelesMaxima = cantidadDeHotelesMaxima;
 	}
 
 	public int getCantidadDeCasas() {
@@ -24,14 +28,16 @@ public class Terreno {
 	}
 
 	public void agregarCasa(Edificio casa) {
-		casas.addConExcepcion(casa);
+		if(!construccionDeCasaPosible())
+			throw new ConstruccionImposible();
+		casas.add(casa);
 	}
 	
 	public void agregarHotel(Edificio hotel) {
-		if(getCantidadDeCasas() != casas.getCantidadMaxima())
-			throw new ConstruccionImposible();			
+		if(!construccionDeHotelPosible())
+			throw new ConstruccionImposible();
 		
-		hoteles.addConExcepcion(hotel);
+		hoteles.add(hotel);
 	}
 
 	public ArrayList<Edificio> getEdificios() {
@@ -42,5 +48,13 @@ public class Terreno {
 
 	public boolean tieneHoteles() {
 		return getCantidadDeHoteles() != 0;
-	}	
+	}
+
+	public boolean construccionDeCasaPosible() {
+		return (cantidadDeCasasMaxima != getCantidadDeCasas()) && !tieneHoteles();
+	}
+
+	public boolean construccionDeHotelPosible() {
+		return !construccionDeCasaPosible() && (cantidadDeHotelesMaxima != getCantidadDeHoteles());
+	}
 }

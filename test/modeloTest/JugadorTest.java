@@ -6,8 +6,6 @@ import org.junit.Test;
 
 import junit.framework.Assert;
 import modelo.Carcel;
-import modelo.InformeDeAlquileres;
-import modelo.InformeDeConstruccion;
 import modelo.Jugador;
 import modelo.Propiedad;
 
@@ -59,17 +57,15 @@ public class JugadorTest {
 	public void testAdquirirUnaPropiedadAumentaLaCantidadDePropiedadesQueTiene() {
 		
 		Jugador unJugador = new Jugador();
-		InformeDeAlquileres alquileres = new InformeDeAlquileres(10, 0, 0, 0);
-		InformeDeConstruccion construccion = new InformeDeConstruccion();
-		Propiedad propiedad1 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad2 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad3 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad4 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad5 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad6 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad7 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad8 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad9 = new Propiedad(100, alquileres, construccion);
+		Propiedad propiedad1 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad2 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad3 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad4 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad5 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad6 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad7 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad8 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad9 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
 		unJugador.aumentarCapital(10000);
 		
 		propiedad1.adquirir(unJugador);
@@ -88,9 +84,7 @@ public class JugadorTest {
 	@Test
 	public void testConstruirUnaCasaEnUnaPropiedadAdquiridaAumentaLaCantidadDeCasasDelJugador() {
 		Jugador unJugador = new Jugador();
-		InformeDeAlquileres alquileres = new InformeDeAlquileres(10, 0, 0, 0);
-		InformeDeConstruccion construccion = new InformeDeConstruccion();
-		Propiedad propiedad1 = new Propiedad(100, alquileres, construccion);
+		Propiedad propiedad1 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
 		unJugador.aumentarCapital(10000);
 		propiedad1.adquirir(unJugador);
 		
@@ -110,17 +104,15 @@ public class JugadorTest {
 	public void testConstruirMultiplesCasasEnPropiedadesDeUnJugadorAumentaCorrectamenteLaCantidadDeCasas() {
 		
 		Jugador unJugador = new Jugador();
-		InformeDeAlquileres alquileres = new InformeDeAlquileres(10, 0, 0, 0);
-		InformeDeConstruccion construccion = new InformeDeConstruccion();
-		Propiedad propiedad1 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad2 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad3 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad4 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad5 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad6 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad7 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad8 = new Propiedad(100, alquileres, construccion);
-		Propiedad propiedad9 = new Propiedad(100, alquileres, construccion);
+		Propiedad propiedad1 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad2 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad3 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad4 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad5 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad6 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad7 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad8 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad9 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
 		unJugador.aumentarCapital(10000);
 		
 		propiedad1.adquirir(unJugador);

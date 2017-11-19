@@ -4,34 +4,39 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import modelo.InformeDeAlquileres;
-import modelo.InformeDeConstruccion;
 import modelo.Jugador;
 import modelo.Propiedad;
+import modelo.excepciones.ConstruccionImposible;
 
 public class PropiedadTest {
 
 	@Test
 	public void AlCrearUnaPropiedadLaCantidadDeCasasEsCero() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
-		assertEquals(0, propiedad.getCantidadDeCasas(), 0);
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		assertEquals(0, propiedad.getCantidadDeCasas());
 	}
 
 	@Test
+	public void AlCrearUnaPropiedadLaCantidadDeHotelesEsCero() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		assertEquals(0, propiedad.getCantidadDeHoteles());
+	}
+	
+	@Test
 	public void AlCrearUnaPropiedadtieneHotelDevuelveFalso() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		assertFalse(propiedad.tieneHotel());
 	}
 
 	@Test
 	public void AlCrearUnaPropiedadtienePropietarioDevuelveFalse() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		assertFalse(propiedad.tienePropietario());
 	}
 	
 	@Test
 	public void CuandoUnJugadorAdquiereUnaPropiedadtienePropietarioDevuelveTrue() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
 		propiedad.adquirir(jugador);
@@ -41,13 +46,13 @@ public class PropiedadTest {
 	
 	@Test
 	public void AlCrearUnaPropiedadgetPropietarioDevuelveNull() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		assertNull(propiedad.getPropietario());
 	}
 	
 	@Test
 	public void CuandoUnJugadorAdquiereUnaPropiedadgetPropietarioDevuelveElJugador() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
 		propiedad.adquirir(jugador);
@@ -57,7 +62,7 @@ public class PropiedadTest {
 	
 	@Test
 	public void UnJugadorQueNoAdquirioLaPropiedadNoEsPropietario() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		Jugador propietario = new Jugador();
 		Jugador usuario  = new Jugador();
 		
@@ -68,7 +73,7 @@ public class PropiedadTest {
 
 	@Test
 	public void CuandoUnJugadorAdquiereUnaPropiedadSuCapitalDisminuyeEnElValorDeLaPropiedad() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(5000, 0, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
 		double capitalInicial = jugador.getCapital();
@@ -80,7 +85,7 @@ public class PropiedadTest {
 
 	@Test
 	public void CuandoUnJugadorVendeUnaPropiedadDejaDeSerElPropietario() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
 		propiedad.adquirir(jugador);
@@ -91,7 +96,7 @@ public class PropiedadTest {
 	
 	@Test
 	public void CuandoUnJugadorVendeUnaPropiedadDejaDeTenerPropietario() {
-		Propiedad propiedad = new Propiedad(0, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
 		propiedad.adquirir(jugador);
@@ -102,7 +107,7 @@ public class PropiedadTest {
 
 	@Test
 	public void CuandoUnJugadorVendeUnaPropiedadSinCasasNiHotelSuCapitalAumentaEnLaMitadDelValorDeLaPropiedad() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(5000, 0, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
 		propiedad.adquirir(jugador);
@@ -116,7 +121,7 @@ public class PropiedadTest {
 
 	@Test
 	public void CuandoUnJugadorCaeEnUnaPropiedadSinPropietarioNoDisminuyeSuCapital() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 200, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
 		double capitalInicial = jugador.getCapital();
@@ -128,7 +133,7 @@ public class PropiedadTest {
 
 	@Test
 	public void CuandoUnJugadorCaeEnUnaPropiedadSinCasasNiHotelConPropietarioSuCapitalDisminuyeEnElAlquilerDeLaPropiedad() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200, 0, 0, 0), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 200, 0, 0, 0, 0, 0);
 		Jugador propietario = new Jugador();
 		Jugador inquilino = new Jugador();
 		
@@ -143,7 +148,7 @@ public class PropiedadTest {
 
 	@Test
 	public void CuandoUnJugadorCaeEnUnaPropiedadSinCasasNiHotelConPropietarioElCapitalDelPropietarioAumentaEnElAlquilerDeLaPropiedad() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200, 0, 0, 0), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 200, 0, 0, 0, 0, 0);
 		Jugador propietario = new Jugador();
 		Jugador inquilino = new Jugador();
 		
@@ -158,7 +163,7 @@ public class PropiedadTest {
 	
 	@Test
 	public void CuandoUnJugadorCaeEnUnaPropiedadDeLaCualEsPropietarioNoDisminuyeSuCapital() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200, 0, 0, 0), new InformeDeConstruccion());
+		Propiedad propiedad = new Propiedad(0, 200, 0, 0, 0, 0, 0);
 		Jugador propietario = new Jugador();
 		
 		propiedad.adquirir(propietario);
@@ -171,38 +176,146 @@ public class PropiedadTest {
 	}
 	
 	@Test
-	public void testConstruirUnaCasaEnUnaPropiedadAumentaLaCantidadDeCasasEnEsaPropiedad() {
+	public void ConstruirUnaCasaDisminuyeElCapitalDelPropietarioEnElCostoDeLaCasa() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 200, 0);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);
+		
+		double capitalInicial = propietario.getCapital();
+		
+		propiedad.construirCasa();
 
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200, 0, 0, 0), new InformeDeConstruccion());
-		Jugador unJugador = new Jugador();
-		propiedad.adquirir(unJugador);
+		assertEquals(capitalInicial-200, propietario.getCapital(), 0);
+	}
+
+	@Test
+	public void ConstruirUnaCasaAumentaLaCantidadCasasEnUno() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);
+		propiedad.construirCasa();
+
+		assertEquals(propiedad.getCantidadDeCasas(), 1);
+	}
+	
+	@Test
+	public void ConstruirUnHotelDisminuyeElCapitalDelPropietarioEnElCostoDelHotel() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 200);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);		
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+
+		double capitalInicial = propietario.getCapital();
+		
+		propiedad.construirHotel();
+
+		assertEquals(capitalInicial-200, propietario.getCapital(), 0);
+	}
+	
+	@Test
+	public void ConstruirUnHotelAumentaLaCantidadHotelesEnUno() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);		
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+		propiedad.construirHotel();
+
+		assertEquals(propiedad.getCantidadDeHoteles(), 1);
+	}
+
+	@Test
+	public void AlConstruirUnHotelTieneHotelDevuelveTrue() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);		
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+		propiedad.construirHotel();
+
+		assertTrue(propiedad.tieneHotel());
+	}
+
+	@Test
+	public void CuandoUnJugadorCaeEnLaPropiedadConUnaCasaSuCapitalDisminuyeCorrectamente() {
+		Propiedad propiedad = new Propiedad(0, 0, 200, 0, 0, 0, 0);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		propiedad.adquirir(propietario);
 		propiedad.construirCasa();
 		
-		assertEquals(1,propiedad.getCantidadDeCasas());
-	}
-	
-	@Test
-	public void testUnaPropiedadTieneCantidadDeCasasInicialCero() {
+		double capitalInicial = inquilino.getCapital();
 		
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200,0,0,0),new InformeDeConstruccion());
+		propiedad.activarEfecto(inquilino);
 		
-		assertEquals(0, propiedad.getCantidadDeCasas());
+		assertEquals(capitalInicial-200, inquilino.getCapital(), 0);
 	}
-	
+
 	@Test
-	public void testUnaPropiedadTieneCantidadDeHotelesInicialCero() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200,0,0,0),new InformeDeConstruccion());
+	public void CuandoUnJugadorCaeEnLaPropiedadConUnHotelSuCapitalDisminuyeCorrectamente() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 200, 0, 0);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
 		
-		assertEquals(0,propiedad.getCantidadDeHoteles());
-	}
-	
-	@Test
-	public void testConstuirUnHotelEnUnaPropiedadAumentaLaCantidadDeHoteles() {
-		Propiedad propiedad = new Propiedad(5000, new InformeDeAlquileres(200,0,0,0),new InformeDeConstruccion());
-		Jugador unJugador = new Jugador();
-		propiedad.adquirir(unJugador);
+		propiedad.adquirir(propietario);
+		propiedad.construirCasa();
+		propiedad.construirCasa();
 		propiedad.construirHotel();
 		
-		assertEquals(1,propiedad.getCantidadDeHoteles());
+		double capitalInicial = inquilino.getCapital();
+		
+		propiedad.activarEfecto(inquilino);
+		
+		assertEquals(capitalInicial-200, inquilino.getCapital(), 0);
+	}
+	
+	@Test
+	public void CuandoNoSePuedeConstruirUnaCasaNoDisminuyeElCapitalDelPropietario() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 200, 0);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+
+		double capitalInicial = propietario.getCapital();
+		
+		try {
+			propiedad.construirCasa();
+			fail();
+		} catch (ConstruccionImposible e) {
+			assertTrue(true);
+		}
+				
+		assertEquals(capitalInicial, propietario.getCapital(), 0);
+	}
+
+	@Test
+	public void CuandoNoSePuedeConstruirUnHotelNoDisminuyeElCapitalDelPropietario() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 200);
+		Jugador propietario = new Jugador();
+		
+		propiedad.adquirir(propietario);
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+		propiedad.construirHotel();
+
+		double capitalInicial = propietario.getCapital();
+		
+		try {
+			propiedad.construirHotel();
+			fail();
+		} catch (ConstruccionImposible e) {
+			assertTrue(true);
+		}
+				
+		assertEquals(capitalInicial, propietario.getCapital(), 0);
 	}
 }
