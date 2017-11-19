@@ -42,4 +42,8 @@ public class Tablero {
 	public void caerEn(Jugador jugador, Posicion posicion) {
 		this.getCasillero(posicion).caeEn(jugador);
 	}
+	
+	public Casillero casilleroAnterior(Casillero casillero) {
+		return casilleros.get( casilleros.indexOf(casillero) - 1);
+	}
 }

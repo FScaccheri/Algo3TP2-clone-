@@ -76,4 +76,13 @@ public class Jugador {
 		};
 		return casas;
 	}
+	
+	public int getCantidadDeHoteles() {
+		int hoteles = 0;
+		LinkedList<Propiedad> propiedades = adquiridos.propiedades();
+		for (int i=0; 1<propiedades.size();i++) {
+			if (propiedades.get(i).tieneHotel()) { hoteles++;}
+		}
+		return hoteles;
+	}
 }

@@ -11,6 +11,11 @@ public class Posicion {
 			Tablero tablero = Tablero.getInstancia();
 			return new Posicion( tablero.casilleroSiguiente(this.casillero) );
 		}
+		
+		public Posicion anterior() {
+			Tablero tablero = Tablero.getInstancia();
+			return new Posicion (tablero.casilleroAnterior(this.casillero));
+		}
 
 		public Casillero getCasillero() {
 			return this.casillero;

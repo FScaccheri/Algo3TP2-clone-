@@ -1,18 +1,23 @@
 package modelo;
 
-public class MovimientoDinamico implements Movimiento {
+public class MovimientoDinamico {
 
-	public void mover(Jugador jugador, int posiciones) {
-		if (2 <= posiciones && posiciones <= 6) {
-			jugador.avanzar(posiciones - 2);
+	public int mover(Jugador jugador, int ultimaTirada) {
+		
+		int porMover = 0;
+		
+		if (2 <= ultimaTirada && ultimaTirada <= 6) {
+			porMover = (ultimaTirada - 2);
 		}
 		
-		if (7 <= posiciones && posiciones <= 10) {
-			jugador.avanzar((int)jugador.getCapital()%posiciones);
+		if (7 <= ultimaTirada && ultimaTirada <= 10) {
+			porMover = ((int)jugador.getCapital()%ultimaTirada);
 		}
 		
-		if ( 11 <= posiciones && posiciones <= 12) {
-//			unJugador.moverAPosicion(unJugador.getPosicion() + unJugador.cantidadDePropiedades()+ unJugador.cantidadDeCasas() + unJugador.cantidadDeHoteles());
+		if ( 11 <= ultimaTirada && ultimaTirada <= 12) {
+//			return (jugador.cantidadDePropiedades()+ jugador.getCantidadDeCasas() + jugador.getCantidadDeHoteles()));
 		}
+		
+		return porMover;
 	}
 }
