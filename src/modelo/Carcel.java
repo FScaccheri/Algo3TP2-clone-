@@ -18,23 +18,19 @@ public class Carcel implements Activable{
 
 
 	public void activarEfecto(Jugador jugador) {
-		jugador.setMovimiento(new MovimientoNulo());
+		if ( !this.presos.containsKey(jugador)) {
+			this.presos.put(jugador, 0);
+			jugador.setMovimiento(new MovimientoNulo());
+		}
 	}
 
 	public boolean estaPreso(Jugador jugador) {
-
 		return (this.presos.containsKey(jugador));
 	}
 
 	public void liberarJugadorPorFianza(Jugador jugador) {
-
-		if ( turnosTranscurridos(jugador) > 0) {
-
 			jugador.disminuirCapital(FIANZA);
-
 			this.presos.remove(jugador);
-		}
-
 	}
 
 }

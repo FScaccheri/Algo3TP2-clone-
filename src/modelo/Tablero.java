@@ -29,13 +29,11 @@ public class Tablero {
 	public Posicion posicion(Casillero unCasillero) {
 		return casilleros.get(casilleros.indexOf(unCasillero)).getPosicion();
 	}
-	
-	public Casillero getCasillero(int posicion) {
-		return casilleros.get(posicion);
-	}
+		
 	
 	public Casillero casilleroSiguiente(Casillero casillero) {
 		return casilleros.get( casilleros.indexOf(casillero) + 1);
+
 	}
 	
 }

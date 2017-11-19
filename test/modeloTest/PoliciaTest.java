@@ -17,7 +17,7 @@ public class PoliciaTest {
 		Casillero carcel = new Casillero();
 		Posicion posicionCarcel = new Posicion(carcel);
 		carcel.setPosicion(posicionCarcel);
-		Policia policia = new Policia(carcel);
+		Policia policia = new Policia(posicionCarcel);
 		
 		policia.activarEfecto(jugador);
 		
