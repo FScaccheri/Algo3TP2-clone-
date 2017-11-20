@@ -34,7 +34,7 @@ public class TerrenoTest {
 	public void AlCrearTerrenoGetAdquiriblesDevuelveUnArrayVacio() {
 		Terreno terreno = new Terreno(0, 0);
 		
-		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		ArrayList<Adquirible> Adquiribles = terreno.getConstrucciones();
 		int cantElementos = Adquiribles.size();
 		
 		assertEquals(cantElementos, 0);
@@ -77,7 +77,7 @@ public class TerrenoTest {
 		
 		terreno.agregarCasa(casa);
 		
-		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		ArrayList<Adquirible> Adquiribles = terreno.getConstrucciones();
 		int cantElementos = Adquiribles.size();
 		
 		assertEquals(cantElementos, 1);
@@ -110,7 +110,7 @@ public class TerrenoTest {
 		
 		terreno.agregarCasa(casa);
 		
-		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		ArrayList<Adquirible> Adquiribles = terreno.getConstrucciones();
 		
 		assertTrue(Adquiribles.get(0)==casa);
 	}
@@ -160,7 +160,7 @@ public class TerrenoTest {
 		
 		terreno.agregarHotel(hotel);
 		
-		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		ArrayList<Adquirible> Adquiribles = terreno.getConstrucciones();
 		int cantElementos = Adquiribles.size();
 		
 		assertEquals(cantElementos, 1);
@@ -173,7 +173,7 @@ public class TerrenoTest {
 		
 		terreno.agregarHotel(hotel);
 		
-		ArrayList<Adquirible> Adquiribles = terreno.getAdquiribles();
+		ArrayList<Adquirible> Adquiribles = terreno.getConstrucciones();
 		
 		assertTrue(Adquiribles.get(0)==hotel);
 	}

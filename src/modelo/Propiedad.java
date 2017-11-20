@@ -52,7 +52,7 @@ public class Propiedad extends Rentable {
 	@Override
 	public void vender() {
 		super.vender();
-		for(Adquirible construccion : terreno.getAdquiribles())
+		for(Adquirible construccion : terreno.getConstrucciones())
 			construccion.vender();
 	}
 	

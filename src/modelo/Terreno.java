@@ -31,7 +31,7 @@ public class Terreno {
 		hoteles.add(hotel);
 	}
 
-	public ArrayList<Adquirible> getAdquiribles() {
+	public ArrayList<Adquirible> getConstrucciones() {
 		ArrayList<Adquirible> Adquiribles = new ArrayList<Adquirible>(casas);
 		Adquiribles.addAll(hoteles);
 		return Adquiribles;
