@@ -54,6 +54,7 @@ public class Propiedad extends Rentable {
 		super.vender();
 		for(Adquirible construccion : terreno.getConstrucciones())
 			construccion.vender();
+		terreno.demoler();
 	}
 	
 	public void setDependencia(Propiedad propiedad) {

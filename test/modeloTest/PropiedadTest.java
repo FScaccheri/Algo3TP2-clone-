@@ -393,5 +393,34 @@ public class PropiedadTest {
 		} catch (ConstruccionImposible e) {
 			assertTrue(true);
 		}
-	}	
+	}
+	
+	@Test
+	public void CuandoUnJugadorVendeUnaPropiedadConCasasGetCantidadDeCasasDevuelveCero() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Jugador jugador = new Jugador();
+		
+		propiedad.adquirir(jugador);
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+		
+		propiedad.vender();
+
+		assertEquals(propiedad.getCantidadDeCasas(), 0);
+	}
+
+	@Test
+	public void CuandoUnJugadorVendeUnaPropiedadUnHotelGetCantidadDeHotelesDevuelveCero() {
+		Propiedad propiedad = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Jugador jugador = new Jugador();
+		
+		propiedad.adquirir(jugador);
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+		propiedad.construirHotel();
+		
+		propiedad.vender();
+
+		assertEquals(propiedad.getCantidadDeHoteles(), 0);
+	}
 }

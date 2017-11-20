@@ -257,4 +257,36 @@ public class TerrenoTest {
 		
 		assertEquals(cantidadDeCasas, 0);
 	}
+
+	@Test
+	public void AlDemolerUnTerrenoGetCantidadDeCasasDevuelveCero() {
+		Terreno terreno = new Terreno(2, 2);
+		Adquirible casa = new Adquirible(0);
+		
+		terreno.agregarCasa(casa);
+		terreno.agregarCasa(casa);
+		
+		terreno.demoler();
+		
+		int cantidadDeCasas = terreno.getCantidadDeCasas();
+		
+		assertEquals(cantidadDeCasas, 0);
+	}
+
+	@Test
+	public void AlDemolerUnTerrenoGetCantidadDeCasassDevuelveCero() {
+		Terreno terreno = new Terreno(2, 2);
+		Adquirible hotel = new Adquirible(0);
+		Adquirible casa = new Adquirible(0);
+		
+		terreno.agregarCasa(casa);
+		terreno.agregarCasa(casa);
+		terreno.agregarHotel(hotel);
+		
+		terreno.demoler();
+		
+		int cantidadDeHoteles = terreno.getCantidadDeHoteles();
+		
+		assertEquals(cantidadDeHoteles, 0);
+	}
 }

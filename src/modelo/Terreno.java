@@ -37,6 +37,11 @@ public class Terreno {
 		return Adquiribles;
 	}
 	
+	public void demoler() {
+		casas.clear();
+		hoteles.clear();
+	}
+
 	public boolean construccionDeCasaPosible() {
 		return (cantidadDeCasasMaxima != getCantidadDeCasas()) && !tieneHoteles();
 	}
@@ -58,4 +63,5 @@ public class Terreno {
 	public boolean tieneHoteles() {
 		return getCantidadDeHoteles() != 0;
 	}
+	
 }
