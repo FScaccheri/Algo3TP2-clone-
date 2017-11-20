@@ -4,7 +4,8 @@ public class Adquirible {
 
 	private Jugador propietario;
 	private double precioDeVenta;
-		
+	private static final double PORCENTAJE_DE_VENTA = 0.75;
+	
 	public Adquirible( double precioDeVenta) {
 		this.precioDeVenta = precioDeVenta;
 	}
@@ -16,7 +17,7 @@ public class Adquirible {
 	}
 
 	public void vender() {
-		propietario.aumentarCapital(precioDeVenta/2);
+		propietario.aumentarCapital(precioDeVenta*PORCENTAJE_DE_VENTA);
 		propietario = null;
 	}
 	

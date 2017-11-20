@@ -47,6 +47,13 @@ public class Propiedad extends Rentable {
 	}
 	
 	@Override
+	public void vender() {
+		super.vender();
+		for(Adquirible construccion : terreno.getAdquiribles())
+			construccion.vender();
+	}
+	
+	@Override
 	public double getAlquiler(Jugador jugador) {
 		return alquiler.getAlquiler();
 	}

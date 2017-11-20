@@ -106,20 +106,6 @@ public class PropiedadTest {
 	}
 
 	@Test
-	public void CuandoUnJugadorVendeUnaPropiedadSinCasasNiHotelSuCapitalAumentaEnLaMitadDelValorDeLaPropiedad() {
-		Propiedad propiedad = new Propiedad(5000, 0, 0, 0, 0, 0, 0);
-		Jugador jugador = new Jugador();
-		
-		propiedad.adquirir(jugador);
-
-		double capitalInicial = jugador.getCapital();
-
-		propiedad.vender();
-
-		assertEquals(capitalInicial + 5000/2, jugador.getCapital(), 0);
-	}
-
-	@Test
 	public void CuandoUnJugadorCaeEnUnaPropiedadSinPropietarioNoDisminuyeSuCapital() {
 		Propiedad propiedad = new Propiedad(0, 200, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
@@ -317,5 +303,51 @@ public class PropiedadTest {
 		}
 				
 		assertEquals(capitalInicial, propietario.getCapital(), 0);
+	}
+
+	@Test
+	public void CuandoUnJugadorVendeUnaPropiedadSinEdificiosSuCapitalAumentaEnUn75PorcientoDelValorDeLaPropiedad() {
+		Propiedad propiedad = new Propiedad(5000, 0, 0, 0, 0, 0, 0);
+		Jugador jugador = new Jugador();
+		
+		propiedad.adquirir(jugador);
+
+		double capitalInicial = jugador.getCapital();
+
+		propiedad.vender();
+
+		assertEquals(capitalInicial + 5000*0.75, jugador.getCapital(), 0);
+	}
+
+	@Test
+	public void CuandoUnJugadorVendeUnaPropiedadConUnaCasaSuCapitalAumentaEnUn75PorcientoDelValorTotal() {
+		Propiedad propiedad = new Propiedad(5000, 0, 0, 0, 0, 2000, 0);
+		Jugador jugador = new Jugador();
+		
+		propiedad.adquirir(jugador);
+		propiedad.construirCasa();
+		
+		double capitalInicial = jugador.getCapital();
+
+		propiedad.vender();
+
+		assertEquals(capitalInicial + (5000+2000)*0.75, jugador.getCapital(), 0);
+	}
+
+	@Test
+	public void CuandoUnJugadorVendeUnaPropiedadConUnHotelSuCapitalAumentaEnUn75PorcientoDelValorTotal() {
+		Propiedad propiedad = new Propiedad(5000, 0, 0, 0, 0, 2000, 6000);
+		Jugador jugador = new Jugador();
+		
+		propiedad.adquirir(jugador);
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+		propiedad.construirHotel();
+		
+		double capitalInicial = jugador.getCapital();
+
+		propiedad.vender();
+
+		assertEquals(capitalInicial + (5000+2000+2000+6000)*0.75, jugador.getCapital(), 0);
 	}
 }
