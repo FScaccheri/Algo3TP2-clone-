@@ -10,10 +10,26 @@ public class TiradaTest {
 
 	@Test
 	public void AlRealizarUnaTiradaElResultadoEstaEntreDosYDoce() {
-		Tirada tirada = new Tirada();
-		int resultado = tirada.tirar();
+		int resultado = Tirada.tirar();
 		assertTrue(resultado>=2);
 		assertTrue(resultado<=12);
 	}
 
+	@Test
+	public void UltimaTiradaDevuelveLaUltimaTirada() {
+		int resultado1 = Tirada.tirar();
+		int resultado2 = Tirada.getUltimaTirada();
+		assertEquals(resultado1, resultado2);
+	}
+
+	@Test
+	public void DespuesDeDosTiradasGetUltimaTiradaDevuelvenElMismoResultado() {
+		Tirada.tirar();
+		Tirada.tirar();
+
+		int resultado1 = Tirada.getUltimaTirada();
+		int resultado2 = Tirada.getUltimaTirada();
+		
+		assertEquals(resultado1, resultado2);
+	}
 }
