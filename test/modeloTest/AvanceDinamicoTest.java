@@ -69,11 +69,11 @@ public class AvanceDinamicoTest {
 		AvanceDinamico aDinamico = new AvanceDinamico();
 		
 		unJugador.setUltimaTirada(4);
-		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero9));
 		
 		aDinamico.activarEfecto(unJugador); //avanza 2 lugares
 		
-		assertEquals(unJugador.getPosicion(),Tablero.getInstancia().posicion(casillero3));
+		assertEquals(unJugador.getPosicion(),Tablero.getInstancia().posicion(casillero2));
 	}
 	
 	@Test

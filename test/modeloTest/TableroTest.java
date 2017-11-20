@@ -37,7 +37,7 @@ public class TableroTest {
 		tablero.agregar(casillero1);
 		tablero.agregar(casillero2);
 		
-		assertTrue( casillero2 == tablero.casilleroSiguiente(casillero1) );
+		assertTrue( casillero2 == tablero.getCasilleroSiguiente(casillero1) );
 	}
 	
 	@Test
@@ -69,5 +69,40 @@ public class TableroTest {
 		tablero.agregar(casillero);
 		
 		assertEquals(tablero.posicion(casillero),casillero.getPosicion());
+	}
+	
+	@Test
+	public void testCasilleroSiguienteAlUltimoEsElPrimero() {
+		Tablero.reset();
+		Tablero tablero = Tablero.getInstancia();
+		Casillero casillero1 = new Casillero();
+		Casillero casillero2 = new Casillero();
+		Casillero casillero3 = new Casillero();
+		Casillero casillero4 = new Casillero();
+		
+		tablero.agregar(casillero1);
+		tablero.agregar(casillero2);
+		tablero.agregar(casillero3);
+		tablero.agregar(casillero4);
+		
+		assertEquals(tablero.getCasilleroSiguiente(casillero4),casillero1);
+	}
+	
+	
+	@Test
+	public void testCasilleroAnteriorAlUltimoEsElPrimero() {
+		Tablero.reset();
+		Tablero tablero = Tablero.getInstancia();
+		Casillero casillero1 = new Casillero();
+		Casillero casillero2 = new Casillero();
+		Casillero casillero3 = new Casillero();
+		Casillero casillero4 = new Casillero();
+		
+		tablero.agregar(casillero1);
+		tablero.agregar(casillero2);
+		tablero.agregar(casillero3);
+		tablero.agregar(casillero4);
+		
+		assertEquals(tablero.getCasilleroAnterior(casillero1),casillero4);
 	}
 }

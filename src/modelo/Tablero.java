@@ -5,10 +5,10 @@ public class Tablero {
 	
 	private static Tablero instancia = null;
 	
-	private LinkedList<Casillero> casilleros;
+	private ListaCircular<Casillero> casilleros;
 	
 	private Tablero() {
-		casilleros = new LinkedList<Casillero>();
+		casilleros = new ListaCircular<Casillero>();
 	};
 	
 	public static Tablero getInstancia() {
@@ -34,16 +34,18 @@ public class Tablero {
 		return casilleros.get(casilleros.indexOf(posicion.getCasillero()));
 	}
 	
-	public Casillero casilleroSiguiente(Casillero casillero) {
+	public Casillero getCasilleroSiguiente(Casillero casillero) {
 		return casilleros.get( casilleros.indexOf(casillero) + 1);
 
+	}
+	
+	public Casillero getCasilleroAnterior(Casillero casillero) {
+		return casilleros.get( casilleros.indexOf(casillero) - 1);
 	}
 	
 	public void caerEn(Jugador jugador, Posicion posicion) {
 		this.getCasillero(posicion).caeEn(jugador);
 	}
 	
-	public Casillero casilleroAnterior(Casillero casillero) {
-		return casilleros.get( casilleros.indexOf(casillero) - 1);
-	}
+
 }

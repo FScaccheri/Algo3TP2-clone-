@@ -9,12 +9,12 @@ public class Posicion {
 		
 		public Posicion siguiente() {
 			Tablero tablero = Tablero.getInstancia();
-			return new Posicion( tablero.casilleroSiguiente(this.casillero) );
+			return new Posicion( tablero.getCasilleroSiguiente(this.casillero) );
 		}
 		
 		public Posicion anterior() {
 			Tablero tablero = Tablero.getInstancia();
-			return new Posicion (tablero.casilleroAnterior(this.casillero));
+			return new Posicion (tablero.getCasilleroAnterior(this.casillero));
 		}
 
 		public Casillero getCasillero() {
