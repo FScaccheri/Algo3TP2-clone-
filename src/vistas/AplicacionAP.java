@@ -27,10 +27,10 @@ public class AplicacionAP extends Application{
 		
 	
 		ContenedorJuego contenedorJuego = new ContenedorJuego(stage);
-		Scene escenaPrincipal = new Scene(contenedorJuego , 1000, 700);
+		Scene escenaPrincipal = new Scene(contenedorJuego , 1200, 900);
 		
 		ContenedorBienvenida contenedorBienvenida = new ContenedorBienvenida(stage, escenaPrincipal);
-		Scene escenaBienvenida =  new Scene(contenedorBienvenida, 1000, 700);	
+		Scene escenaBienvenida =  new Scene(contenedorBienvenida, 1200, 900);	
 		
 		stage.setScene(escenaBienvenida);
 		
