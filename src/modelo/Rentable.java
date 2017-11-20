@@ -9,8 +9,8 @@ public abstract class Rentable extends Adquirible implements Activable, Alquilab
 	@Override
 	public void activarEfecto(Jugador jugador) {
 		if(tienePropietario() && !esPropietario(jugador)) {
-			jugador.disminuirCapital(getAlquiler(jugador));
-			getPropietario().aumentarCapital(getAlquiler(jugador));
+			jugador.disminuirCapital(getAlquiler());
+			getPropietario().aumentarCapital(getAlquiler());
 		}
 	}
 

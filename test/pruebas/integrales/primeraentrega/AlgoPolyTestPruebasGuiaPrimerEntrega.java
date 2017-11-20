@@ -21,7 +21,7 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 
 	@Test
-	void testCaerEnQuiniPorSegundaVezAumentaSoloTreintaMilElDinero() {
+	public void testCaerEnQuiniPorSegundaVezAumentaSoloTreintaMilElDinero() {
 //		Jugador unJugador = new Jugador();
 //		Casillero unCasillero = new Casillero(Quini6.instanciaUnica());
 //		
@@ -35,7 +35,7 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 	
 	@Test
-	void testCaerEnQuiniMasDeDosVecesNoAumentaDinero() {
+	public void testCaerEnQuiniMasDeDosVecesNoAumentaDinero() {
 		
 //		Jugador unJugador = new Jugador();
 //		Casillero unCasillero = new Casillero(Quini6.instanciaUnica());
@@ -50,7 +50,7 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 	
 	@Test
-	void testUnJugadorEsPropietarioDeUnBarrioLuegoDeComprarlo() {
+	public void testUnJugadorEsPropietarioDeUnBarrioLuegoDeComprarlo() {
 		
 //		Jugador unJugador = new Jugador();
 //		Casillero unCasillero = new Casillero(CordobaNorte.instanciaUnica());
@@ -64,7 +64,7 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 	
 	@Test
-	void testUnJugadorEnLaCarcelNoPuedeMover() {
+	public void testUnJugadorEnLaCarcelNoPuedeMover() {
 		
 //		Jugador unJugador = new Jugador();
 //		Casillero casilleroCarcel = new Casillero(Carcel.instanciaUnica());
@@ -83,7 +83,7 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 	
 	@Test
-	void testUnJugadorPuedeMoverFueraDeCarcelSiPagoFianzaEnTurno2o3Preso() {
+	public void testUnJugadorPuedeMoverFueraDeCarcelSiPagoFianzaEnTurno2o3Preso() {
 		
 		//DUDOSO TEST! @FrancoRiborati
 		//IniciarTurno lo puede hacer una clase principal como AlgoPoly? @FrancoRiborati
@@ -109,7 +109,7 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 	
 	@Test
-	void testUnJugadorNoPuedePagarFianzaSiTieneFondosInsuficientes() {
+	public void testUnJugadorNoPuedePagarFianzaSiTieneFondosInsuficientes() {
 		
 //		Jugador unJugador = new Jugador();
 //		unJugador.recibirDinero(100);
@@ -139,7 +139,7 @@ public class AlgoPolyTestPruebasGuiaPrimerEntrega {
 	}
 	
 	@Test
-	void testAvanceDinamicoCon2a6Avanza2MenosQueLoLanzadoAntes() {
+	public void testAvanceDinamicoCon2a6Avanza2MenosQueLoLanzadoAntes() {
 		
 		//TO DO
 		

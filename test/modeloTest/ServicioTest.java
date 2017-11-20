@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import modelo.Jugador;
 import modelo.Servicio;
+import modelo.Tirada;
 
 public class ServicioTest {
 
@@ -65,13 +66,13 @@ public class ServicioTest {
 		
 		usuario.aumentarCapital(10000);
 		servicio.adquirir(propietario);
-		usuario.setUltimaTirada(10);
+		int resultado = Tirada.tirar();
 		
 		double capitalInicial = usuario.getCapital();
 		
 		servicio.activarEfecto(usuario);
 		
-		Assert.assertEquals( capitalInicial-100*10, usuario.getCapital(), 0 ); //100*10
+		Assert.assertEquals( capitalInicial-100*resultado, usuario.getCapital(), 0 );
 	}
 	
 	@Test
@@ -82,13 +83,13 @@ public class ServicioTest {
 		
 		usuario.aumentarCapital(10000);
 		servicio.adquirir(propietario);
-		usuario.setUltimaTirada(10);
+		int resultado = Tirada.tirar();
 		
 		double capitalInicial = propietario.getCapital();
 		
 		servicio.activarEfecto(usuario);
 		
-		Assert.assertEquals( capitalInicial+100*10, propietario.getCapital(), 0 ); //100*10
+		Assert.assertEquals( capitalInicial+100*resultado, propietario.getCapital(), 0 );
 	}
 	
 	@Test
@@ -102,13 +103,13 @@ public class ServicioTest {
 		servicio.adquirir(propietario);
 		servicio2.adquirir(propietario);
 		servicio.asociar(servicio2);
-		usuario.setUltimaTirada(10);
+		int resultado = Tirada.tirar();
 		
 		double capitalInicial = usuario.getCapital();
 		
 		servicio.activarEfecto(usuario);
 		
-		Assert.assertEquals( capitalInicial-200*10, usuario.getCapital(), 0 ); //200*10
+		Assert.assertEquals( capitalInicial-200*resultado, usuario.getCapital(), 0 );
 	}
 	
 	@Test
@@ -122,13 +123,13 @@ public class ServicioTest {
 		servicio.adquirir(propietario);
 		servicio2.adquirir(propietario);
 		servicio.asociar(servicio2);
-		usuario.setUltimaTirada(10);
+		int resultado = Tirada.tirar();
 		
 		double capitalInicial = propietario.getCapital();
 		
 		servicio.activarEfecto(usuario);
 		
-		Assert.assertEquals( capitalInicial+200*10, propietario.getCapital(), 0 ); //200*10
+		Assert.assertEquals( capitalInicial+200*resultado, propietario.getCapital(), 0 );
 	}
 	
 	@Test

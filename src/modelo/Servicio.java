@@ -24,10 +24,10 @@ public class Servicio extends Rentable {
 	}
 
 	@Override
-	public double getAlquiler( Jugador jugador ) {
+	public double getAlquiler() {
 		if ( this.estaEnCombo() )
-			return jugador.getUltimaTirada() * this.alquilerCombo;
-		return jugador.getUltimaTirada() * this.alquilerSimple;
+			return Tirada.getUltimaTirada() * this.alquilerCombo;
+		return Tirada.getUltimaTirada() * this.alquilerSimple;
 	}
 
 }

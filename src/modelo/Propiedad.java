@@ -61,7 +61,7 @@ public class Propiedad extends Rentable {
 	}
 	
 	@Override
-	public double getAlquiler(Jugador jugador) {
+	public double getAlquiler() {
 		return alquiler.getAlquiler();
 	}
 	
