@@ -350,4 +350,48 @@ public class PropiedadTest {
 
 		assertEquals(capitalInicial + (5000+2000+2000+6000)*0.75, jugador.getCapital(), 0);
 	}
+
+	@Test
+	public void AlTratarDeConstruirEnPropiedadesDependientesConDistintosPropietariosLanzaConstruccionImposible() {
+		Propiedad propiedad1 = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad2 = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Jugador jugador1 = new Jugador();
+		Jugador jugador2 = new Jugador();
+		
+		propiedad1.setDependencia(propiedad2);
+		propiedad2.setDependencia(propiedad1);
+		
+		propiedad1.adquirir(jugador1);
+		propiedad2.adquirir(jugador2);
+		
+		try {
+			propiedad1.construirCasa();
+			fail();
+		} catch (ConstruccionImposible e) {
+			assertTrue(true);
+		}
+	}
+
+	@Test
+	public void AlTratarDeConstruirUnHotelSinQueEstenCompletasLasCasaEnPropiedadesDependientesLanzaConstruccionImposible() {
+		Propiedad propiedad1 = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad2 = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Jugador jugador = new Jugador();
+		
+		propiedad1.setDependencia(propiedad2);
+		propiedad2.setDependencia(propiedad1);
+		
+		propiedad1.adquirir(jugador);
+		propiedad2.adquirir(jugador);
+		
+		propiedad1.construirCasa();
+		propiedad1.construirCasa();
+		
+		try {
+			propiedad1.construirHotel();
+			fail();
+		} catch (ConstruccionImposible e) {
+			assertTrue(true);
+		}
+	}	
 }

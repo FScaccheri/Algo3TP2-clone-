@@ -6,6 +6,7 @@ public class Propiedad extends Rentable {
 	
 	private Alquiler alquiler;
 	private Terreno terreno;
+	private Propiedad propDependiente;
 	private double costoCasa;
 	private double costoHotel;
 	
@@ -29,8 +30,9 @@ public class Propiedad extends Rentable {
 	
 	
 	public void construirCasa() {
-		if(!terreno.construccionDeCasaPosible())
+		if(!puedeCostruirCasa())
 			throw new ConstruccionImposible();
+		
 		Adquirible casa = new Adquirible(costoCasa);
 		casa.adquirir(getPropietario());
 		terreno.agregarCasa(casa);
@@ -38,8 +40,9 @@ public class Propiedad extends Rentable {
 	}
 	
 	public void construirHotel() {
-		if(!terreno.construccionDeHotelPosible())
+		if(!puedeCostruirHotel())
 			throw new ConstruccionImposible();
+		
 		Adquirible hotel = new Adquirible(costoHotel);
 		hotel.adquirir(getPropietario());
 		terreno.agregarHotel(hotel);
@@ -51,6 +54,10 @@ public class Propiedad extends Rentable {
 		super.vender();
 		for(Adquirible construccion : terreno.getAdquiribles())
 			construccion.vender();
+	}
+	
+	public void setDependencia(Propiedad propiedad) {
+		propDependiente = propiedad;
 	}
 	
 	@Override
@@ -68,5 +75,17 @@ public class Propiedad extends Rentable {
 	
 	public boolean tieneHotel() {
 		return terreno.tieneHoteles();
+	}
+
+	private boolean puedeCostruirCasa() {
+		return terreno.construccionDeCasaPosible() && (!esDependiente() || esPropietario(propDependiente.getPropietario()));
+	}
+	
+	private boolean puedeCostruirHotel() {
+		return terreno.construccionDeHotelPosible() && (!esDependiente() || (getCantidadDeCasas() == propDependiente.getCantidadDeCasas()));
+	}
+	
+	private boolean esDependiente() {
+		return propDependiente != null;
 	}	
 }
