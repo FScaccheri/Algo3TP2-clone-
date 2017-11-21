@@ -165,68 +165,68 @@ public class AvanceDinamicoTest {
 		assertEquals(unJugador.getPosicion(), Tablero.getInstancia().posicion(casillero1));
 	}
 	
-//	@Test
-//	public void testAlCaerUnJugadorEnAvanceDinamicoConTirada11Avanza11MenosLaSumaLaCantidadDeDeSusTerrenosCasasYHoteles() {
-//		
-//		Jugador unJugador = new Jugador();
-//		AvanceDinamico aDinamico = new AvanceDinamico();
-//		Propiedad propiedad1 = new Propiedad(100,10);
-//		Propiedad propiedad2 = new Propiedad(100,10);
-//		Propiedad propiedad3 = new Propiedad(100,10);
-//		Propiedad propiedad4 = new Propiedad(100,10);
-//		Propiedad propiedad5 = new Propiedad(100,10);
-//		
-//		propiedad1.adquirir(unJugador);
-//		propiedad2.adquirir(unJugador);
-//		propiedad3.adquirir(unJugador);
-//		propiedad4.adquirir(unJugador);
-//		propiedad5.adquirir(unJugador);
-//		propiedad1.agregarCasa();
-//		propiedad2.agregarCasa();
-//		propiedad2.agregarHotel();
-//		
-//		unJugador.setUltimaTirada(11);
-//		unJugador.moverAPosicion(0);
-//		
-//		aDinamico.activarEfecto(unJugador);
-//		
-//		assertTrue(unJugador.getPosicion() == 0+ 11-2-2-1-1-1);
-//	}
-//	
-//	@Test
-//	public void testAlCaerUnJugadorEnAvanceDinamicoConTirada12Avanza11MenosLaSumaLaCantidadDeDeSusTerrenosCasasYHoteles() {
-//		
-//		Jugador unJugador = new Jugador();
-//		AvanceDinamico aDinamico = new AvanceDinamico();
-//		Propiedad propiedad1 = new Propiedad(100,10);
-//		Propiedad propiedad2 = new Propiedad(100,10);
-//		Propiedad propiedad3 = new Propiedad(100,10);
-//		Propiedad propiedad4 = new Propiedad(100,10);
-//		Propiedad propiedad5 = new Propiedad(100,10);
-//		Propiedad propiedad6 = new Propiedad(100,10);
-//		Propiedad propiedad7 = new Propiedad(100,10);
-//		
-//		propiedad1.adquirir(unJugador);
-//		propiedad2.adquirir(unJugador);
-//		propiedad3.adquirir(unJugador);
-//		propiedad4.adquirir(unJugador);
-//		propiedad5.adquirir(unJugador);
-//		propiedad6.adquirir(unJugador);
-//		propiedad7.adquirir(unJugador);
-//		
-//		propiedad1.agregarCasa();
-//		propiedad2.agregarCasa();
-//		propiedad2.agregarHotel();
-//		propiedad3.agregarCasa();
-//		propiedad4.agregarCasa();
-//		propiedad5.agregarCasa();
-//		propiedad5.agregarHotel();
-//		
-//		unJugador.setUltimaTirada(11);
-//		unJugador.moverAPosicion(0);
-//		
-//		aDinamico.activarEfecto(unJugador);
-//		
-//		assertTrue(unJugador.getPosicion() == 0+ 12-2-2-2-2-2-1-1);
-//	}
+	@Test
+	public void testAlCaerUnJugadorEnAvanceDinamicoConTirada11Avanza11MenosLaSumaLaCantidadDeDeSusTerrenosCasasYHoteles() {
+		
+		Jugador unJugador = new Jugador();
+		AvanceDinamico aDinamico = new AvanceDinamico();
+		Propiedad propiedad1 = new Propiedad(100,10,20,10);
+		Propiedad propiedad2 = new Propiedad(100,10,20,10,10,10,10);
+		Propiedad propiedad3 = new Propiedad(100,10,20,10);
+		Propiedad propiedad4 = new Propiedad(100,10,20,10);
+		Propiedad propiedad5 = new Propiedad(100,10,20,10);
+		
+		propiedad1.adquirir(unJugador);
+		propiedad2.adquirir(unJugador);
+		propiedad3.adquirir(unJugador);
+		propiedad4.adquirir(unJugador);
+		propiedad5.adquirir(unJugador);
+		propiedad1.construirCasa();
+		propiedad2.construirCasa();
+		propiedad2.construirCasa();
+		propiedad2.construirHotel();
+		
+		unJugador.setUltimaTirada(11);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
+		
+		aDinamico.activarEfecto(unJugador);
+		
+		//11-7 = 4
+		assertEquals(Tablero.getInstancia().posicion(casillero5),unJugador.getPosicion());
+	}
+	
+	@Test
+	public void testAlCaerUnJugadorEnAvanceDinamicoConTirada12Avanza12MenosLaSumaLaCantidadDeDeSusTerrenosCasasYHoteles() {
+		
+		Jugador unJugador = new Jugador();
+		AvanceDinamico aDinamico = new AvanceDinamico();
+		Propiedad propiedad1 = new Propiedad(100,10,20,10);
+		Propiedad propiedad2 = new Propiedad(100,10,20,10,10,10,10);
+		Propiedad propiedad3 = new Propiedad(100,10,20,10);
+		Propiedad propiedad4 = new Propiedad(100,10,20,10);
+		Propiedad propiedad5 = new Propiedad(100,10,20,10);
+		Propiedad propiedad6 = new Propiedad(100,10,20,10);
+		Propiedad propiedad7 = new Propiedad(100,10,20,10);
+		unJugador.aumentarCapital(10000);
+		
+		propiedad1.adquirir(unJugador);
+		propiedad2.adquirir(unJugador);
+		propiedad3.adquirir(unJugador);
+		propiedad4.adquirir(unJugador);
+		propiedad5.adquirir(unJugador);
+		propiedad6.adquirir(unJugador);
+		propiedad7.adquirir(unJugador);
+		propiedad1.construirCasa();
+		propiedad2.construirCasa();
+		propiedad2.construirCasa();
+		propiedad3.construirCasa();
+		
+		unJugador.setUltimaTirada(12);
+		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
+		
+		aDinamico.activarEfecto(unJugador);
+		
+		//12-2-3-2-1-1-1-1 = 1
+		assertEquals(Tablero.getInstancia().posicion(casillero2), unJugador.getPosicion());
+	}
 }

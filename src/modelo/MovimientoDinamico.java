@@ -15,7 +15,7 @@ public class MovimientoDinamico {
 		}
 		
 		if ( 11 <= ultimaTirada && ultimaTirada <= 12) {
-//			return (jugador.cantidadDePropiedades()+ jugador.getCantidadDeCasas() + jugador.getCantidadDeHoteles()));
+			porMover = (ultimaTirada - (jugador.cantidadDePropiedades()+ jugador.getCantidadDeCasas() + jugador.getCantidadDeHoteles()));
 		}
 		
 		return porMover;
