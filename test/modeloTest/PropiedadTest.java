@@ -423,4 +423,25 @@ public class PropiedadTest {
 
 		assertEquals(propiedad.getCantidadDeHoteles(), 0);
 	}
+
+	@Test
+	public void CuandoUnJugadorVendeUnaPropiedadConCasasYOtroLaCompraCobraElAlquilerCorrecto() {
+		Propiedad propiedad = new Propiedad(0, 200, 0, 0, 0, 0, 0);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		propiedad.adquirir(propietario);
+		propiedad.construirCasa();
+		propiedad.construirCasa();
+		
+		propiedad.vender();
+
+		propiedad.adquirir(propietario);
+		
+		double capitalInicial = inquilino.getCapital();
+		
+		propiedad.activarEfecto(inquilino);
+		
+		assertEquals(capitalInicial-200, inquilino.getCapital(), 0);
+	}
 }

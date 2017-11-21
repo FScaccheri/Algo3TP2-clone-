@@ -23,4 +23,15 @@ public class AlquilerTest {
 		double alquiler = alquileres.getAlquiler();
 		assertEquals(200, alquiler, 0);
 	}
+
+	@Test
+	public void AlReiniciarElAlquilerGetAlquilerDevuelveElPrimerSiguiente() {
+		Alquiler alquileres = new Alquiler(200, 0, 0, 0);
+		alquileres.aumentarAlquiler();
+		alquileres.aumentarAlquiler();
+		alquileres.aumentarAlquiler();
+		alquileres.reiniciarAlquiler();
+		double alquiler = alquileres.getAlquiler();
+		assertEquals(200, alquiler, 0);
+	}
 }

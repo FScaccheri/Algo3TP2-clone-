@@ -26,4 +26,8 @@ public class Alquiler {
 		alquilerActual++;
 	}
 
+	public void reiniciarAlquiler() {
+		alquilerActual = 0;
+	}
+
 }
