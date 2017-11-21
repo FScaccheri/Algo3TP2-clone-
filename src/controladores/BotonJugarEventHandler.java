@@ -10,9 +10,9 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 	private Stage stage;
 	private Scene scene;
 
-	public BotonJugarEventHandler(Stage newStage, Scene escenaPrincipal) {
+	public BotonJugarEventHandler(Stage stage, Scene escenaPrincipal) {
 		
-		this.stage = newStage;
+		this.stage = stage;
 		this.scene = escenaPrincipal;
 	}
 

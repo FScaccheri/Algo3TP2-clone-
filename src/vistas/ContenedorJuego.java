@@ -41,11 +41,14 @@ public class ContenedorJuego extends BorderPane{
 		Button botonVender = new Button("Vender propiedad");
 		Button botonPagarFianza = new Button("Pagar fianza");
 		Button botonTerminar = new Button ("Terminar turno");
+		
+		//Boton para testeo de sonidos
+		BotonGanar ganar = new BotonGanar("Ganar");
 				
-		contenedorBotones.setSpacing(15);
+		contenedorBotones.setSpacing(20);
 		contenedorBotones.setPadding(new Insets(20));
 				
-		contenedorBotones.getChildren().addAll(botonTirarDados, botonComprar, botonVender, botonPagarFianza, botonTerminar);
+		contenedorBotones.getChildren().addAll(botonTirarDados, botonComprar, botonVender, botonPagarFianza, botonTerminar, ganar);
 		
 		this.setRight(contenedorBotones);
 		
