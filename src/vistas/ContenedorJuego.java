@@ -2,7 +2,6 @@ package vistas;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,6 +15,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -32,8 +32,7 @@ public class ContenedorJuego extends BorderPane{
 
 	private void setBotonera() {
 		
-		//Contenedor de botones
-		VBox contenedorBotones = new VBox();
+		
 		
 		//Seteo de botones
 		Button botonTirarDados = new Button("Tirar dados");
@@ -44,7 +43,9 @@ public class ContenedorJuego extends BorderPane{
 		
 		//Boton para testeo de sonidos
 		BotonGanar ganar = new BotonGanar("Ganar");
-				
+		
+		//Contenedor de botones
+		VBox contenedorBotones = new VBox();
 		contenedorBotones.setSpacing(20);
 		contenedorBotones.setPadding(new Insets(20));
 				
@@ -55,19 +56,23 @@ public class ContenedorJuego extends BorderPane{
 	}
 
 	private void setTableroDeJuego() {
+		
+				
+		// Seteo de imagen de tablero
+				
+		Image fondo = new Image("file:src/vistas/imagenes/bg2.jpg");
+		BackgroundImage imagenFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+		
+		//Seteo del Canvas
+		Canvas canvas = new Canvas(700,700);
+		canvas.getGraphicsContext2D().setFill(Color.BISQUE);
+		canvas.getGraphicsContext2D().fillRect(0, 0, 700, 700);
+		
 		//Contenedor (VBox) de la pantalla de tablero
 		VBox contenedorTablero = new VBox();
 		contenedorTablero.setAlignment(Pos.CENTER);
-				
-		// Seteo de imagen de tablero
-		Image tablero = new Image("file:src/vistas/imagenes/monopoly board.jpg", 700, 700, false, false);
-		ImageView imagenTablero = new ImageView(tablero);
-		contenedorTablero.getChildren().add(imagenTablero);
-				
-		Image fondo = new Image("file:src/vistas/imagenes/bg4.jpg");
-		BackgroundImage imagenFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		contenedorTablero.setBackground(new Background(imagenFondo));
-		
+		contenedorTablero.getChildren().add(canvas);
 
 		this.setCenter(contenedorTablero);
 		
@@ -75,8 +80,7 @@ public class ContenedorJuego extends BorderPane{
 
 	private void setBordeJugadores() {
 		
-		//Contenedor de jugadores (piezas)
-		VBox contenedorImagenes = new VBox();
+		
 		//Fuente de etiquetas
 		Font fuente = Font.font("", FontWeight.BOLD, 20);
 		
@@ -103,6 +107,8 @@ public class ContenedorJuego extends BorderPane{
 		vistaPieza3.setTranslateY(400);
 		etiqueta3.setTranslateY(400);
 		
+		//Contenedor de jugadores (piezas)
+		VBox contenedorImagenes = new VBox();
 		contenedorImagenes.setAlignment(Pos.TOP_CENTER);
 		contenedorImagenes.setSpacing(5);
 		contenedorImagenes.setPadding(new Insets(20));

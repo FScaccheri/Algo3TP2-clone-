@@ -1,6 +1,7 @@
 package controladores;
 
 import java.io.File;
+import java.net.URL;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,11 +11,12 @@ import javafx.scene.media.AudioClip;
 public class BotonGanarEventHandler implements EventHandler<ActionEvent>{
 
 	private AudioClip audioClip;
-
+	
+	final URL resource = getClass().getResource("sonidos/ganador.mp3");
+	
 	public BotonGanarEventHandler() {
 		
-		//audioClip tiene un filepath local, hay que refactorizar. @FScaccheri
-		this.audioClip = new AudioClip(new File("C:\\Users\\Franco\\git\\Algo3TP2\\Algo3TP2\\src\\controladores\\sonidos\\ganador.mp3").toURI().toString());
+		this.audioClip = new AudioClip(resource.toString());
 		
 		this.audioClip.setVolume(0.1);
 	}
