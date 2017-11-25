@@ -19,7 +19,7 @@ public class CajaJugadores extends VBox{
 	public CajaJugadores(int cantidadJugadores) {
 
 		//Fuente de etiquetas
-		this.fuente = Font.font("", FontWeight.BOLD, tamañoFuente(cantidadJugadores));
+		this.fuente = Font.font("", FontWeight.BOLD, tamanioFuente(cantidadJugadores));
 		//Distancia en pixeles entre iconos y Labels de jugadores
 		this.distancia = 600/cantidadJugadores;
 		//Scaling en pixeles de los iconos de los jugadores
@@ -63,7 +63,7 @@ public class CajaJugadores extends VBox{
 		
 	}
 
-	private int tamañoFuente(int cantidadJugadores) {
+	private int tamanioFuente(int cantidadJugadores) {
 		
 		return 20;
 	}

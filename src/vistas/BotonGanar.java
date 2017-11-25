@@ -5,9 +5,9 @@ import javafx.scene.control.Button;
 
 public class BotonGanar extends Button{
 
-	public BotonGanar(String nombre) {
+	public BotonGanar() {
 
-		this.setText(nombre);
+		this.setText("Ganar");
 		
 		BotonGanarEventHandler botonGanarEventHandler = new BotonGanarEventHandler();
 		this.setOnAction(botonGanarEventHandler);

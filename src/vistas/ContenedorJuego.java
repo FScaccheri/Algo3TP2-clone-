@@ -37,12 +37,14 @@ public class ContenedorJuego extends BorderPane{
 	private void setBotonera() {
 		
 		//Seteo de botones
-		Button botonTirarDados = new Button("Tirar dados");
+		BotonTirarDados botonTirarDados = new BotonTirarDados();
 		Button botonComprar = new Button("Comprar propiedad");
 		Button botonVender = new Button("Vender propiedad");
 		Button botonPagarFianza = new Button("Pagar fianza");
 		Button botonTerminar = new Button ("Terminar turno");
-		BotonGanar ganar = new BotonGanar("Ganar");
+		BotonGanar ganar = new BotonGanar();
+		
+		botonTerminar.setDisable(true);
 		
 		//Contenedor de botones
 		this.contenedorBotones = new VBox();

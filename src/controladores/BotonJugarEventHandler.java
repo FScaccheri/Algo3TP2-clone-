@@ -21,7 +21,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 		
 		this.stage.setScene(scene);
 		
-		this.stage.setFullScreen(true);
+		//this.stage.setFullScreen(true);
 		
 	}
 
