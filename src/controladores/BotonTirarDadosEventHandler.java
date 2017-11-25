@@ -24,6 +24,8 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		vistaJugador.avanzar(tirada);
 		
 		
+		
+		
 	}
 
 }

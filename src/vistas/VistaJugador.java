@@ -29,10 +29,10 @@ public class VistaJugador {
 		this.posX = 730;
 		this.posY = 680;
 		
-		this.posicionEnTablero = 1;
+		this.posicionEnTablero = 0;
 		
-		this.posX = tablero.getCasillero(0).getPosX() + 90;
-		this.posY = tablero.getCasillero(0).getPosY() + 40;
+		posX = tablero.getCasillero(posicionEnTablero).getPosX() + 90;
+		posY = tablero.getCasillero(posicionEnTablero).getPosY() + 40;
 	}
 
 	public void avanzar(int tirada) {
@@ -40,14 +40,14 @@ public class VistaJugador {
 		gc.setFill(Color.WHITE);
 		gc.fillRect(posX, posY + numero*17, radio, radio);
 		
-		int proximaPosicion = posicionEnTablero + tirada;
+		posicionEnTablero += tirada;
 		
-		if (proximaPosicion > 20)
+		if (posicionEnTablero >= 20)
 			
-			proximaPosicion -= 20;
+			posicionEnTablero -= 20;
 			
-		posX = tablero.getCasillero(proximaPosicion).getPosX() + 90;
-		posY = tablero.getCasillero(proximaPosicion).getPosY() + 40;
+		posX = tablero.getCasillero(posicionEnTablero).getPosX() + 90;
+		posY = tablero.getCasillero(posicionEnTablero).getPosY() + 40;
 		
 		
 		dibujar();

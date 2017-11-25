@@ -68,8 +68,6 @@ public class VistaCasillero {
 		
 	}
 
-
-
 	public int getPosX() {
 		
 		return posX;
