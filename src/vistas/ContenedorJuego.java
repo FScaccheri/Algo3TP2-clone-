@@ -1,12 +1,12 @@
 package vistas;
 
+import java.util.ArrayList;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -15,19 +15,19 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class ContenedorJuego extends BorderPane{
 	
 	private VBox contenedorBotones;
-	private CanvasTablero canvas;
+	private CanvasTablero canvasTablero;
 	private CajaJugadores contenedorJugadores;
+	private VistaJugador vistaJugador1;
+	private VistaJugador vistaJugador2;
+	private VistaJugador vistaJugador3;
 
 	public ContenedorJuego(Stage stage, int cantidadJugadores) {
-		
+	
 		this.setBordeJugadores(cantidadJugadores);
 		this.setTableroDeJuego();
 		this.setBotonera();
@@ -37,7 +37,7 @@ public class ContenedorJuego extends BorderPane{
 	private void setBotonera() {
 		
 		//Seteo de botones
-		BotonTirarDados botonTirarDados = new BotonTirarDados();
+		BotonTirarDados botonTirarDados = new BotonTirarDados(vistaJugador1);
 		Button botonComprar = new Button("Comprar propiedad");
 		Button botonVender = new Button("Vender propiedad");
 		Button botonPagarFianza = new Button("Pagar fianza");
@@ -66,15 +66,23 @@ public class ContenedorJuego extends BorderPane{
 		BackgroundImage imagenFondo = new BackgroundImage(fondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
 		
 		//Seteo del Canvas
-		this.canvas = new CanvasTablero(800,800);
-		canvas.pintarTablero();
+		this.canvasTablero = new CanvasTablero(800,800);
+		GraphicsContext gc = canvasTablero.getGraphicsContext2D();
+		VistaTablero vistaTablero = canvasTablero.getVistaTablero();
+		vistaJugador1 = new VistaJugador(gc, vistaTablero, Color.RED, 1);
+		vistaJugador2 = new VistaJugador(gc, vistaTablero, Color.BLUE, 2);
+		vistaJugador3 = new VistaJugador(gc,vistaTablero, Color.GREEN, 3);
+		
+		vistaJugador1.dibujar();
+		vistaJugador2.dibujar();
+		vistaJugador3.dibujar();
 		
 		
 		//Contenedor (VBox) de la pantalla de tablero
 		VBox contenedorTablero = new VBox();
 		contenedorTablero.setAlignment(Pos.CENTER);
 		contenedorTablero.setBackground(new Background(imagenFondo));
-		contenedorTablero.getChildren().add(canvas);
+		contenedorTablero.getChildren().add(canvasTablero);
 
 		this.setCenter(contenedorTablero);
 		
