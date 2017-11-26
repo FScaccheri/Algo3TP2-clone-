@@ -1,7 +1,6 @@
 package controladores;
 
 import javafx.event.ActionEvent;
-import modelo.Jugador;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -13,7 +12,7 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 
 	private GraphicsContext gc;
 	private Button botonComprar;
-	private Jugador jugador;
+	private VistaJugador vistaJugador;
 	private ContenedorJuego contenedorJuego;
 
 	public BotonComprarEventHandler(ContenedorJuego contenedorJuego, GraphicsContext gc, Button botonComprar) {
@@ -26,11 +25,11 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 		
-		jugador = contenedorJuego.getJugadorActual();
+		vistaJugador = contenedorJuego.getVistaJugadorActual();
 		
-		int posX = jugador.getVista().getPosX();
-		int posY = jugador.getVista().getPosY();
-		Paint color = jugador.getVista().getColor();
+		int posX = vistaJugador.getPosX();
+		int posY = vistaJugador.getPosY();
+		Paint color = vistaJugador.getColor();
 		
 		gc.setFill(color);
 		gc.fillRect(posX + 5, posY + 5, 110, 25);

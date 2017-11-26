@@ -1,7 +1,6 @@
 package vistas;
 
 import java.util.LinkedList;
-import modelo.Jugador;
 import controladores.BotonComprarEventHandler;
 import controladores.BotonTerminarEventHandler;
 import controladores.BotonTirarDadosEventHandler;
@@ -25,19 +24,19 @@ public class ContenedorJuego extends BorderPane{
 	private VBox contenedorBotones;
 	private CanvasTablero canvasTablero;
 	private CajaJugadores contenedorJugadores;
-	private LinkedList<Jugador> jugadores;
-	private static Jugador jugadorActual;
+	private LinkedList<VistaJugador> jugadores;
+	private static VistaJugador vistaJugadorActual;
 
 	public ContenedorJuego(Stage stage, int cantidadJugadores) {
 	
-		this.jugadores = new LinkedList<Jugador>();
+		this.jugadores = new LinkedList<VistaJugador>();
 		this.setBordeJugadores(cantidadJugadores);
 		this.setTableroDeJuego();
-		this.setBotonera(jugadorActual);
+		this.setBotonera(vistaJugadorActual);
 
 	}
 
-	private void setBotonera(Jugador jugadorActual) {
+	private void setBotonera(VistaJugador vistaJugadorActual) {
 		
 		//Seteo de botones
 		BotonTirarDados botonTirarDados = new BotonTirarDados();
@@ -56,7 +55,7 @@ public class ContenedorJuego extends BorderPane{
 		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, jugadores, botonTirarDados, botonTerminar);
 		botonTerminar.setOnAction(botonTerminarEventHandler);
 		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, jugadores, jugadorActual, botonTirarDados, botonComprar, botonTerminar);
+		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, jugadores, vistaJugadorActual, botonTirarDados, botonComprar, botonTerminar);
 		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
 		
 		//Contenedor de botones
@@ -82,15 +81,15 @@ public class ContenedorJuego extends BorderPane{
 		GraphicsContext gc = canvasTablero.getGraphicsContext2D();
 		VistaTablero vistaTablero = canvasTablero.getVistaTablero();
 		
-		jugadores.add(new Jugador(new VistaJugador(gc, vistaTablero, Color.RED, 1)));
-		jugadores.add(new Jugador(new VistaJugador(gc, vistaTablero, Color.BLUE, 2)));
-		jugadores.add(new Jugador(new VistaJugador(gc,vistaTablero, Color.GREEN, 3)));
+		jugadores.add(new VistaJugador(gc, vistaTablero, Color.RED, 1));
+		jugadores.add(new VistaJugador(gc, vistaTablero, Color.BLUE, 2));
+		jugadores.add(new VistaJugador(gc,vistaTablero, Color.GREEN, 3));
 
-		jugadorActual = jugadores.get(0);
+		vistaJugadorActual = jugadores.get(0);
 		
-		jugadores.get(0).getVista().dibujar();
-		jugadores.get(1).getVista().dibujar();
-		jugadores.get(2).getVista().dibujar();
+		jugadores.get(0).dibujar();
+		jugadores.get(1).dibujar();
+		jugadores.get(2).dibujar();
 		
 		
 		
@@ -118,15 +117,15 @@ public class ContenedorJuego extends BorderPane{
 		
 	}
 
-	public void setJugadorActual(Jugador jugador) {
+	public void setVistaJugadorActual(VistaJugador vistaJugador) {
 
-		jugadorActual = jugador;
+		vistaJugadorActual = vistaJugador;
 		
 	}
 
-	public Jugador getJugadorActual() {
+	public VistaJugador getVistaJugadorActual() {
 
-		return jugadorActual;
+		return vistaJugadorActual;
 	}
 	
 }

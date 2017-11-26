@@ -1,7 +1,6 @@
 package controladores;
 
 import java.util.LinkedList;
-import modelo.Jugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -15,10 +14,10 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	private Button botonComprar;
 	private Button botonTerminar;
 	private boolean huboDobles;
-	private Jugador jugador;
+	private VistaJugador jugador;
 	private ContenedorJuego contenedorJuego;
 	
-	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, LinkedList<Jugador> jugadores, Jugador vistaJugadorActual, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
+	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, LinkedList<VistaJugador> jugadores, VistaJugador vistaJugadorActual, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
 
 		this.contenedorJuego = contenedorJuego;
 		this.jugador = vistaJugadorActual;
@@ -30,7 +29,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 
-		jugador = contenedorJuego.getJugadorActual();
+		jugador = contenedorJuego.getVistaJugadorActual();
 		
 		int tirada = Tirada.tirar();
 		
@@ -44,7 +43,6 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		}
 		
 		jugador.avanzar(tirada);
-		jugador.getVista().avanzar(tirada);
 		
 		
 		if(!huboDobles) {
