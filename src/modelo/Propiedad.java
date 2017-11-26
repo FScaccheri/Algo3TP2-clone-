@@ -6,7 +6,6 @@ public class Propiedad extends Rentable {
 	
 	private Alquiler alquiler;
 	private Terreno terreno;
-	private Propiedad propDependiente;
 	private double costoCasa;
 	private double costoHotel;
 	
@@ -57,11 +56,7 @@ public class Propiedad extends Rentable {
 		terreno.demoler();
 		alquiler.reiniciarAlquiler();
 	}
-	
-	public void setDependencia(Propiedad propiedad) {
-		propDependiente = propiedad;
-	}
-	
+		
 	@Override
 	public double getAlquiler() {
 		return alquiler.getAlquiler();
@@ -80,14 +75,10 @@ public class Propiedad extends Rentable {
 	}
 
 	private boolean puedeCostruirCasa() {
-		return terreno.construccionDeCasaPosible() && (!esDependiente() || esPropietario(propDependiente.getPropietario()));
+		return terreno.construccionDeCasaPosible() && (!estaAsociado() || esPropietario(getRentableAsociado().getPropietario()));
 	}
 	
 	private boolean puedeCostruirHotel() {
-		return terreno.construccionDeHotelPosible() && (!esDependiente() || (getCantidadDeCasas() == propDependiente.getCantidadDeCasas()));
+		return terreno.construccionDeHotelPosible() && (!estaAsociado() || (getCantidadDeCasas() == ((Propiedad) getRentableAsociado()).getCantidadDeCasas()));
 	}
-	
-	private boolean esDependiente() {
-		return propDependiente != null;
-	}	
 }

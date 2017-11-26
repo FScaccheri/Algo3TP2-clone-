@@ -2,7 +2,6 @@ package modelo;
 
 public class Servicio extends Rentable {
 
-	private Servicio asociado;
 	private double alquilerSimple;
 	private double alquilerCombo;
 
@@ -12,22 +11,11 @@ public class Servicio extends Rentable {
 		this.alquilerCombo = alquilerCombo;
 	}
 
-	public void asociar( Servicio socio ) {
-		if ( !this.estaEnCombo() ) {
-			this.asociado = socio;
-			socio.asociar(this);
-		}
-	}
-
-	private boolean estaEnCombo() {
-		return ( this.asociado != null && (this.getPropietario() == this.asociado.getPropietario() ));
-	}
-
 	@Override
 	public double getAlquiler() {
-		if ( this.estaEnCombo() )
+		if ( this.estaAsociado() && esPropietario(getRentableAsociado().getPropietario()))
 			return Tirada.getUltimaTirada() * this.alquilerCombo;
 		return Tirada.getUltimaTirada() * this.alquilerSimple;
 	}
-
+	
 }
