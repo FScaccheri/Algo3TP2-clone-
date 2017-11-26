@@ -35,10 +35,8 @@ public class VistaTablero {
 		Servicio TRENES = new Servicio(38000, 450, 800);
 		
 		EDESUR.asociar(AYSA);
-		AYSA.asociar(EDESUR);
 		SUBTE.asociar(TRENES);
-		TRENES.asociar(SUBTE);
-
+		
 		casilleros.add(new VistaCasillero("SALIDA", 640, 640, gc));						//1
 		casilleros.add(new VistaCasillero("QUINI 6", 520, 640, gc));					//2
 		casilleros.add(new VistaCasillero("BS AS", "SUR", BsAsSur , 400, 640, gc));		//3

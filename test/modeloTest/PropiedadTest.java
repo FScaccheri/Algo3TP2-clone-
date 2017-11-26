@@ -358,8 +358,7 @@ public class PropiedadTest {
 		Jugador jugador1 = new Jugador();
 		Jugador jugador2 = new Jugador();
 		
-		propiedad1.setDependencia(propiedad2);
-		propiedad2.setDependencia(propiedad1);
+		propiedad1.asociar(propiedad2);
 		
 		propiedad1.adquirir(jugador1);
 		propiedad2.adquirir(jugador2);
@@ -378,8 +377,7 @@ public class PropiedadTest {
 		Propiedad propiedad2 = new Propiedad(0, 0, 0, 0, 0, 0, 0);
 		Jugador jugador = new Jugador();
 		
-		propiedad1.setDependencia(propiedad2);
-		propiedad2.setDependencia(propiedad1);
+		propiedad1.asociar(propiedad2);
 		
 		propiedad1.adquirir(jugador);
 		propiedad2.adquirir(jugador);

@@ -93,18 +93,18 @@ public class ServicioTest {
 	}
 	
 	@Test
-	public void testServicioCuyoPropietarioEsDuenioDeSuSocioCobraAlquilerComboMultiplicadoPorUlimaTiradaDeQuienCae() {
+	public void testServicioCuyoPropietarioEsDuenioDelServicioAsociadoCobraAlquilerComboMultiplicadoPorUlimaTiradaDeQuienCae() {
 		Jugador propietario = new Jugador();
 		Jugador usuario = new Jugador();
 		Servicio servicio = new Servicio(0, 100, 200); //100 alquiler simple, 200 alquiler en combo
 		Servicio servicio2 = new Servicio(0, 100, 200);
 		
-		usuario.aumentarCapital(10000);
+		servicio.asociar(servicio2);
+		
 		servicio.adquirir(propietario);
 		servicio2.adquirir(propietario);
-		servicio.asociar(servicio2);
-		int resultado = Tirada.tirar();
 		
+		int resultado = Tirada.tirar();
 		double capitalInicial = usuario.getCapital();
 		
 		servicio.activarEfecto(usuario);
@@ -113,18 +113,18 @@ public class ServicioTest {
 	}
 	
 	@Test
-	public void testServicioCuyoPropietarioEsDuenioDeSuSocioPagaAlquilerComboMultiplicadoPorUlimaTiradaDeQuienCae() {
+	public void testServicioCuyoPropietarioEsDuenioSelSerivicioAsociadoPagaAlquilerComboMultiplicadoPorUlimaTiradaDeQuienCae() {
 		Jugador propietario = new Jugador();
 		Jugador usuario = new Jugador();
 		Servicio servicio = new Servicio(0, 100, 200); //100 alquiler simple, 200 alquiler en combo
 		Servicio servicio2 = new Servicio(0, 100, 200);
 		
-		usuario.aumentarCapital(10000);
+		servicio.asociar(servicio2);
+		
 		servicio.adquirir(propietario);
 		servicio2.adquirir(propietario);
-		servicio.asociar(servicio2);
-		int resultado = Tirada.tirar();
 		
+		int resultado = Tirada.tirar();
 		double capitalInicial = propietario.getCapital();
 		
 		servicio.activarEfecto(usuario);
@@ -137,14 +137,35 @@ public class ServicioTest {
 		Jugador propietario = new Jugador();
 		Servicio servicio = new Servicio(0,100, 0);
 		
-		propietario.aumentarCapital(10000);
 		servicio.adquirir(propietario);
-		propietario.setUltimaTirada(10);
-		
+
+		Tirada.tirar();		
 		double capitalInicial = propietario.getCapital();
 		
 		servicio.activarEfecto(propietario);
 		
 		Assert.assertEquals( capitalInicial, propietario.getCapital(), 0 ); 
 	}
+	
+	@Test
+	public void ServiciosAsociadosConDueniosDistintosCobranElAlquilerCorrecto() {
+		Servicio servicio1 = new Servicio(0, 101, 201);
+		Servicio servicio2 = new Servicio(0, 102, 202);
+		Jugador propietario1 = new Jugador();
+		Jugador propietario2 = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		servicio1.asociar(servicio2);
+		
+		servicio1.adquirir(propietario1);
+		servicio2.adquirir(propietario2);
+
+		int resultado = Tirada.tirar();
+		double capitalInicial = inquilino.getCapital();
+		
+		servicio1.activarEfecto(inquilino);
+		
+		Assert.assertEquals(capitalInicial-101*resultado , inquilino.getCapital(), 0 ); 
+	}
+
 }
