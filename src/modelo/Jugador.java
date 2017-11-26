@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.LinkedList;
+import vistas.VistaJugador;
 
 public class Jugador {
 	private static final int CAPITALINICIAL = 100000;
@@ -9,10 +10,21 @@ public class Jugador {
 	Posicion posicion = null;
 	Movimiento movimiento;
 	ColeccionDeAdquiribles adquiridos;
+	VistaJugador vistaAsociada;
 	
 	public Jugador() {
 		movimiento = new MovimientoBasico();
 		adquiridos = new ColeccionDeAdquiribles();
+	}
+	
+	public Jugador(VistaJugador vistaPorAsociar) {
+		movimiento = new MovimientoBasico();
+		adquiridos = new ColeccionDeAdquiribles();
+		vistaAsociada = vistaPorAsociar;
+	}
+	
+	public VistaJugador getVista() {
+		return vistaAsociada;
 	}
 	
 	public double getCapital() {
