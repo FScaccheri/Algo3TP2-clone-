@@ -15,22 +15,28 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	
 	private LinkedList<VistaJugador> jugadores;
 	private Button botonTirar;
+	private Button botonComprar;
 	private Button botonTerminar;
-	private int jugadorActual;
 	private boolean huboDobles;
+	private VistaJugador jugador;
+	private int numeroJugador;
 	
-	public BotonTirarDadosEventHandler(LinkedList<VistaJugador> jugadores, Button botonTirarDados, Button botonTerminar) {
+	public BotonTirarDadosEventHandler(LinkedList<VistaJugador> jugadores, VistaJugador vistaJugadorActual, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
 		
 		
 		this.jugadores = jugadores;
-		this.jugadorActual = 0;
+		this.jugador = vistaJugadorActual;
+		this.numeroJugador = 0;
+		//this.numeroJugador = jugadores.indexOf(vistaJugadorActual);
 		this.huboDobles = false;
 		this.botonTirar = botonTirarDados;
+		this.botonComprar = botonComprar;
 		this.botonTerminar = botonTerminar;
 	}
 	@Override
 	public void handle(ActionEvent event) {
 
+		System.out.println("" + jugador);
 		int tirada = Tirada.tirar();
 		
 		if(huboDobles) {
@@ -42,18 +48,22 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 			huboDobles = Tirada.fueDoble();
 		}
 		
-		jugadores.get(jugadorActual).avanzar(tirada);
+		//jugadores.get(jugadorActual).avanzar(tirada);
+		jugador.avanzar(tirada);
 		
 		
 		if(!huboDobles) {
 			
-			jugadorActual++;
+			numeroJugador++;
 			
-			if(jugadorActual > 2)
+			if(numeroJugador > 2)
 			
-				jugadorActual = 0;
-		
+				numeroJugador = 0;
+			
+			jugador = jugadores.get(numeroJugador);
+			
 			botonTirar.setDisable(true);
+			botonComprar.setDisable(false);
 			botonTerminar.setDisable(false);
 		
 		}

@@ -53,4 +53,19 @@ public class VistaJugador {
 		
 	}
 
+	public Paint getColor() {
+		
+		return color;
+	}
+
+	public int getPosX() {
+		
+		return posX - 90;
+	}
+
+	public int getPosY() {
+
+		return posY - 40;
+	}
+
 }

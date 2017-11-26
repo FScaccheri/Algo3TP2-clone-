@@ -3,6 +3,7 @@ package vistas;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import controladores.BotonComprarEventHandler;
 import controladores.BotonTerminarEventHandler;
 import controladores.BotonTirarDadosEventHandler;
 import javafx.geometry.Insets;
@@ -26,13 +27,11 @@ public class ContenedorJuego extends BorderPane{
 	private CanvasTablero canvasTablero;
 	private CajaJugadores contenedorJugadores;
 	private LinkedList<VistaJugador> jugadores;
-	private int numeroJugadorActual;
-	private VistaJugador vistaJugadorActual;
+	private static VistaJugador vistaJugadorActual;
 
 	public ContenedorJuego(Stage stage, int cantidadJugadores) {
 	
 		this.jugadores = new LinkedList<VistaJugador>();
-		this.numeroJugadorActual = 0;
 		this.setBordeJugadores(cantidadJugadores);
 		this.setTableroDeJuego();
 		this.setBotonera();
@@ -48,12 +47,17 @@ public class ContenedorJuego extends BorderPane{
 		Button botonPagarFianza = new Button("Pagar fianza");
 		Button botonTerminar = new Button ("Terminar turno");
 		BotonGanar ganar = new BotonGanar();
+		botonPagarFianza.setDisable(true);
 		botonTerminar.setDisable(true);
+		
+		GraphicsContext gc = canvasTablero.getGraphicsContext2D();
+		BotonComprarEventHandler botonComprarEventHandler = new BotonComprarEventHandler(gc, jugadores, vistaJugadorActual, botonComprar);
+		botonComprar.setOnAction(botonComprarEventHandler);
 		
 		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(botonTirarDados, botonTerminar);
 		botonTerminar.setOnAction(botonTerminarEventHandler);
 		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(jugadores, botonTirarDados, botonTerminar);
+		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(jugadores, vistaJugadorActual, botonTirarDados, botonComprar, botonTerminar);
 		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
 		
 		//Contenedor de botones
