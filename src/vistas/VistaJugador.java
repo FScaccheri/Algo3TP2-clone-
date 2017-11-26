@@ -3,6 +3,8 @@ package vistas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import modelo.Jugador;
+
 public class VistaJugador {
 
 	private GraphicsContext gc;
@@ -13,6 +15,7 @@ public class VistaJugador {
 	private VistaTablero tablero;
 	private int posicionEnTablero;
 	private static double radio = 15;
+	private Jugador jugador;
 	
 	public VistaJugador(GraphicsContext gc, VistaTablero tablero, Paint color, int numeroJugador) {
 		
@@ -25,6 +28,7 @@ public class VistaJugador {
 		
 		posX = tablero.getCasillero(posicionEnTablero).getPosX() + 90;
 		posY = tablero.getCasillero(posicionEnTablero).getPosY() + 40;
+		jugador = new Jugador();
 	}
 
 	public void avanzar(int tirada) {
@@ -66,6 +70,10 @@ public class VistaJugador {
 	public int getPosY() {
 
 		return posY - 40;
+	}
+	
+	public Jugador getJugadorAsociado() {
+		return jugador;
 	}
 
 }

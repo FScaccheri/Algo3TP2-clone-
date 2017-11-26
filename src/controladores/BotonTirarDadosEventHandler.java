@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import modelo.Tablero;
 import modelo.Tirada;
 import vistas.ContenedorJuego;
 import vistas.VistaJugador;
@@ -43,6 +44,8 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		}
 		
 		jugador.avanzar(tirada);
+		jugador.getJugadorAsociado().avanzar(tirada);
+		Tablero.getInstancia().getCasillero(jugador.getJugadorAsociado().getPosicion()).caeEn(jugador.getJugadorAsociado());
 		
 		
 		if(!huboDobles) {
