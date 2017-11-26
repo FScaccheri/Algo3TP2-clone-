@@ -1,6 +1,5 @@
 package vistas;
 
-import controladores.BotonTirarDadosEventHandler;
 import javafx.scene.control.Button;
 
 public class BotonTirarDados extends Button{
