@@ -1,13 +1,8 @@
 package vistas;
 
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import modelo.Casillero;
-import modelo.Jugador;
-import modelo.Posicion;
-
 public class VistaJugador {
 
 	private GraphicsContext gc;
@@ -25,9 +20,6 @@ public class VistaJugador {
 		this.gc = gc;
 		this.color = color;
 		this.numero = numeroJugador - 1;
-		
-		this.posX = 730;
-		this.posY = 680;
 		
 		this.posicionEnTablero = 0;
 		

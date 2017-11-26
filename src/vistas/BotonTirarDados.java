@@ -5,12 +5,11 @@ import javafx.scene.control.Button;
 
 public class BotonTirarDados extends Button{
 	
-	public BotonTirarDados(VistaJugador vista) {
+	public BotonTirarDados() {
 		
 		this.setText("Tirar dados");
 		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(vista);
-		this.setOnAction(botonTirarDadosEventHandler);
+		
 	}
 
 }

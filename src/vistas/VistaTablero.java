@@ -1,19 +1,18 @@
 package vistas;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javafx.scene.canvas.GraphicsContext;
 
 public class VistaTablero {
 	
-	private ArrayList<VistaCasillero> casilleros;
+	private LinkedList<VistaCasillero> casilleros;
 	private GraphicsContext gc;
 	
 	public VistaTablero(GraphicsContext gc) {
 		
 		this.gc = gc;
-		this.casilleros = new ArrayList<VistaCasillero>();
+		this.casilleros = new LinkedList<VistaCasillero>();
 	}
 
 	public void pintarTablero() {
@@ -38,6 +37,7 @@ public class VistaTablero {
 		casilleros.add(new VistaCasillero("NEUQUEN", 17000, 640, 280, gc));				//18
 		casilleros.add(new VistaCasillero("RETROCESO", "DINAMICO", 640, 400, gc));		//19
 		casilleros.add(new VistaCasillero("TUCUMAN", 25000, 640, 520, gc));				//20	
+		
 		
 	}
 

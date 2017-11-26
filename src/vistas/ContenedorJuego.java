@@ -1,7 +1,10 @@
 package vistas;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
+import controladores.BotonTerminarEventHandler;
+import controladores.BotonTirarDadosEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.GraphicsContext;
@@ -22,12 +25,14 @@ public class ContenedorJuego extends BorderPane{
 	private VBox contenedorBotones;
 	private CanvasTablero canvasTablero;
 	private CajaJugadores contenedorJugadores;
-	private VistaJugador vistaJugador1;
-	private VistaJugador vistaJugador2;
-	private VistaJugador vistaJugador3;
+	private LinkedList<VistaJugador> jugadores;
+	private int numeroJugadorActual;
+	private VistaJugador vistaJugadorActual;
 
 	public ContenedorJuego(Stage stage, int cantidadJugadores) {
 	
+		this.jugadores = new LinkedList<VistaJugador>();
+		this.numeroJugadorActual = 0;
 		this.setBordeJugadores(cantidadJugadores);
 		this.setTableroDeJuego();
 		this.setBotonera();
@@ -37,21 +42,25 @@ public class ContenedorJuego extends BorderPane{
 	private void setBotonera() {
 		
 		//Seteo de botones
-		BotonTirarDados botonTirarDados = new BotonTirarDados(vistaJugador1);
-		Button botonComprar = new Button("Comprar propiedad");
+		BotonTirarDados botonTirarDados = new BotonTirarDados();
 		Button botonVender = new Button("Vender propiedad");
+		Button botonComprar = new Button("Comprar propiedad");
 		Button botonPagarFianza = new Button("Pagar fianza");
 		Button botonTerminar = new Button ("Terminar turno");
 		BotonGanar ganar = new BotonGanar();
-		
 		botonTerminar.setDisable(true);
 		
+		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(botonTirarDados, botonTerminar);
+		botonTerminar.setOnAction(botonTerminarEventHandler);
+		
+		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(jugadores, botonTirarDados, botonTerminar);
+		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
+		
 		//Contenedor de botones
-		this.contenedorBotones = new VBox();
+		contenedorBotones = new VBox();
 		contenedorBotones.setSpacing(20);
 		contenedorBotones.setPadding(new Insets(20));
-				
-		contenedorBotones.getChildren().addAll(botonTirarDados, botonComprar, botonVender, botonPagarFianza, botonTerminar, ganar);
+		contenedorBotones.getChildren().addAll(botonTirarDados, botonVender, botonComprar, botonPagarFianza, botonTerminar, ganar);
 		
 		this.setRight(contenedorBotones);
 		
@@ -69,13 +78,17 @@ public class ContenedorJuego extends BorderPane{
 		this.canvasTablero = new CanvasTablero(800,800);
 		GraphicsContext gc = canvasTablero.getGraphicsContext2D();
 		VistaTablero vistaTablero = canvasTablero.getVistaTablero();
-		vistaJugador1 = new VistaJugador(gc, vistaTablero, Color.RED, 1);
-		vistaJugador2 = new VistaJugador(gc, vistaTablero, Color.BLUE, 2);
-		vistaJugador3 = new VistaJugador(gc,vistaTablero, Color.GREEN, 3);
 		
-		vistaJugador1.dibujar();
-		vistaJugador2.dibujar();
-		vistaJugador3.dibujar();
+		jugadores.add(new VistaJugador(gc, vistaTablero, Color.RED, 1));
+		jugadores.add(new VistaJugador(gc, vistaTablero, Color.BLUE, 2));
+		jugadores.add(new VistaJugador(gc,vistaTablero, Color.GREEN, 3));
+
+		vistaJugadorActual = jugadores.get(0);
+		
+		jugadores.get(0).dibujar();
+		jugadores.get(1).dibujar();
+		jugadores.get(2).dibujar();
+		
 		
 		
 		//Contenedor (VBox) de la pantalla de tablero
@@ -100,6 +113,17 @@ public class ContenedorJuego extends BorderPane{
 		
 		this.setLeft(contenedorJugadores);
 		
+	}
+
+	public void setVistaJugadorActual(VistaJugador vistaJugador) {
+
+		vistaJugadorActual = vistaJugador;
+		
+	}
+
+	public VistaJugador getVistaJugadorActual() {
+
+		return vistaJugadorActual;
 	}
 	
 }
