@@ -105,7 +105,7 @@ public class ContenedorJuego extends BorderPane{
 
 	private void crearListaDeJugadores() {
 		
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 3; i++) {
 
 			Jugador unJugador = new Jugador();
 			unJugador.setPosicion(tablero.getCasilleros().get(0).getPosicion());
