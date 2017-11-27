@@ -46,7 +46,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		
 		vistaJugador.avanzar(tirada);
 		Jugador jugador = vistaJugador.getJugadorAsociado();
-		vistaJugador.getJugadorAsociado().avanzar(tirada);
+		jugador.avanzar(tirada);
 		Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);
 		
 		
