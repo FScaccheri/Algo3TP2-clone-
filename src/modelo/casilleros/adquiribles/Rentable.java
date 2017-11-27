@@ -31,4 +31,5 @@ public abstract class Rentable extends Adquirible implements Activable, Alquilab
 	public Rentable getRentableAsociado() {
 		return propDependiente;
 	}
+
 }
