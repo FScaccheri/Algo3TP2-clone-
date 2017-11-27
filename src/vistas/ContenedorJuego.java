@@ -2,6 +2,7 @@ package vistas;
 
 import java.util.LinkedList;
 import controladores.BotonComprarEventHandler;
+import controladores.BotonEdificarEventHandler;
 import controladores.BotonTerminarEventHandler;
 import controladores.BotonTirarDadosEventHandler;
 import javafx.geometry.Insets;
@@ -39,6 +40,7 @@ public class ContenedorJuego extends BorderPane{
 	private LinkedList<VistaJugador> vistasJugadores;
 	private LinkedList<Jugador> jugadores;
 	private VistaJugador vistaJugadorActual;
+	private Jugador jugadorActual;
 	private Tablero tablero;
 
 	public ContenedorJuego(Stage stage, int cantidadJugadores) {
@@ -74,26 +76,26 @@ public class ContenedorJuego extends BorderPane{
 		EDESUR.asociar(AYSA);
 		SUBTE.asociar(TRENES);
 																					// Casillero numero:
-		tablero.agregar(new Casillero(new Salida()));												//1
-		tablero.agregar(new Casillero(new Quini6()));												//2
-		tablero.agregar(new Casillero(BsAsSur));													//3
-		tablero.agregar(new Casillero(EDESUR));														//4
-		tablero.agregar(new Casillero(BsAsNorte));													//5
-		tablero.agregar(new Casillero(new Carcel()));												//6
-		tablero.agregar(new Casillero(CordobaSur));													//7
-		tablero.agregar(new Casillero(new AvanceDinamico()));										//8
-		tablero.agregar(new Casillero(SUBTE));														//9
-		tablero.agregar(new Casillero(CordobaNorte));												//10
-		tablero.agregar(new Casillero(new ImpuestoAlLujo()));										//11
-		tablero.agregar(new Casillero(SantaFe));													//12
-		tablero.agregar(new Casillero(AYSA));														//13
-		tablero.agregar(new Casillero(SaltaNorte));													//14
-		tablero.agregar(new Casillero(SaltaSur));													//15
-		tablero.agregar(new Casillero(new Policia(tablero.getCasilleros().get(5).getPosicion())));	//16
-		tablero.agregar(new Casillero(TRENES));														//17
-		tablero.agregar(new Casillero(Neuquen));													//18
-		tablero.agregar(new Casillero(new RetrocesoDinamico()));									//19
-		tablero.agregar(new Casillero(Tucuman));													//20
+		tablero.agregar(new Casillero("Salida", new Salida()));												//1
+		tablero.agregar(new Casillero("Quini6", new Quini6()));												//2
+		tablero.agregar(new Casillero("BsAs Sur", BsAsSur, 2));													//3
+		tablero.agregar(new Casillero("EDESUR", EDESUR));														//4
+		tablero.agregar(new Casillero("BsAs Norte", BsAsNorte, 4));													//5
+		tablero.agregar(new Casillero("Carcel", new Carcel()));												//6
+		tablero.agregar(new Casillero("Cordoba Sur", CordobaSur, 6));													//7
+		tablero.agregar(new Casillero("Avance dinamico", new AvanceDinamico()));										//8
+		tablero.agregar(new Casillero("SUBTE", SUBTE));														//9
+		tablero.agregar(new Casillero("Cordoba Norte", CordobaNorte, 9));												//10
+		tablero.agregar(new Casillero("Impuesto de Lujo", new ImpuestoAlLujo()));										//11
+		tablero.agregar(new Casillero("Santa Fe", SantaFe, 11));													//12
+		tablero.agregar(new Casillero("AYSA", AYSA));														//13
+		tablero.agregar(new Casillero("Salta Norte", SaltaNorte, 13));													//14
+		tablero.agregar(new Casillero("Salta Sur", SaltaSur, 14));													//15
+		tablero.agregar(new Casillero("Policia", new Policia(tablero.getCasilleros().get(5).getPosicion())));	//16
+		tablero.agregar(new Casillero("TRENES", TRENES));														//17
+		tablero.agregar(new Casillero("Neuquen", Neuquen, 17));													//18
+		tablero.agregar(new Casillero("Retroceso dinamico", new RetrocesoDinamico()));									//19
+		tablero.agregar(new Casillero("Tucuman", Tucuman, 18));													//20
 		
 		for (int i = 0; i < 20; i++) {
 			
@@ -113,6 +115,8 @@ public class ContenedorJuego extends BorderPane{
 			
 		}
 		
+		jugadorActual = jugadores.get(0);
+		
 	}
 
 	private void setBotonera(VistaJugador vistaJugadorActual) {
@@ -120,6 +124,7 @@ public class ContenedorJuego extends BorderPane{
 		//Seteo de botones
 		BotonTirarDados botonTirarDados = new BotonTirarDados();
 		Button botonVender = new Button("Vender propiedad");
+		Button botonEdificar = new Button("Edificar");
 		Button botonComprar = new Button("Comprar propiedad");
 		Button botonPagarFianza = new Button("Pagar fianza");
 		Button botonTerminar = new Button ("Terminar turno");
@@ -128,8 +133,12 @@ public class ContenedorJuego extends BorderPane{
 		botonTerminar.setDisable(true);
 		
 		GraphicsContext gc = canvasTablero.getGraphicsContext2D();
+		
 		BotonComprarEventHandler botonComprarEventHandler = new BotonComprarEventHandler(this, gc, botonComprar);
 		botonComprar.setOnAction(botonComprarEventHandler);
+		
+		BotonEdificarEventHandler botonEdificarEventHandler = new BotonEdificarEventHandler(this, tablero);
+		botonEdificar.setOnAction(botonEdificarEventHandler);
 		
 		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, vistasJugadores, botonTirarDados, botonTerminar);
 		botonTerminar.setOnAction(botonTerminarEventHandler);
@@ -141,7 +150,7 @@ public class ContenedorJuego extends BorderPane{
 		contenedorBotones = new VBox();
 		contenedorBotones.setSpacing(20);
 		contenedorBotones.setPadding(new Insets(20));
-		contenedorBotones.getChildren().addAll(botonTirarDados, botonVender, botonComprar, botonPagarFianza, botonTerminar, ganar);
+		contenedorBotones.getChildren().addAll(botonTirarDados, botonVender, botonEdificar, botonComprar, botonPagarFianza, botonTerminar, ganar);
 		
 		this.setRight(contenedorBotones);
 		
@@ -207,4 +216,13 @@ public class ContenedorJuego extends BorderPane{
 		return vistaJugadorActual;
 	}
 	
+	public void setJugadorActual(Jugador jugador) {
+		
+		jugadorActual = jugador;
+	}
+	
+	public Jugador getJugadorActual() {
+		
+		return jugadorActual;
+	}
 }

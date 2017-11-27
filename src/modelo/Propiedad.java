@@ -8,6 +8,7 @@ public class Propiedad extends Rentable {
 	private Terreno terreno;
 	private double costoCasa;
 	private double costoHotel;
+	private int posicionRelativa;
 	
 	private Propiedad(double precioDeVenta, double costoCasa) {
 		super(precioDeVenta);
@@ -74,11 +75,22 @@ public class Propiedad extends Rentable {
 		return terreno.tieneHoteles();
 	}
 
-	private boolean puedeCostruirCasa() {
+	public boolean puedeCostruirCasa() {
 		return terreno.construccionDeCasaPosible() && (!estaAsociado() || esPropietario(getRentableAsociado().getPropietario()));
 	}
 	
-	private boolean puedeCostruirHotel() {
+	public boolean puedeCostruirHotel() {
 		return terreno.construccionDeHotelPosible() && (!estaAsociado() || (getCantidadDeCasas() == ((Propiedad) getRentableAsociado()).getCantidadDeCasas()));
+	}
+
+	public void setPosicionRelativa(int posicionRelativa) {
+		
+		this.posicionRelativa = posicionRelativa;
+		
+	}
+	
+	public int getPosicionRelativa() {
+		
+		return posicionRelativa;
 	}
 }

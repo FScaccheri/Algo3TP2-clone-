@@ -85,4 +85,9 @@ public class Jugador {
 		}
 		return hoteles;
 	}
+
+	public ColeccionDeAdquiribles getAdquiridos() {
+		
+		return adquiridos;
+	}
 }
