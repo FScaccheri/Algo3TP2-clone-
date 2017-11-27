@@ -16,7 +16,6 @@ public class Tirada {
 	}
 	
 	private static int tirarUnDado() {
-		
 		Dado unDado = new Dado();
 		return unDado.tirar();
 	}
@@ -26,9 +25,11 @@ public class Tirada {
 	}
 
 	public static boolean fueDoble() {
-		
 		return salieronDobles;
 	}
-
-
+	
+	// Existe para probar avance dinamico.
+	public static void setUltimaTirada(int tirada) {
+		ultimaTirada = tirada;
+	}
 }
