@@ -32,35 +32,30 @@ public class VistaCasillero {
 		
 	}
 	//NO USADO
-	public VistaCasillero(String titulo, Adquirible adquirible, int posicionX, int posicionY, GraphicsContext gc) {
+	public VistaCasillero(String titulo, int precio, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
 
-		this.posX = posicionX;
-		this.posY = posicionY;
-		dibujar(titulo, posicionX, posicionY, gc);
+		this(titulo, casillero, posicionX, posicionY, gc);
 		gc.setFill(Color.BEIGE);
 		gc.fillRect(posicionX + 5, posicionY + 5, 110, 25);
 		gc.setFill(Color.BLACK);
 		gc.fillRect(posicionX + 5, posicionY + 30, 110, 3);
 		gc.setFont(new Font("", 15));
-		gc.strokeText("$ " + adquirible.getPrecioVenta(), posicionX + 30, posicionY + 100);
+		gc.strokeText("$ " + precio, posicionX + 30, posicionY + 100);
 		
 	}
 	//NO USADO
-	public VistaCasillero(String titulo1, String titulo2, Adquirible adquirible, int posicionX, int posicionY, GraphicsContext gc) {
+	public VistaCasillero(String titulo1, String titulo2, int precio, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
 
-		this.posX = posicionX;
-		this.posY = posicionY;
-		dibujar(titulo1, posicionX, posicionY, gc);
+		this(titulo1, casillero, posicionX, posicionY, gc);
 		gc.strokeText(titulo2, posicionX + 40, posicionY + 75);
 		gc.setFill(Color.BEIGE);
 		gc.fillRect(posicionX + 5, posicionY + 5, 110, 25);
 		gc.setFill(Color.BLACK);
 		gc.fillRect(posicionX + 5, posicionY + 30, 110, 3);
 		gc.setFont(new Font("", 15));
-		gc.strokeText("$ " + adquirible.getPrecioVenta(), posicionX + 30, posicionY + 100);
+		gc.strokeText("$ " + precio, posicionX + 30, posicionY + 100);
 		
 	}
-	//NO USADO
 	public void dibujar(String titulo, int posicionX, int posicionY, GraphicsContext gc) {
 		
 		gc.setFill(Color.BLACK);

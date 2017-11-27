@@ -103,4 +103,9 @@ public class Jugador {
 			posicion = posicion.anterior();
 		}
 	}
+
+	public int getPosicionRelativa() {
+		
+		return getPosicion().getCasillero().getPosicionRelativa();
+	}
 }

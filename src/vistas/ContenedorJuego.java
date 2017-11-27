@@ -18,6 +18,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import modelo.Jugador;
 import modelo.Tablero;
@@ -76,26 +77,26 @@ public class ContenedorJuego extends BorderPane{
 		EDESUR.asociar(AYSA);
 		SUBTE.asociar(TRENES);
 																					// Casillero numero:
-		tablero.agregar(new Casillero("Salida", new Salida()));												//1
-		tablero.agregar(new Casillero("Quini6", new Quini6()));												//2
+		tablero.agregar(new Casillero("Salida", new Salida(), 0));												//1
+		tablero.agregar(new Casillero("Quini6", new Quini6(), 1));												//2
 		tablero.agregar(new Casillero("BsAs Sur", BsAsSur, 2));													//3
-		tablero.agregar(new Casillero("EDESUR", EDESUR));														//4
+		tablero.agregar(new Casillero("EDESUR", EDESUR, 3));														//4
 		tablero.agregar(new Casillero("BsAs Norte", BsAsNorte, 4));													//5
-		tablero.agregar(new Casillero("Carcel", new Carcel()));												//6
+		tablero.agregar(new Casillero("Carcel", new Carcel(), 5));												//6
 		tablero.agregar(new Casillero("Cordoba Sur", CordobaSur, 6));													//7
-		tablero.agregar(new Casillero("Avance dinamico", new AvanceDinamico()));										//8
-		tablero.agregar(new Casillero("SUBTE", SUBTE));														//9
+		tablero.agregar(new Casillero("Avance dinamico", new AvanceDinamico(), 7));										//8
+		tablero.agregar(new Casillero("SUBTE", SUBTE, 8));														//9
 		tablero.agregar(new Casillero("Cordoba Norte", CordobaNorte, 9));												//10
-		tablero.agregar(new Casillero("Impuesto de Lujo", new ImpuestoAlLujo()));										//11
+		tablero.agregar(new Casillero("Impuesto de Lujo", new ImpuestoAlLujo(), 10));										//11
 		tablero.agregar(new Casillero("Santa Fe", SantaFe, 11));													//12
-		tablero.agregar(new Casillero("AYSA", AYSA));														//13
+		tablero.agregar(new Casillero("AYSA", AYSA, 12));														//13
 		tablero.agregar(new Casillero("Salta Norte", SaltaNorte, 13));													//14
 		tablero.agregar(new Casillero("Salta Sur", SaltaSur, 14));													//15
-		tablero.agregar(new Casillero("Policia", new Policia(tablero.getCasilleros().get(5).getPosicion())));	//16
-		tablero.agregar(new Casillero("TRENES", TRENES));														//17
+		tablero.agregar(new Casillero("Policia", new Policia(tablero.getCasilleros().get(5).getPosicion()), 15));	//16
+		tablero.agregar(new Casillero("TRENES", TRENES, 16));														//17
 		tablero.agregar(new Casillero("Neuquen", Neuquen, 17));													//18
-		tablero.agregar(new Casillero("Retroceso dinamico", new RetrocesoDinamico()));									//19
-		tablero.agregar(new Casillero("Tucuman", Tucuman, 18));													//20
+		tablero.agregar(new Casillero("Retroceso dinamico", new RetrocesoDinamico(), 18));									//19
+		tablero.agregar(new Casillero("Tucuman", Tucuman, 19));													//20
 		
 		for (int i = 0; i < 20; i++) {
 			
@@ -115,7 +116,7 @@ public class ContenedorJuego extends BorderPane{
 			
 		}
 		
-		jugadorActual = jugadores.get(0);
+		setJugadorActual(jugadores.get(0));
 		
 	}
 
@@ -140,10 +141,10 @@ public class ContenedorJuego extends BorderPane{
 		BotonEdificarEventHandler botonEdificarEventHandler = new BotonEdificarEventHandler(this, tablero);
 		botonEdificar.setOnAction(botonEdificarEventHandler);
 		
-		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, vistasJugadores, botonTirarDados, botonTerminar);
+		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, jugadores, vistasJugadores, botonTirarDados, botonTerminar);
 		botonTerminar.setOnAction(botonTerminarEventHandler);
 		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, vistaJugadorActual, botonTirarDados, botonComprar, botonTerminar);
+		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, botonTirarDados, botonComprar, botonTerminar);
 		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
 		
 		//Contenedor de botones
@@ -173,13 +174,12 @@ public class ContenedorJuego extends BorderPane{
 		vistasJugadores.add(new VistaJugador(gc, jugadores, vistaTablero, Color.BLUE, 2));
 		vistasJugadores.add(new VistaJugador(gc, jugadores, vistaTablero, Color.GREEN, 3));
 
-		vistaJugadorActual = vistasJugadores.get(0);
+		setVistaJugadorActual(vistasJugadores.get(0));
 		
 		vistasJugadores.get(0).dibujar();
 		vistasJugadores.get(1).dibujar();
 		vistasJugadores.get(2).dibujar();
-		
-		
+
 		
 		//Contenedor (VBox) de la pantalla de tablero
 		VBox contenedorTablero = new VBox();

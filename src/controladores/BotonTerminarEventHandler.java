@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import modelo.Jugador;
 import vistas.BotonTirarDados;
 import vistas.ContenedorJuego;
 import vistas.VistaJugador;
@@ -13,14 +14,16 @@ public class BotonTerminarEventHandler implements EventHandler<ActionEvent>{
 
 	private BotonTirarDados botonTirar;
 	private Button botonTerminar;
-	private LinkedList<VistaJugador> jugadores;
+	private LinkedList<VistaJugador> vistasJugadores;
+	private LinkedList<Jugador> jugadores;
 	private int numeroJugador;
 	private ContenedorJuego contenedorJuego;
 
-	public BotonTerminarEventHandler(ContenedorJuego contenedorJuego, LinkedList<VistaJugador> jugadores, BotonTirarDados botonTirarDados, Button botonTerminar) {
+	public BotonTerminarEventHandler(ContenedorJuego contenedorJuego, LinkedList<Jugador> jugadores, LinkedList<VistaJugador> vistasJugadores, BotonTirarDados botonTirarDados, Button botonTerminar) {
 
 		this.botonTirar = botonTirarDados;
 		this.botonTerminar = botonTerminar;
+		this.vistasJugadores = vistasJugadores;
 		this.jugadores = jugadores;
 		this.contenedorJuego = contenedorJuego;
 	}
@@ -28,16 +31,20 @@ public class BotonTerminarEventHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 		
-		VistaJugador jugador = contenedorJuego.getVistaJugadorActual();
+		VistaJugador vistaJugador = contenedorJuego.getVistaJugadorActual();
+		Jugador jugador = contenedorJuego.getJugadorActual();
+		
 		numeroJugador = jugadores.indexOf(jugador);
 		numeroJugador++;
-		
 		if(numeroJugador > 2)
 		
 			numeroJugador = 0;
 		
+		
+		vistaJugador = vistasJugadores.get(numeroJugador);
+		contenedorJuego.setVistaJugadorActual(vistaJugador);
 		jugador = jugadores.get(numeroJugador);
-		contenedorJuego.setVistaJugadorActual(jugador);
+		contenedorJuego.setJugadorActual(jugador);
 		
 		botonTerminar.setDisable(true);
 		botonTirar.setDisable(false);

@@ -16,13 +16,11 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	private Button botonComprar;
 	private Button botonTerminar;
 	private boolean huboDobles;
-	private VistaJugador vistaJugador;
 	private ContenedorJuego contenedorJuego;
 	
-	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, VistaJugador vistaJugadorActual, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
+	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
 
 		this.contenedorJuego = contenedorJuego;
-		this.vistaJugador = vistaJugadorActual;
 		this.huboDobles = false;
 		this.botonTirar = botonTirarDados;
 		this.botonComprar = botonComprar;
@@ -31,10 +29,11 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 
-		vistaJugador = contenedorJuego.getVistaJugadorActual();
+		VistaJugador vistaJugador = contenedorJuego.getVistaJugadorActual();
+
+		Jugador jugador = contenedorJuego.getJugadorActual();
 		
 		int tirada = Tirada.tirar();
-		
 		if(huboDobles) {
 			
 			huboDobles = false;
@@ -44,19 +43,20 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 			huboDobles = Tirada.fueDoble();
 		}
 		
-		vistaJugador.avanzar(tirada);
-		Jugador jugador = vistaJugador.getJugadorAsociado();
 		jugador.avanzar(tirada);
 		Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);
-		
+		int posicionRelativa = jugador.getPosicionRelativa();
+		vistaJugador.moverA(posicionRelativa);
 		
 		if(!huboDobles) {
+			
 			
 			botonTirar.setDisable(true);
 			botonComprar.setDisable(false);
 			botonTerminar.setDisable(false);
-		
 		}
+		
+		
 	}
 
 }

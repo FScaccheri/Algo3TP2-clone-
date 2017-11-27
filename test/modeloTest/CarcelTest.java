@@ -69,7 +69,7 @@ public class CarcelTest {
 	public void testJugadorPresoNoPuedeMoverse() {
 		Jugador jugador = new Jugador();			
 		Carcel carcel = new Carcel();		
-		Casillero casilleroCarcel = new Casillero("Carcel", carcel);
+		Casillero casilleroCarcel = new Casillero("Carcel", carcel, 5);
 		Posicion posicionCarcel = new Posicion(casilleroCarcel);
 		casilleroCarcel.setPosicion(posicionCarcel);
 			
