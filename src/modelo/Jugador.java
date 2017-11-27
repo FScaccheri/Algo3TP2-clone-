@@ -2,6 +2,11 @@ package modelo;
 
 import java.util.LinkedList;
 
+import modelo.casilleros.adquiribles.Adquirible;
+import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.movimiento.Movimiento;
+import modelo.casilleros.movimiento.MovimientoBasico;
+
 public class Jugador {
 	private static final int CAPITALINICIAL = 100000;
 	double capital = CAPITALINICIAL;
@@ -89,5 +94,17 @@ public class Jugador {
 	public ColeccionDeAdquiribles getAdquiridos() {
 		
 		return adquiridos;
+	}
+
+	public void mover(int posiciones) {
+		for ( int i = 0; i < posiciones; i++ ) {
+			posicion = posicion.siguiente();
+		}
+	}
+
+	public void retroceder(int posiciones) {
+		for ( int i = 0; i < posiciones; i++ ) {
+			posicion = posicion.anterior();
+		}
 	}
 }

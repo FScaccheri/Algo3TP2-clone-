@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.casilleros.Casillero;
+
 public class Posicion {
 		private Casillero casillero;
 		

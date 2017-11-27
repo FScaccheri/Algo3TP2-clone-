@@ -1,4 +1,4 @@
-package modelo;
+package modelo.casilleros.adquiribles;
 
 import modelo.excepciones.ConstruccionImposible;
 

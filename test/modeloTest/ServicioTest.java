@@ -6,8 +6,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.Jugador;
-import modelo.Servicio;
 import modelo.Tirada;
+import modelo.casilleros.adquiribles.Servicio;
 
 public class ServicioTest {
 

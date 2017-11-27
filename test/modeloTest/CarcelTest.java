@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import modelo.Carcel;
-import modelo.Casillero;
 import modelo.Jugador;
 import modelo.Posicion;
 import modelo.Tablero;
+import modelo.casilleros.Carcel;
+import modelo.casilleros.Casillero;
 
 public class CarcelTest {
 	

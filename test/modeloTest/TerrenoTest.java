@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import modelo.Adquirible;
-import modelo.Terreno;
+import modelo.casilleros.adquiribles.Adquirible;
+import modelo.casilleros.adquiribles.Terreno;
 import modelo.excepciones.ConstruccionImposible;
 
 public class TerrenoTest {

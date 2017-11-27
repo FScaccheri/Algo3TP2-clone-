@@ -1,4 +1,7 @@
-package modelo;
+package modelo.casilleros.movimiento;
+
+import modelo.Jugador;
+import modelo.casilleros.Activable;
 
 public class AvanceDinamico implements Activable{
 	

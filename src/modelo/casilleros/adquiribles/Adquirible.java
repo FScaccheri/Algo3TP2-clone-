@@ -1,4 +1,6 @@
-package modelo;
+package modelo.casilleros.adquiribles;
+
+import modelo.Jugador;
 
 public class Adquirible {
 

@@ -1,5 +1,7 @@
-package modelo;
+package modelo.casilleros;
 import java.util.*;
+
+import modelo.Jugador;
 
 public class Quini6 implements Activable {
 	

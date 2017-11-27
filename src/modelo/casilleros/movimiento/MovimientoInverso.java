@@ -1,12 +1,12 @@
-package modelo;
+package modelo.casilleros.movimiento;
+
+import modelo.Jugador;
 
 public class MovimientoInverso implements Movimiento{
 	
 	@Override
 	public void mover(Jugador jugador, int posiciones) {
-		for ( int i = 0; i < posiciones; i++ ) {
-			jugador.posicion = jugador.posicion.anterior();
-		}
+		jugador.retroceder(posiciones);
 	}
 
 }

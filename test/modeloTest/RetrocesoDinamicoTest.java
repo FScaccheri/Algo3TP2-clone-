@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import modelo.*;
+import modelo.casilleros.Casillero;
+import modelo.casilleros.RetrocesoDinamico;
+import modelo.casilleros.adquiribles.Propiedad;
 
 public class RetrocesoDinamicoTest {
 	

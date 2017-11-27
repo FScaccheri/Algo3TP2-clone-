@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import modelo.Jugador;
-import modelo.Propiedad;
+import modelo.casilleros.adquiribles.Propiedad;
 import modelo.excepciones.ConstruccionImposible;
 
 public class PropiedadTest {

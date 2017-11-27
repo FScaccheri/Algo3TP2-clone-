@@ -19,18 +19,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import modelo.AvanceDinamico;
-import modelo.Carcel;
-import modelo.Casillero;
-import modelo.ImpuestoAlLujo;
 import modelo.Jugador;
-import modelo.Policia;
-import modelo.Propiedad;
-import modelo.Quini6;
-import modelo.RetrocesoDinamico;
-import modelo.Salida;
-import modelo.Servicio;
 import modelo.Tablero;
+import modelo.casilleros.Carcel;
+import modelo.casilleros.Casillero;
+import modelo.casilleros.ImpuestoAlLujo;
+import modelo.casilleros.Policia;
+import modelo.casilleros.Quini6;
+import modelo.casilleros.RetrocesoDinamico;
+import modelo.casilleros.Salida;
+import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Servicio;
+import modelo.casilleros.movimiento.AvanceDinamico;
 
 public class ContenedorJuego extends BorderPane{
 	

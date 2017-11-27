@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import modelo.*;
+import modelo.casilleros.Casillero;
 
 public class TableroTest {
 

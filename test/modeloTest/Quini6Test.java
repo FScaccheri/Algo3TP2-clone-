@@ -8,7 +8,7 @@ import org.junit.Test;
 
 
 import modelo.Jugador;
-import modelo.Quini6;
+import modelo.casilleros.Quini6;
 
 public class Quini6Test {
 

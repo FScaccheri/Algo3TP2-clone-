@@ -2,6 +2,11 @@ package modelo;
 
 import java.util.LinkedList;
 
+import modelo.casilleros.adquiribles.Adquirible;
+import modelo.casilleros.adquiribles.Alquilable;
+import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Servicio;
+
 public class ColeccionDeAdquiribles {
 
 	private LinkedList<Adquirible> contenidos;

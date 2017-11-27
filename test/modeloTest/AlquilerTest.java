@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import modelo.Alquiler;
+import modelo.casilleros.adquiribles.Alquiler;
 
 public class AlquilerTest {
 

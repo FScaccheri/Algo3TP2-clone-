@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import modelo.Carcel;
 import modelo.Jugador;
-import modelo.Propiedad;
+import modelo.casilleros.Carcel;
+import modelo.casilleros.adquiribles.Propiedad;
 
 public class JugadorTest {
 

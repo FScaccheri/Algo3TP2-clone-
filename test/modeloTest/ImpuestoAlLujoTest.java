@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import modelo.ImpuestoAlLujo;
 import modelo.Jugador;
+import modelo.casilleros.ImpuestoAlLujo;
 
 public class ImpuestoAlLujoTest {
 

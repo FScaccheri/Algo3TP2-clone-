@@ -1,4 +1,7 @@
-package modelo;
+package modelo.casilleros.adquiribles;
+
+import modelo.Jugador;
+import modelo.casilleros.Activable;
 
 public abstract class Rentable extends Adquirible implements Activable, Alquilable{
 

@@ -1,5 +1,8 @@
-package modelo;
+package modelo.casilleros;
 
+import modelo.Jugador;
+import modelo.casilleros.movimiento.MovimientoDinamico;
+import modelo.casilleros.movimiento.MovimientoInverso;
 
 //FALTAN PRUEBAS @FrancoR
 public class RetrocesoDinamico implements Activable{

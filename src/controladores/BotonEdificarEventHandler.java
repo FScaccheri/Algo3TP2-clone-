@@ -8,8 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import modelo.Jugador;
-import modelo.Propiedad;
 import modelo.Tablero;
+import modelo.casilleros.adquiribles.Propiedad;
 import vistas.ContenedorJuego;
 
 public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{

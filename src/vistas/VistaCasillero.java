@@ -3,8 +3,8 @@ package vistas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import modelo.Adquirible;
-import modelo.Casillero;
+import modelo.casilleros.Casillero;
+import modelo.casilleros.adquiribles.Adquirible;
 
 public class VistaCasillero {
 	

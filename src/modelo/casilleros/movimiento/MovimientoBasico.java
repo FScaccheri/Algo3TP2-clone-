@@ -1,4 +1,6 @@
-package modelo;
+package modelo.casilleros.movimiento;
+
+import modelo.Jugador;
 
 public class MovimientoBasico implements Movimiento {
 
@@ -7,8 +9,6 @@ public class MovimientoBasico implements Movimiento {
 	 */
 	@Override
 	public void mover(Jugador jugador, int posiciones) {
-		for ( int i = 0; i < posiciones; i++ ) {
-			jugador.posicion = jugador.posicion.siguiente();
-		}
+		jugador.mover(posiciones);
 	}
 }

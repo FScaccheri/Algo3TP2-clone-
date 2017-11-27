@@ -1,4 +1,6 @@
-package modelo;
+package modelo.casilleros;
+
+import modelo.Jugador;
 
 public interface Activable {
 

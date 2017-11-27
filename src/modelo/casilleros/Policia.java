@@ -1,4 +1,7 @@
-package modelo;
+package modelo.casilleros;
+
+import modelo.Jugador;
+import modelo.Posicion;
 
 public class Policia implements Activable{
 

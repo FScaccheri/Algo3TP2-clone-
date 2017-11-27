@@ -1,4 +1,6 @@
-package modelo;
+package modelo.casilleros.movimiento;
+
+import modelo.Jugador;
 
 public interface Movimiento {
 

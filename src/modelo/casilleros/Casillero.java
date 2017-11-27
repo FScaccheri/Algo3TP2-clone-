@@ -1,4 +1,8 @@
-package modelo;
+package modelo.casilleros;
+
+import modelo.Jugador;
+import modelo.Posicion;
+import modelo.casilleros.adquiribles.Propiedad;
 
 public class Casillero {
 	private Activable efecto;

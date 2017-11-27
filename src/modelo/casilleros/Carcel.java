@@ -1,6 +1,10 @@
-package modelo;
+package modelo.casilleros;
 
 import java.util.HashMap;
+
+import modelo.Jugador;
+import modelo.casilleros.movimiento.MovimientoBasico;
+import modelo.casilleros.movimiento.MovimientoNulo;
 
 public class Carcel implements Activable{
 

@@ -3,17 +3,17 @@ package vistas;
 import java.util.LinkedList;
 
 import javafx.scene.canvas.GraphicsContext;
-import modelo.AvanceDinamico;
-import modelo.Carcel;
-import modelo.Casillero;
-import modelo.ImpuestoAlLujo;
-import modelo.Policia;
-import modelo.Propiedad;
-import modelo.Quini6;
-import modelo.RetrocesoDinamico;
-import modelo.Salida;
-import modelo.Servicio;
 import modelo.Tablero;
+import modelo.casilleros.Carcel;
+import modelo.casilleros.Casillero;
+import modelo.casilleros.ImpuestoAlLujo;
+import modelo.casilleros.Policia;
+import modelo.casilleros.Quini6;
+import modelo.casilleros.RetrocesoDinamico;
+import modelo.casilleros.Salida;
+import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Servicio;
+import modelo.casilleros.movimiento.AvanceDinamico;
 
 public class VistaTablero {
 	

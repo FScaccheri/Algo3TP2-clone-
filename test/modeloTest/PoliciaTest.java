@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import modelo.Casillero;
 import modelo.Jugador;
-import modelo.Policia;
 import modelo.Posicion;
+import modelo.casilleros.Casillero;
+import modelo.casilleros.Policia;
 
 public class PoliciaTest {
 	
