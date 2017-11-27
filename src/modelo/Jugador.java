@@ -32,17 +32,6 @@ public class Jugador {
 		capital-=i;
 	}
 
-	//ESTE METODO NO TIENE SENTIDO, ES SOLO PARA HACER PRUEBAS EN SERVICIO
-	//CUANDO ESTE PROGRAMADO EL MOVIMIENTO NO DEBERIA EXISTIR
-	public void setUltimaTirada( int ultimaTirada ) {
-		this.ultimaTirada = ultimaTirada;	
-	}
-	
-	//VER SI ESTE METODO TIENE SENTIDO LUEGO DE PROGRAMAR EL MOVIMIENTO(SE USA EN SERVICIO)
-	public int getUltimaTirada() {
-		return ultimaTirada;
-	}
-
 	public Posicion getPosicion() {
 
 		return this.posicion ;
