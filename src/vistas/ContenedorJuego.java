@@ -18,6 +18,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import modelo.Jugador;
 
 public class ContenedorJuego extends BorderPane{
 	
@@ -81,9 +82,13 @@ public class ContenedorJuego extends BorderPane{
 		GraphicsContext gc = canvasTablero.getGraphicsContext2D();
 		VistaTablero vistaTablero = canvasTablero.getVistaTablero();
 		
-		jugadores.add(new VistaJugador(gc, vistaTablero, Color.RED, 1));
-		jugadores.add(new VistaJugador(gc, vistaTablero, Color.BLUE, 2));
-		jugadores.add(new VistaJugador(gc,vistaTablero, Color.GREEN, 3));
+		Jugador jugador1 = new Jugador();
+		Jugador jugador2 = new Jugador();
+		Jugador jugador3 = new Jugador();
+		
+		jugadores.add(new VistaJugador(gc, jugador1, vistaTablero, Color.RED, 1));
+		jugadores.add(new VistaJugador(gc, jugador2, vistaTablero, Color.BLUE, 2));
+		jugadores.add(new VistaJugador(gc, jugador3, vistaTablero, Color.GREEN, 3));
 
 		vistaJugadorActual = jugadores.get(0);
 		

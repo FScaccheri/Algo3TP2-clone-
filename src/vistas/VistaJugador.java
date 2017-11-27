@@ -17,18 +17,16 @@ public class VistaJugador {
 	private static double radio = 15;
 	private Jugador jugador;
 	
-	public VistaJugador(GraphicsContext gc, VistaTablero tablero, Paint color, int numeroJugador) {
+	public VistaJugador(GraphicsContext gc, Jugador jugador, VistaTablero tablero, Paint color, int numeroJugador) {
 		
 		this.tablero = tablero;
 		this.gc = gc;
 		this.color = color;
 		this.numero = numeroJugador - 1;
-		
 		this.posicionEnTablero = 0;
-		
-		posX = tablero.getCasillero(posicionEnTablero).getPosX() + 90;
-		posY = tablero.getCasillero(posicionEnTablero).getPosY() + 40;
-		jugador = new Jugador();
+		this.posX = tablero.getCasillero(posicionEnTablero).getPosX() + 90;
+		this.posY = tablero.getCasillero(posicionEnTablero).getPosY() + 40;
+		this.jugador = jugador;
 	}
 
 	public void avanzar(int tirada) {
