@@ -6,6 +6,7 @@ import modelo.casilleros.adquiribles.Adquirible;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.movimiento.Movimiento;
 import modelo.casilleros.movimiento.MovimientoBasico;
+import modelo.excepciones.CapitalInsuficiente;
 
 public class Jugador {
 	private static final int CAPITALINICIAL = 100000;
@@ -24,12 +25,18 @@ public class Jugador {
 		return capital;
 	}
 	
-	public void aumentarCapital( double i ) {
+	private void modificarCapital(double i) {
+		if((capital + i) < 0)
+			throw new CapitalInsuficiente();
 		capital+=i;
+	}
+	
+	public void aumentarCapital( double i ) {
+		modificarCapital(i);
 	}
 
 	public void disminuirCapital( double i ) {
-		capital-=i;
+		modificarCapital(-i);
 	}
 
 	public Posicion getPosicion() {

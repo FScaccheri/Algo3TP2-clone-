@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import modelo.Jugador;
 import modelo.casilleros.adquiribles.Propiedad;
+import modelo.excepciones.CapitalInsuficiente;
 import modelo.excepciones.ConstruccionImposible;
 
 public class PropiedadTest {
@@ -442,4 +443,20 @@ public class PropiedadTest {
 		
 		assertEquals(capitalInicial-200, inquilino.getCapital(), 0);
 	}
+	
+	@Test
+	public void CuandoNoTieneCapitalAlComprarUnaCasaLanzaCapitalInsuficiente() {
+		Jugador jugador = new Jugador();
+		jugador.disminuirCapital(100000);
+		assertEquals(0, jugador.getCapital(), 0);
+		
+		Propiedad propiedad = new Propiedad(200, 0, 0, 0, 0, 0, 0);
+		
+		try {
+			propiedad.adquirir(jugador);
+			fail();
+		} catch (CapitalInsuficiente e) {
+			assertTrue(true);
+		}
+	}	
 }
