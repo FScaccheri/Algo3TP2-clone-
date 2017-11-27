@@ -19,7 +19,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	private VistaJugador vistaJugador;
 	private ContenedorJuego contenedorJuego;
 	
-	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, LinkedList<VistaJugador> jugadores, VistaJugador vistaJugadorActual, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
+	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, VistaJugador vistaJugadorActual, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
 
 		this.contenedorJuego = contenedorJuego;
 		this.vistaJugador = vistaJugadorActual;

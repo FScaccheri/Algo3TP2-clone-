@@ -57,7 +57,7 @@ public class ContenedorJuego extends BorderPane{
 		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, jugadores, botonTirarDados, botonTerminar);
 		botonTerminar.setOnAction(botonTerminarEventHandler);
 		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, jugadores, vistaJugadorActual, botonTirarDados, botonComprar, botonTerminar);
+		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, vistaJugadorActual, botonTirarDados, botonComprar, botonTerminar);
 		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
 		
 		//Contenedor de botones
