@@ -60,7 +60,7 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 			
 			Alert alerta = new Alert(AlertType.ERROR);
 			alerta.setTitle("Transaccion no completada");
-			alerta.setHeaderText("La propiedad ya tiene dueño!");
+			alerta.setHeaderText("La propiedad ya tiene duenio!");
 		}
 	}
 
