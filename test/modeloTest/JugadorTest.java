@@ -68,16 +68,16 @@ public class JugadorTest {
 		Propiedad propiedad9 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
 		unJugador.aumentarCapital(10000);
 		
-		propiedad1.adquirir(unJugador);
-		propiedad2.adquirir(unJugador);
-		propiedad3.adquirir(unJugador);
-		propiedad4.adquirir(unJugador);
-		propiedad5.adquirir(unJugador);
-		propiedad6.adquirir(unJugador);
-		propiedad7.adquirir(unJugador);
-		propiedad8.adquirir(unJugador);
-		propiedad9.adquirir(unJugador);
-		
+		unJugador.adquirir(propiedad1);
+		unJugador.adquirir(propiedad2);
+		unJugador.adquirir(propiedad3);
+		unJugador.adquirir(propiedad4);
+		unJugador.adquirir(propiedad5);
+		unJugador.adquirir(propiedad6);
+		unJugador.adquirir(propiedad7);
+		unJugador.adquirir(propiedad8);
+		unJugador.adquirir(propiedad9);
+
 		assertTrue(unJugador.cantidadDePropiedades() == 9);
 	}
 	
@@ -86,7 +86,7 @@ public class JugadorTest {
 		Jugador unJugador = new Jugador();
 		Propiedad propiedad1 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
 		unJugador.aumentarCapital(10000);
-		propiedad1.adquirir(unJugador);
+		unJugador.adquirir(propiedad1);
 		
 		propiedad1.construirCasa();
 		
@@ -115,15 +115,15 @@ public class JugadorTest {
 		Propiedad propiedad9 = new Propiedad(100, 0, 0, 0, 0, 0, 0);
 		unJugador.aumentarCapital(10000);
 		
-		propiedad1.adquirir(unJugador);
-		propiedad2.adquirir(unJugador);
-		propiedad3.adquirir(unJugador);
-		propiedad4.adquirir(unJugador);
-		propiedad5.adquirir(unJugador);
-		propiedad6.adquirir(unJugador);
-		propiedad7.adquirir(unJugador);
-		propiedad8.adquirir(unJugador);
-		propiedad9.adquirir(unJugador);
+		unJugador.adquirir(propiedad1);
+		unJugador.adquirir(propiedad2);
+		unJugador.adquirir(propiedad3);
+		unJugador.adquirir(propiedad4);
+		unJugador.adquirir(propiedad5);
+		unJugador.adquirir(propiedad6);
+		unJugador.adquirir(propiedad7);
+		unJugador.adquirir(propiedad8);
+		unJugador.adquirir(propiedad9);
 		
 		propiedad1.construirCasa();
 		propiedad2.construirCasa();

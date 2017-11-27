@@ -9,37 +9,35 @@ import modelo.casilleros.adquiribles.Servicio;
 
 public class ColeccionDeRentables {
 
-	private LinkedList<Adquirible> contenidos;
+	private LinkedList<Propiedad> propiedades;
+	private LinkedList<Servicio> servicios;
 	
 	public ColeccionDeRentables() {
-		contenidos = new LinkedList<Adquirible>();
+		propiedades = new LinkedList<Propiedad>();
+		servicios = new LinkedList<Servicio>();
 	}
 	
 	public LinkedList<Propiedad> propiedades(){
-		LinkedList<Propiedad> propiedades = new LinkedList<Propiedad>();
-		for (int i=0;i<contenidos.size();i++) {
-			if (contenidos.get(i).getClass() == Propiedad.class) {
-				propiedades.add((Propiedad)contenidos.get(i));
-			}
-		}
-		return propiedades;
+		return new LinkedList<Propiedad>(propiedades);
 	}
 	
 	public LinkedList<Servicio> servicios(){
-		LinkedList<Servicio> servicios = new LinkedList<Servicio>();
-		for (int i=0;i<contenidos.size();i++) {
-			if (contenidos.get(i).getClass() == Servicio.class) {
-				servicios.add((Servicio)contenidos.get(i));
-			}
-		}
-		return servicios;
+		return new LinkedList<Servicio>(servicios);
 	}
 	
-	public void agregar(Adquirible elemento) {
-		contenidos.add(elemento);
+	public void agregar(Propiedad propiedad) {
+		propiedades.add(propiedad);
 	}
 	
-	public void eliminar(Alquilable elemento) {
-		contenidos.remove(elemento);
+	public void agregar(Servicio servicio) {
+		servicios.add(servicio);
+	}
+	
+	public void eliminar(Propiedad propiedad) {
+		propiedades.remove(propiedad);
+	}
+	
+	public void eliminar(Servicio servicio) {
+		servicios.remove(servicio);
 	}
 }

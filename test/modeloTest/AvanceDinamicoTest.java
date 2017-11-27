@@ -179,11 +179,12 @@ public class AvanceDinamicoTest {
 		Propiedad propiedad4 = new Propiedad(100,10,20,10);
 		Propiedad propiedad5 = new Propiedad(100,10,20,10);
 		
-		propiedad1.adquirir(unJugador);
-		propiedad2.adquirir(unJugador);
-		propiedad3.adquirir(unJugador);
-		propiedad4.adquirir(unJugador);
-		propiedad5.adquirir(unJugador);
+		unJugador.adquirir(propiedad1);
+		unJugador.adquirir(propiedad2);
+		unJugador.adquirir(propiedad3);
+		unJugador.adquirir(propiedad4);
+		unJugador.adquirir(propiedad5);
+
 		propiedad1.construirCasa();
 		propiedad2.construirCasa();
 		propiedad2.construirCasa();
@@ -212,13 +213,14 @@ public class AvanceDinamicoTest {
 		Propiedad propiedad7 = new Propiedad(100,10,20,10);
 		unJugador.aumentarCapital(10000);
 		
-		propiedad1.adquirir(unJugador);
-		propiedad2.adquirir(unJugador);
-		propiedad3.adquirir(unJugador);
-		propiedad4.adquirir(unJugador);
-		propiedad5.adquirir(unJugador);
-		propiedad6.adquirir(unJugador);
-		propiedad7.adquirir(unJugador);
+		unJugador.adquirir(propiedad1);
+		unJugador.adquirir(propiedad2);
+		unJugador.adquirir(propiedad3);
+		unJugador.adquirir(propiedad4);
+		unJugador.adquirir(propiedad5);
+		unJugador.adquirir(propiedad6);
+		unJugador.adquirir(propiedad7);
+
 		propiedad1.construirCasa();
 		propiedad2.construirCasa();
 		propiedad2.construirCasa();

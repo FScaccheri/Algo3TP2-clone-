@@ -37,7 +37,7 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 		
 		if ( (aAdquirir instanceof Adquirible) && ( ! ((Adquirible)aAdquirir).tienePropietario())) {
 			
-			jugador.adquirir((Adquirible) aAdquirir);
+			//jugador.adquirir((Adquirible) aAdquirir);
 		
 			int posX = vistaJugador.getPosX();
 			int posY = vistaJugador.getPosY();
