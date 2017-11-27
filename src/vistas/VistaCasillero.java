@@ -3,6 +3,7 @@ package vistas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import modelo.Adquirible;
 
 public class VistaCasillero {
 	
@@ -27,7 +28,7 @@ public class VistaCasillero {
 		
 	}
 	
-	public VistaCasillero(String titulo, int precio, int posicionX, int posicionY, GraphicsContext gc) {
+	public VistaCasillero(String titulo, Adquirible adquirible, int posicionX, int posicionY, GraphicsContext gc) {
 
 		this.posX = posicionX;
 		this.posY = posicionY;
@@ -37,11 +38,11 @@ public class VistaCasillero {
 		gc.setFill(Color.BLACK);
 		gc.fillRect(posicionX + 5, posicionY + 30, 110, 3);
 		gc.setFont(new Font("", 15));
-		gc.strokeText("$ " + precio, posicionX + 30, posicionY + 100);
+		gc.strokeText("$ " + adquirible.getPrecioVenta(), posicionX + 30, posicionY + 100);
 		
 	}
 
-	public VistaCasillero(String titulo1, String titulo2, int precio, int posicionX, int posicionY, GraphicsContext gc) {
+	public VistaCasillero(String titulo1, String titulo2, Adquirible adquirible, int posicionX, int posicionY, GraphicsContext gc) {
 
 		this.posX = posicionX;
 		this.posY = posicionY;
@@ -52,7 +53,7 @@ public class VistaCasillero {
 		gc.setFill(Color.BLACK);
 		gc.fillRect(posicionX + 5, posicionY + 30, 110, 3);
 		gc.setFont(new Font("", 15));
-		gc.strokeText("$ " + precio, posicionX + 30, posicionY + 100);
+		gc.strokeText("$ " + adquirible.getPrecioVenta(), posicionX + 30, posicionY + 100);
 		
 	}
 	

@@ -32,5 +32,10 @@ public class Adquirible {
 	public boolean esPropietario(Jugador jugador) {
 		return jugador == propietario;
 	}
+
+	public int getPrecioVenta() {
+		
+		return (int) this.precioDeVenta;
+	}
 	
 }
