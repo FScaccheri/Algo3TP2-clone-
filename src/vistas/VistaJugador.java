@@ -1,5 +1,7 @@
 package vistas;
 
+import java.util.LinkedList;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -17,7 +19,7 @@ public class VistaJugador {
 	private static double radio = 15;
 	private Jugador jugador;
 	
-	public VistaJugador(GraphicsContext gc, Jugador jugador, VistaTablero tablero, Paint color, int numeroJugador) {
+	public VistaJugador(GraphicsContext gc, LinkedList<Jugador> jugadores, VistaTablero tablero, Paint color, int numeroJugador) {
 		
 		this.tablero = tablero;
 		this.gc = gc;
@@ -26,7 +28,7 @@ public class VistaJugador {
 		this.posicionEnTablero = 0;
 		this.posX = tablero.getVistasCasillero(posicionEnTablero).getPosX() + 90;
 		this.posY = tablero.getVistasCasillero(posicionEnTablero).getPosY() + 40;
-		this.jugador = jugador;
+		this.jugador = jugadores.get(numero);
 	}
 
 	public void avanzar(int tirada) {

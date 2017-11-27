@@ -4,30 +4,34 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import modelo.Adquirible;
+import modelo.Casillero;
 
 public class VistaCasillero {
 	
 	private int posX;
 	private int posY;
+	private Casillero casillero;
 	
-	public VistaCasillero(String titulo, int posicionX, int posicionY, GraphicsContext gc) {
+	public VistaCasillero(String titulo, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
 		
 		this.posX = posicionX;
 		this.posY = posicionY;
+		this.casillero = casillero;
 		dibujar(titulo, posicionX, posicionY, gc);
 	}
 
 
 
-	public VistaCasillero(String titulo1, String titulo2, int posicionX, int posicionY, GraphicsContext gc) {
+	public VistaCasillero(String titulo1, String titulo2, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
 
 		this.posX = posicionX;
 		this.posY = posicionY;
+		this.casillero = casillero;
 		dibujar(titulo1, posicionX, posicionY, gc);
 		gc.strokeText(titulo2, posicionX + 40, posicionY + 75);
 		
 	}
-	
+	//NO USADO
 	public VistaCasillero(String titulo, Adquirible adquirible, int posicionX, int posicionY, GraphicsContext gc) {
 
 		this.posX = posicionX;
@@ -41,7 +45,7 @@ public class VistaCasillero {
 		gc.strokeText("$ " + adquirible.getPrecioVenta(), posicionX + 30, posicionY + 100);
 		
 	}
-
+	//NO USADO
 	public VistaCasillero(String titulo1, String titulo2, Adquirible adquirible, int posicionX, int posicionY, GraphicsContext gc) {
 
 		this.posX = posicionX;
@@ -56,7 +60,7 @@ public class VistaCasillero {
 		gc.strokeText("$ " + adquirible.getPrecioVenta(), posicionX + 30, posicionY + 100);
 		
 	}
-	
+	//NO USADO
 	public void dibujar(String titulo, int posicionX, int posicionY, GraphicsContext gc) {
 		
 		gc.setFill(Color.BLACK);
