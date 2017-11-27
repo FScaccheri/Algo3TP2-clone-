@@ -6,8 +6,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import modelo.*;
 import modelo.casilleros.Casillero;
-import modelo.casilleros.RetrocesoDinamico;
 import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.movimiento.RetrocesoDinamico;
 
 public class RetrocesoDinamicoTest {
 	
@@ -43,7 +43,7 @@ public class RetrocesoDinamicoTest {
 		Jugador unJugador = new Jugador();
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 		
-		unJugador.setUltimaTirada(2);
+		Tirada.setUltimaTirada(2);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
 		rDinamico.activarEfecto(unJugador); //retrocede 0 lugares
@@ -57,7 +57,7 @@ public class RetrocesoDinamicoTest {
 		Jugador unJugador = new Jugador();
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 		
-		unJugador.setUltimaTirada(3);
+		Tirada.setUltimaTirada(3);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero2));
 		
 		rDinamico.activarEfecto(unJugador); //retrocede 1 lugares
@@ -71,7 +71,7 @@ public class RetrocesoDinamicoTest {
 		Jugador unJugador = new Jugador();
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 
-		unJugador.setUltimaTirada(4);
+		Tirada.setUltimaTirada(4);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero9));
 		
 		rDinamico.activarEfecto(unJugador); //retrocede 2 lugares
@@ -85,7 +85,7 @@ public class RetrocesoDinamicoTest {
 		Jugador unJugador = new Jugador();
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 
-		unJugador.setUltimaTirada(5);
+		Tirada.setUltimaTirada(5);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero4));
 		
 		rDinamico.activarEfecto(unJugador); //retrocede 3 lugares
@@ -99,7 +99,7 @@ public class RetrocesoDinamicoTest {
 		Jugador unJugador = new Jugador();
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 
-		unJugador.setUltimaTirada(6);
+		Tirada.setUltimaTirada(6);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero6));
 		
 		rDinamico.activarEfecto(unJugador); //retrocede 4 lugares
@@ -115,7 +115,7 @@ public class RetrocesoDinamicoTest {
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 		unJugador.aumentarCapital(20000);
 		
-		unJugador.setUltimaTirada(7);
+		Tirada.setUltimaTirada(7);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero9));
 		
 		rDinamico.activarEfecto(unJugador);
@@ -130,7 +130,7 @@ public class RetrocesoDinamicoTest {
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 		unJugador.aumentarCapital(6000);
 		
-		unJugador.setUltimaTirada(8);
+		Tirada.setUltimaTirada(8);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero5));
 		
 		rDinamico.activarEfecto(unJugador);
@@ -145,7 +145,7 @@ public class RetrocesoDinamicoTest {
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 		unJugador.aumentarCapital(9400);
 		
-		unJugador.setUltimaTirada(9);
+		Tirada.setUltimaTirada(9);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero9));
 		
 		rDinamico.activarEfecto(unJugador);
@@ -160,7 +160,7 @@ public class RetrocesoDinamicoTest {
 		RetrocesoDinamico rDinamico = new RetrocesoDinamico();
 		unJugador.aumentarCapital(73000);
 		
-		unJugador.setUltimaTirada(10);
+		Tirada.setUltimaTirada(10);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero1));
 		
 		rDinamico.activarEfecto(unJugador);
@@ -189,7 +189,7 @@ public class RetrocesoDinamicoTest {
 		propiedad2.construirCasa();
 		propiedad2.construirHotel();
 		
-		unJugador.setUltimaTirada(11);
+		Tirada.setUltimaTirada(11);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero7));
 		
 		rDinamico.activarEfecto(unJugador);
@@ -224,7 +224,7 @@ public class RetrocesoDinamicoTest {
 		propiedad2.construirCasa();
 		propiedad3.construirCasa();
 		
-		unJugador.setUltimaTirada(12);
+		Tirada.setUltimaTirada(12);
 		unJugador.setPosicion(Tablero.getInstancia().posicion(casillero9));
 		
 		rDinamico.activarEfecto(unJugador);

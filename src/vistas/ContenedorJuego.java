@@ -26,11 +26,11 @@ import modelo.casilleros.Casillero;
 import modelo.casilleros.ImpuestoAlLujo;
 import modelo.casilleros.Policia;
 import modelo.casilleros.Quini6;
-import modelo.casilleros.RetrocesoDinamico;
 import modelo.casilleros.Salida;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Servicio;
 import modelo.casilleros.movimiento.AvanceDinamico;
+import modelo.casilleros.movimiento.RetrocesoDinamico;
 
 public class ContenedorJuego extends BorderPane{
 	
