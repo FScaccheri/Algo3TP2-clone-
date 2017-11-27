@@ -10,15 +10,15 @@ import modelo.excepciones.CapitalInsuficiente;
 
 public class Jugador {
 	private static final int CAPITALINICIAL = 100000;
-	double capital = CAPITALINICIAL;
-	int ultimaTirada = 0;
-	Posicion posicion = null;
-	Movimiento movimiento;
-	ColeccionDeAdquiribles adquiridos;
+	private double capital = CAPITALINICIAL;
+	private int ultimaTirada = 0;
+	private Posicion posicion = null;
+	private Movimiento movimiento;
+	private ColeccionDeRentables adquiridos;
 	
 	public Jugador() {
 		movimiento = new MovimientoBasico();
-		adquiridos = new ColeccionDeAdquiribles();
+		adquiridos = new ColeccionDeRentables();
 	}
 	
 	public double getCapital() {
@@ -87,7 +87,7 @@ public class Jugador {
 		return hoteles;
 	}
 
-	public ColeccionDeAdquiribles getAdquiridos() {
+	public ColeccionDeRentables getAdquiridos() {
 		
 		return adquiridos;
 	}

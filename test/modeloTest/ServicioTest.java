@@ -167,5 +167,83 @@ public class ServicioTest {
 		
 		Assert.assertEquals(capitalInicial-101*resultado , inquilino.getCapital(), 0 ); 
 	}
+	
+	// Pruebas 2da entrega
+	@Test
+	public void Entrega2test11() {
+		Servicio trenes = new Servicio(38000, 450, 800);
+		Servicio subte = new Servicio(40000, 600, 1100);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		trenes.asociar(subte);
+		
+		trenes.adquirir(propietario);
 
+		int resultado = Tirada.tirar();
+		double capitalInicial = inquilino.getCapital();
+		
+		trenes.activarEfecto(inquilino);
+		
+		Assert.assertEquals(capitalInicial-450*resultado , inquilino.getCapital(), 0 ); 
+	}
+
+	@Test
+	public void Entrega2test12() {
+		Servicio trenes = new Servicio(38000, 450, 800);
+		Servicio subte = new Servicio(40000, 600, 1100);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		trenes.asociar(subte);
+		
+		trenes.adquirir(propietario);
+		subte.adquirir(propietario);
+
+		int resultado = Tirada.tirar();
+		double capitalInicial = inquilino.getCapital();
+		
+		trenes.activarEfecto(inquilino);
+		
+		Assert.assertEquals(capitalInicial-800*resultado , inquilino.getCapital(), 0 ); 
+	}
+
+	@Test
+	public void Entrega2test16() {
+		Servicio edesur = new Servicio(35000, 500, 1000);
+		Servicio aysa = new Servicio(30000, 300, 500);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		aysa.asociar(edesur);
+		
+		edesur.adquirir(propietario);
+
+		int resultado = Tirada.tirar();
+		double capitalInicial = inquilino.getCapital();
+		
+		edesur.activarEfecto(inquilino);
+		
+		Assert.assertEquals(capitalInicial-500*resultado , inquilino.getCapital(), 0 ); 
+	}
+	
+	@Test
+	public void Entrega2test17() {
+		Servicio edesur = new Servicio(35000, 500, 1000);
+		Servicio aysa = new Servicio(30000, 300, 500);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		aysa.asociar(edesur);
+		
+		edesur.adquirir(propietario);
+		aysa.adquirir(propietario);
+
+		int resultado = Tirada.tirar();
+		double capitalInicial = inquilino.getCapital();
+		
+		edesur.activarEfecto(inquilino);
+		
+		Assert.assertEquals(capitalInicial-1000*resultado , inquilino.getCapital(), 0 ); 
+	}
 }

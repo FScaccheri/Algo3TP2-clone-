@@ -7,11 +7,11 @@ import modelo.casilleros.adquiribles.Alquilable;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Servicio;
 
-public class ColeccionDeAdquiribles {
+public class ColeccionDeRentables {
 
 	private LinkedList<Adquirible> contenidos;
 	
-	public ColeccionDeAdquiribles() {
+	public ColeccionDeRentables() {
 		contenidos = new LinkedList<Adquirible>();
 	}
 	

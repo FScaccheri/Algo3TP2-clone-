@@ -444,6 +444,165 @@ public class PropiedadTest {
 		assertEquals(capitalInicial-200, inquilino.getCapital(), 0);
 	}
 	
+	// Pruebas 2da entrega
+	@Test
+	public void Entrega2test1() {
+		Propiedad propiedad = new Propiedad(200, 0, 0, 0, 0, 0, 0);
+		Jugador propietario = new Jugador();
+		
+		double capitalInicial = propietario.getCapital();
+		propiedad.adquirir(propietario);
+		assertEquals(capitalInicial-200, propietario.getCapital(), 0);
+	}
+	
+	@Test
+	public void Entrega2test2() {
+		Propiedad buenosAiresNorte = new Propiedad(25000, 2500, 3500, 4000, 6000, 5500, 9000);
+		Propiedad buenosAiresSur = new Propiedad(20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Jugador propietario = new Jugador();
+		
+		buenosAiresNorte.asociar(buenosAiresSur);
+		buenosAiresNorte.adquirir(propietario);
+		buenosAiresSur.adquirir(propietario);
+		
+		double capitalInicial = propietario.getCapital();
+		buenosAiresSur.construirCasa();
+		assertEquals(capitalInicial-5000, propietario.getCapital(), 0);
+	}
+	
+	@Test
+	public void Entrega2test3() {
+		Propiedad buenosAiresNorte = new Propiedad(25000, 2500, 3500, 4000, 6000, 5500, 9000);
+		Propiedad buenosAiresSur = new Propiedad(20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		buenosAiresNorte.asociar(buenosAiresSur);
+		buenosAiresNorte.adquirir(propietario);
+		buenosAiresSur.adquirir(propietario);
+		
+		buenosAiresNorte.construirCasa();
+		buenosAiresSur.construirCasa();
+		
+		double capitalInicial = inquilino.getCapital();
+		buenosAiresSur.activarEfecto(inquilino);
+		
+		assertEquals(capitalInicial-3000, inquilino.getCapital(), 0);
+	}
+	
+	@Test
+	public void Entrega2test4() {
+		Propiedad buenosAiresNorte = new Propiedad(25000, 2500, 3500, 4000, 6000, 5500, 9000);
+		Propiedad buenosAiresSur = new Propiedad(20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		buenosAiresNorte.asociar(buenosAiresSur);
+		buenosAiresNorte.adquirir(propietario);
+		buenosAiresSur.adquirir(propietario);
+		
+		buenosAiresNorte.construirCasa();
+		buenosAiresSur.construirCasa();
+		buenosAiresSur.construirCasa();
+		
+		double capitalInicial = inquilino.getCapital();
+		buenosAiresNorte.activarEfecto(inquilino);
+		
+		assertEquals(capitalInicial-3500, inquilino.getCapital(), 0);
+	}
+	
+	@Test
+	public void Entrega2test5() {
+		Propiedad buenosAiresNorte = new Propiedad(25000, 2500, 3500, 4000, 6000, 5500, 9000);
+		Propiedad buenosAiresSur = new Propiedad(20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		buenosAiresNorte.asociar(buenosAiresSur);
+		
+		Jugador propietario = new Jugador();
+		
+		buenosAiresNorte.asociar(buenosAiresSur);
+		buenosAiresNorte.adquirir(propietario);
+		buenosAiresSur.adquirir(propietario);
+		
+		buenosAiresNorte.construirCasa();
+		buenosAiresNorte.construirCasa();
+		buenosAiresSur.construirCasa();
+		
+		double capitalInicial = propietario.getCapital();
+		
+		try {
+			buenosAiresNorte.construirHotel();
+			fail();
+		} catch (ConstruccionImposible e) {
+			assertTrue(true);
+		}
+		
+		assertEquals(capitalInicial, propietario.getCapital(), 0);
+	}
+	
+	@Test
+	public void Entrega2test6() {
+		Propiedad buenosAiresNorte = new Propiedad(25000, 2500, 3500, 4000, 6000, 5500, 9000);
+		Propiedad buenosAiresSur = new Propiedad(20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		buenosAiresNorte.asociar(buenosAiresSur);
+		
+		Jugador propietario = new Jugador();
+		
+		buenosAiresNorte.asociar(buenosAiresSur);
+		buenosAiresNorte.adquirir(propietario);
+		buenosAiresSur.adquirir(propietario);
+		
+		buenosAiresNorte.construirCasa();
+		buenosAiresNorte.construirCasa();
+		buenosAiresSur.construirCasa();
+		buenosAiresSur.construirCasa();
+		
+		double capitalInicial = propietario.getCapital();
+		
+		buenosAiresSur.construirHotel();
+		
+		assertEquals(capitalInicial-8000, propietario.getCapital(), 0);
+	}
+
+	@Test
+	public void Entrega2test7() {
+		Propiedad buenosAiresNorte = new Propiedad(25000, 2500, 3500, 4000, 6000, 5500, 9000);
+		Propiedad buenosAiresSur = new Propiedad(20000, 2000, 3000, 3500, 5000, 5000, 8000);
+		buenosAiresNorte.asociar(buenosAiresSur);
+		
+		Jugador propietario = new Jugador();
+		Jugador inquilino = new Jugador();
+		
+		buenosAiresNorte.asociar(buenosAiresSur);
+		buenosAiresNorte.adquirir(propietario);
+		buenosAiresSur.adquirir(propietario);
+		
+		buenosAiresNorte.construirCasa();
+		buenosAiresNorte.construirCasa();
+		buenosAiresSur.construirCasa();
+		buenosAiresSur.construirCasa();
+		buenosAiresSur.construirHotel();
+		
+		double capitalInicial = inquilino.getCapital();		
+		buenosAiresSur.activarEfecto(inquilino);
+		
+		assertEquals(capitalInicial-5000, inquilino.getCapital(), 0);
+	}
+
+	@Test
+	public void Entrega2test9() {
+		Propiedad santaFe = new Propiedad(15000, 1500, 3500, 4000);
+		Jugador propietario = new Jugador();
+		
+		santaFe.adquirir(propietario);
+		
+		double capitalInicial = propietario.getCapital();
+		
+		santaFe.construirCasa();
+		
+		assertEquals(capitalInicial-4000, propietario.getCapital(), 0);
+	}
+	
+	// Pruebas 3ra entrega
 	@Test
 	public void CuandoNoTieneCapitalAlComprarUnaCasaLanzaCapitalInsuficiente() {
 		Jugador jugador = new Jugador();
@@ -459,4 +618,35 @@ public class PropiedadTest {
 			assertTrue(true);
 		}
 	}	
+	
+	@Test
+	public void test3() {
+		Jugador jugadorSinCapital = new Jugador();
+		Jugador otroJugador = new Jugador();
+		Jugador nuevoPropietario = new Jugador();
+		Jugador tercerJugador = new Jugador();
+		
+		Propiedad propiedadDelJugadorSinCapital = new Propiedad(100000, 100, 0, 0, 0, 0, 0);
+		Propiedad otraPropiedad = new Propiedad(0, 200, 0, 0, 0, 0, 0);
+		
+		otraPropiedad.adquirir(otroJugador);
+		
+		propiedadDelJugadorSinCapital.adquirir(jugadorSinCapital);
+		assertEquals(0, jugadorSinCapital.getCapital(), 0);
+		
+		try {
+			otraPropiedad.activarEfecto(jugadorSinCapital);
+			fail();
+		} catch (CapitalInsuficiente e) {
+			assertTrue(true);
+			propiedadDelJugadorSinCapital.vender();
+		}
+		
+		propiedadDelJugadorSinCapital.adquirir(nuevoPropietario);
+		
+		double capitalInicial = nuevoPropietario.getCapital();
+		propiedadDelJugadorSinCapital.activarEfecto(tercerJugador);
+		
+		assertEquals(capitalInicial+100, nuevoPropietario.getCapital(), 0);
+	}
 }
