@@ -15,7 +15,6 @@ public class Adquirible {
 	public void adquirir(Jugador jugador) {
 		jugador.disminuirCapital(precioDeVenta);
 		propietario = jugador;
-		jugador.adquirir(this);
 	}
 
 	public void vender() {
@@ -36,7 +35,6 @@ public class Adquirible {
 	}
 
 	public int getPrecioVenta() {
-		
 		return (int) this.precioDeVenta;
 	}
 	

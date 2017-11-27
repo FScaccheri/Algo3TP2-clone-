@@ -4,21 +4,21 @@ import java.util.LinkedList;
 
 import modelo.casilleros.adquiribles.Adquirible;
 import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Servicio;
 import modelo.casilleros.movimiento.Movimiento;
 import modelo.casilleros.movimiento.MovimientoBasico;
 import modelo.excepciones.CapitalInsuficiente;
 
 public class Jugador {
 	private static final int CAPITALINICIAL = 100000;
-	double capital = CAPITALINICIAL;
-	int ultimaTirada = 0;
-	Posicion posicion = null;
-	Movimiento movimiento;
-	ColeccionDeAdquiribles adquiridos;
+	private double capital = CAPITALINICIAL;
+	private Posicion posicion = null;
+	private Movimiento movimiento;
+	private ColeccionDeRentables adquiridos;
 	
 	public Jugador() {
 		movimiento = new MovimientoBasico();
-		adquiridos = new ColeccionDeAdquiribles();
+		adquiridos = new ColeccionDeRentables();
 	}
 	
 	public double getCapital() {
@@ -59,12 +59,7 @@ public class Jugador {
 	public void avanzar(int posiciones, Movimiento movimiento) {
 		movimiento.mover(this, posiciones);
 	}
-
 	
-	public void adquirir(Adquirible elementoPorAdquirir) { 
-		adquiridos.agregar(elementoPorAdquirir);
-	}
-
 	public int cantidadDePropiedades() {
 		return adquiridos.propiedades().size();
 	}
@@ -87,8 +82,7 @@ public class Jugador {
 		return hoteles;
 	}
 
-	public ColeccionDeAdquiribles getAdquiridos() {
-		
+	public ColeccionDeRentables getAdquiridos() {
 		return adquiridos;
 	}
 
@@ -102,5 +96,15 @@ public class Jugador {
 		for ( int i = 0; i < posiciones; i++ ) {
 			posicion = posicion.anterior();
 		}
+	}
+
+	public void adquirir(Propiedad propiedad) { 
+		propiedad.adquirir(this);
+		adquiridos.agregar(propiedad);
+	}
+
+	public void adquirir(Servicio servicio) {
+		servicio.adquirir(this);
+		adquiridos.agregar(servicio);		
 	}
 }

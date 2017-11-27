@@ -19,5 +19,4 @@ public class Servicio extends Rentable {
 			return Tirada.getUltimaTirada() * this.alquilerCombo;
 		return Tirada.getUltimaTirada() * this.alquilerSimple;
 	}
-	
 }
