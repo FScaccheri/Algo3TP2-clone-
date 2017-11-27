@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import modelo.Jugador;
+import modelo.Tablero;
 
 public class ContenedorJuego extends BorderPane{
 	
@@ -26,7 +27,7 @@ public class ContenedorJuego extends BorderPane{
 	private CanvasTablero canvasTablero;
 	private CajaJugadores contenedorJugadores;
 	private LinkedList<VistaJugador> jugadores;
-	private static VistaJugador vistaJugadorActual;
+	private VistaJugador vistaJugadorActual;
 
 	public ContenedorJuego(Stage stage, int cantidadJugadores) {
 	

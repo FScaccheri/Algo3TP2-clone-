@@ -3,18 +3,30 @@ package vistas;
 import java.util.LinkedList;
 
 import javafx.scene.canvas.GraphicsContext;
+import modelo.AvanceDinamico;
+import modelo.Carcel;
+import modelo.Casillero;
+import modelo.ImpuestoAlLujo;
+import modelo.Policia;
 import modelo.Propiedad;
+import modelo.Quini6;
+import modelo.RetrocesoDinamico;
 import modelo.Servicio;
+import modelo.Tablero;
 
 public class VistaTablero {
 	
-	private LinkedList<VistaCasillero> casilleros;
+	private LinkedList<VistaCasillero> vistasCasilleros;
+	private LinkedList<Casillero> casilleros;
 	private GraphicsContext gc;
+	private Tablero tablero;
 	
 	public VistaTablero(GraphicsContext gc) {
 		
 		this.gc = gc;
-		this.casilleros = new LinkedList<VistaCasillero>();
+		this.vistasCasilleros = new LinkedList<VistaCasillero>();
+		this.casilleros = new LinkedList<Casillero>();
+		this.tablero = Tablero.getInstancia();
 	}
 
 	public void pintarTablero() {
@@ -36,34 +48,59 @@ public class VistaTablero {
 		
 		EDESUR.asociar(AYSA);
 		SUBTE.asociar(TRENES);
+																		// Casillero numero:
+		casilleros.add(new Casillero(new Quini6()));									//2
+		casilleros.add(new Casillero(BsAsSur));											//3
+		casilleros.add(new Casillero(EDESUR));											//4
+		casilleros.add(new Casillero(BsAsNorte));										//5
+		casilleros.add(new Casillero(new Carcel()));									//6
+		casilleros.add(new Casillero(CordobaSur));										//7
+		casilleros.add(new Casillero(new AvanceDinamico()));							//8
+		casilleros.add(new Casillero(SUBTE));											//9
+		casilleros.add(new Casillero(CordobaNorte));									//10
+		casilleros.add(new Casillero(new ImpuestoAlLujo()));							//11
+		casilleros.add(new Casillero(SantaFe));											//12
+		casilleros.add(new Casillero(AYSA));											//13
+		casilleros.add(new Casillero(SaltaNorte));										//14
+		casilleros.add(new Casillero(SaltaSur));										//15
+		casilleros.add(new Casillero(new Policia(casilleros.get(5).getPosicion())));	//16
+		casilleros.add(new Casillero(TRENES));											//17
+		casilleros.add(new Casillero(Neuquen));											//18
+		casilleros.add(new Casillero(new RetrocesoDinamico()));							//19
+		casilleros.add(new Casillero(Tucuman));											//20
 		
-		casilleros.add(new VistaCasillero("SALIDA", 640, 640, gc));						//1
-		casilleros.add(new VistaCasillero("QUINI 6", 520, 640, gc));					//2
-		casilleros.add(new VistaCasillero("BS AS", "SUR", BsAsSur , 400, 640, gc));		//3
-		casilleros.add(new VistaCasillero("EDESUR", EDESUR, 280, 640, gc));				//4
-		casilleros.add(new VistaCasillero("BS AS", "NORTE", BsAsNorte, 160, 640, gc));		//5
-		casilleros.add(new VistaCasillero("CARCEL", 40, 640, gc));						//6
-		casilleros.add(new VistaCasillero("CORDOBA", "SUR", CordobaSur, 40, 520, gc));		//7
-		casilleros.add(new VistaCasillero("ACANCE", "DINAMICO", 40, 400, gc));			//8
-		casilleros.add(new VistaCasillero("SUBTE", SUBTE, 40, 280, gc));				//9
-		casilleros.add(new VistaCasillero("CORDOBA", "NORTE", CordobaNorte, 40,160, gc));		//10
-		casilleros.add(new VistaCasillero("IMPUESTO", "DE LUJO", 40, 40, gc));			//11
-		casilleros.add(new VistaCasillero("SANTA FE", SantaFe, 160, 40, gc));				//12
-		casilleros.add(new VistaCasillero("AYSA", AYSA, 280, 40, gc)); 				//13
-		casilleros.add(new VistaCasillero("SALTA", "NORTE", SaltaNorte, 400, 40, gc));		//14
-		casilleros.add(new VistaCasillero("SALTA", "SUR", SaltaSur, 520, 40, gc));			//15
-		casilleros.add(new VistaCasillero("POLICIA", 640, 40, gc));						//16
-		casilleros.add(new VistaCasillero("TRENES", TRENES, 640, 160, gc));				//17
-		casilleros.add(new VistaCasillero("NEUQUEN", Neuquen, 640, 280, gc));				//18
-		casilleros.add(new VistaCasillero("RETROCESO", "DINAMICO", 640, 400, gc));		//19
-		casilleros.add(new VistaCasillero("TUCUMAN", Tucuman, 640, 520, gc));				//20	
+		for (int i = 0; i < 19; i++) {
+			
+			tablero.agregar(casilleros.get(i));
+		}
+		
+		vistasCasilleros.add(new VistaCasillero("SALIDA", 640, 640, gc));						//1
+		vistasCasilleros.add(new VistaCasillero("QUINI 6", 520, 640, gc));						//2
+		vistasCasilleros.add(new VistaCasillero("BS AS", "SUR", BsAsSur , 400, 640, gc));		//3
+		vistasCasilleros.add(new VistaCasillero("EDESUR", EDESUR, 280, 640, gc));				//4
+		vistasCasilleros.add(new VistaCasillero("BS AS", "NORTE", BsAsNorte, 160, 640, gc));	//5
+		vistasCasilleros.add(new VistaCasillero("CARCEL", 40, 640, gc));						//6
+		vistasCasilleros.add(new VistaCasillero("CORDOBA", "SUR", CordobaSur, 40, 520, gc));	//7
+		vistasCasilleros.add(new VistaCasillero("ACANCE", "DINAMICO", 40, 400, gc));			//8
+		vistasCasilleros.add(new VistaCasillero("SUBTE", SUBTE, 40, 280, gc));					//9
+		vistasCasilleros.add(new VistaCasillero("CORDOBA", "NORTE", CordobaNorte, 40,160, gc));	//10
+		vistasCasilleros.add(new VistaCasillero("IMPUESTO", "DE LUJO", 40, 40, gc));			//11
+		vistasCasilleros.add(new VistaCasillero("SANTA FE", SantaFe, 160, 40, gc));				//12
+		vistasCasilleros.add(new VistaCasillero("AYSA", AYSA, 280, 40, gc)); 					//13
+		vistasCasilleros.add(new VistaCasillero("SALTA", "NORTE", SaltaNorte, 400, 40, gc));	//14
+		vistasCasilleros.add(new VistaCasillero("SALTA", "SUR", SaltaSur, 520, 40, gc));		//15
+		vistasCasilleros.add(new VistaCasillero("POLICIA", 640, 40, gc));						//16
+		vistasCasilleros.add(new VistaCasillero("TRENES", TRENES, 640, 160, gc));				//17
+		vistasCasilleros.add(new VistaCasillero("NEUQUEN", Neuquen, 640, 280, gc));				//18
+		vistasCasilleros.add(new VistaCasillero("RETROCESO", "DINAMICO", 640, 400, gc));		//19
+		vistasCasilleros.add(new VistaCasillero("TUCUMAN", Tucuman, 640, 520, gc));				//20	
 		
 		
 	}
 
-	public VistaCasillero getCasillero(int posicionRelativa) {
+	public VistaCasillero getVistasCasillero(int posicionRelativa) {
 		
-		return casilleros.get(posicionRelativa);
+		return vistasCasilleros.get(posicionRelativa);
 	}
 
 }

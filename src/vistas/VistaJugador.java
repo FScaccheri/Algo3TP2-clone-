@@ -24,8 +24,8 @@ public class VistaJugador {
 		this.color = color;
 		this.numero = numeroJugador - 1;
 		this.posicionEnTablero = 0;
-		this.posX = tablero.getCasillero(posicionEnTablero).getPosX() + 90;
-		this.posY = tablero.getCasillero(posicionEnTablero).getPosY() + 40;
+		this.posX = tablero.getVistasCasillero(posicionEnTablero).getPosX() + 90;
+		this.posY = tablero.getVistasCasillero(posicionEnTablero).getPosY() + 40;
 		this.jugador = jugador;
 	}
 
@@ -40,8 +40,8 @@ public class VistaJugador {
 			
 			posicionEnTablero -= 20;
 			
-		posX = tablero.getCasillero(posicionEnTablero).getPosX() + 90;
-		posY = tablero.getCasillero(posicionEnTablero).getPosY() + 40;
+		posX = tablero.getVistasCasillero(posicionEnTablero).getPosX() + 90;
+		posY = tablero.getVistasCasillero(posicionEnTablero).getPosY() + 40;
 		
 		
 		dibujar();
