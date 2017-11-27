@@ -27,26 +27,39 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 
-		Alert ventana = new Alert(AlertType.CONFIRMATION);
-		ventana.setTitle("Edificacion");
-		ventana.setHeaderText("Elija en que propiedades desea edificar");
+		
 		
 		LinkedList<Propiedad> propiedades = jugadorActual.getAdquiridos().propiedades();
+		
+		if (propiedades.isEmpty()) {
+			
+			Alert ventana = new Alert(AlertType.ERROR);
+			ventana.setTitle("Edificacion");
+			ventana.setHeaderText("No hay propiedades para edificar!");
+			ventana.show();
+			
+		}
 		
 		for(int i = 0; i < propiedades.size(); i++) {
 			
 			if (propiedades.get(i).puedeCostruirCasa() || propiedades.get(i).puedeCostruirHotel()) {
-			
+				Alert ventana = new Alert(AlertType.CONFIRMATION);
+				ventana.setTitle("Edificacion");
+				ventana.setHeaderText("Desea edificar esta propiedad?");
 				Propiedad unaPropiedad = propiedades.get(i);
 				String nombre = tablero.getCasilleros().get(unaPropiedad.getPosicionRelativa()).getNombre();
-				ventana.setGraphic(new Button(nombre));
+				Button unBoton = new Button(nombre);
+				unBoton.setOnAction(new BotonEdificarUnaPropiedadEventHandler(unaPropiedad));
+				ventana.setGraphic(unBoton);
+				//ventana.setGraphic(new Button("boton"));
+				//ventana.setGraphic(new Button("boton2"));
+				ventana.showAndWait();
+				
 			}
 		}
 		
 		
 		
-		ventana.setGraphic(new Button("boton"));
-		ventana.showAndWait();
 		
 	}
 

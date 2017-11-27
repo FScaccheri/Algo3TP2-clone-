@@ -31,16 +31,10 @@ public class VistaJugador {
 		this.jugador = jugadores.get(numero);
 	}
 
-	public void avanzar(int tirada) {
+	public void moverA(int posicionEnTablero) {
 		
 		gc.setFill(Color.WHITE);
 		gc.fillRect(posX, posY + numero*17, radio, radio);
-		
-		posicionEnTablero += tirada;
-		
-		if (posicionEnTablero >= 20)
-			
-			posicionEnTablero -= 20;
 			
 		posX = tablero.getVistasCasillero(posicionEnTablero).getPosX() + 90;
 		posY = tablero.getVistasCasillero(posicionEnTablero).getPosY() + 40;
