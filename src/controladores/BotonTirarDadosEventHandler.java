@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import modelo.Jugador;
 import modelo.Tablero;
 import modelo.Tirada;
 import vistas.ContenedorJuego;
@@ -15,13 +16,13 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	private Button botonComprar;
 	private Button botonTerminar;
 	private boolean huboDobles;
-	private VistaJugador jugador;
+	private VistaJugador vistaJugador;
 	private ContenedorJuego contenedorJuego;
 	
 	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, LinkedList<VistaJugador> jugadores, VistaJugador vistaJugadorActual, Button botonTirarDados, Button botonComprar, Button botonTerminar) {
 
 		this.contenedorJuego = contenedorJuego;
-		this.jugador = vistaJugadorActual;
+		this.vistaJugador = vistaJugadorActual;
 		this.huboDobles = false;
 		this.botonTirar = botonTirarDados;
 		this.botonComprar = botonComprar;
@@ -30,7 +31,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 
-		jugador = contenedorJuego.getVistaJugadorActual();
+		vistaJugador = contenedorJuego.getVistaJugadorActual();
 		
 		int tirada = Tirada.tirar();
 		
@@ -43,9 +44,10 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 			huboDobles = Tirada.fueDoble();
 		}
 		
-		jugador.avanzar(tirada);
-		jugador.getJugadorAsociado().avanzar(tirada);
-		Tablero.getInstancia().getCasillero(jugador.getJugadorAsociado().getPosicion()).caeEn(jugador.getJugadorAsociado());
+		vistaJugador.avanzar(tirada);
+		Jugador jugador = vistaJugador.getJugadorAsociado();
+		vistaJugador.getJugadorAsociado().avanzar(tirada);
+		Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);
 		
 		
 		if(!huboDobles) {
