@@ -1,11 +1,14 @@
 package vistas;
 
 import java.util.LinkedList;
+import modelo.Posicion;
+import modelo.AdministradorDeTurnos2;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import modelo.Jugador;
+import modelo.Tablero;
 
 public class VistaJugador {
 
@@ -30,6 +33,17 @@ public class VistaJugador {
 		this.posY = tablero.getVistasCasillero(posicionEnTablero).getPosY() + 40;
 		this.jugador = jugadores.get(numero);
 	}
+	
+	public VistaJugador(GraphicsContext gc, Jugador jugadorAsociado, VistaTablero tablero, Paint color, int numeroJugador) {
+		this.tablero = tablero;
+		this.gc = gc;
+		this.color = color;
+		this.numero = numeroJugador - 1;
+		this.posicionEnTablero = 0;
+		this.posX = tablero.getVistasCasillero(posicionEnTablero).getPosX() + 90;
+		this.posY = tablero.getVistasCasillero(posicionEnTablero).getPosY() + 40;
+		this.jugador = jugador;
+	}
 
 	public void moverA(int posicionEnTablero) {
 		
@@ -42,6 +56,14 @@ public class VistaJugador {
 		
 		dibujar();
 		
+	}
+	
+	public void moverA(Posicion posicion) {
+		gc.setFill(Color.WHITE);
+		gc.fillRect(posX, posY + numero*17, radio, radio);
+		
+		posX = tablero.getVistasCasillero(Tablero.getInstancia().getCasilleros().indexOf(Tablero.getInstancia().getCasillero(posicion))+1).getPosX() + 90;
+		posY = tablero.getVistasCasillero(Tablero.getInstancia().getCasilleros().indexOf(Tablero.getInstancia().getCasillero(posicion))+1).getPosY() + 40;
 	}
 
 	public void dibujar() {
