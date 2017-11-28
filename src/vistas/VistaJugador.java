@@ -42,7 +42,7 @@ public class VistaJugador {
 		this.posicionEnTablero = 0;
 		this.posX = tablero.getVistasCasillero(posicionEnTablero).getPosX() + 90;
 		this.posY = tablero.getVistasCasillero(posicionEnTablero).getPosY() + 40;
-		this.jugador = jugador;
+		this.jugador = jugadorAsociado;
 	}
 
 	public void moverA(int posicionEnTablero) {
@@ -62,8 +62,8 @@ public class VistaJugador {
 		gc.setFill(Color.WHITE);
 		gc.fillRect(posX, posY + numero*17, radio, radio);
 		
-		posX = tablero.getVistasCasillero(Tablero.getInstancia().getCasilleros().indexOf(Tablero.getInstancia().getCasillero(posicion))+1).getPosX() + 90;
-		posY = tablero.getVistasCasillero(Tablero.getInstancia().getCasilleros().indexOf(Tablero.getInstancia().getCasillero(posicion))+1).getPosY() + 40;
+		posX = tablero.getVistasCasillero(Tablero.getInstancia().getCasilleros().indexOf(Tablero.getInstancia().getCasillero(posicion))).getPosX() + 90;
+		posY = tablero.getVistasCasillero(Tablero.getInstancia().getCasilleros().indexOf(Tablero.getInstancia().getCasillero(posicion))).getPosY() + 40;
 	}
 
 	public void dibujar() {
