@@ -10,6 +10,9 @@ import javafx.scene.paint.Paint;
 import modelo.Jugador;
 import modelo.casilleros.Activable;
 import modelo.casilleros.adquiribles.Adquirible;
+import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Rentable;
+import modelo.casilleros.adquiribles.Servicio;
 import vistas.ContenedorJuego;
 import vistas.VistaJugador;
 
@@ -37,7 +40,11 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 		
 		if ( (aAdquirir instanceof Adquirible) && ( ! ((Adquirible)aAdquirir).tienePropietario())) {
 			
-			//jugador.adquirir((Adquirible) aAdquirir);
+			if(aAdquirir instanceof Propiedad)
+				jugador.adquirir((Propiedad) aAdquirir);
+			
+			if(aAdquirir instanceof Servicio)
+				jugador.adquirir((Servicio) aAdquirir);
 		
 			int posX = vistaJugador.getPosX();
 			int posY = vistaJugador.getPosY();

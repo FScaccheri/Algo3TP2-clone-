@@ -24,14 +24,11 @@ public class VistaCasillero {
 
 	public VistaCasillero(String titulo1, String titulo2, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
 
-		this.posX = posicionX;
-		this.posY = posicionY;
-		this.casillero = casillero;
-		dibujar(titulo1, posicionX, posicionY, gc);
+		this(titulo1, casillero, posicionX, posicionY, gc);
 		gc.strokeText(titulo2, posicionX + 40, posicionY + 75);
 		
 	}
-	//NO USADO
+	
 	public VistaCasillero(String titulo, int precio, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
 
 		this(titulo, casillero, posicionX, posicionY, gc);
@@ -43,7 +40,7 @@ public class VistaCasillero {
 		gc.strokeText("$ " + precio, posicionX + 30, posicionY + 100);
 		
 	}
-	//NO USADO
+	
 	public VistaCasillero(String titulo1, String titulo2, int precio, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
 
 		this(titulo1, casillero, posicionX, posicionY, gc);
@@ -56,6 +53,7 @@ public class VistaCasillero {
 		gc.strokeText("$ " + precio, posicionX + 30, posicionY + 100);
 		
 	}
+	
 	public void dibujar(String titulo, int posicionX, int posicionY, GraphicsContext gc) {
 		
 		gc.setFill(Color.BLACK);
@@ -76,6 +74,11 @@ public class VistaCasillero {
 	public int getPosY() {
 		
 		return posY;
+	}
+
+	public Casillero getCasillero() {
+		
+		return casillero;
 	}
 
 }

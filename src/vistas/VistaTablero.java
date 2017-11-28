@@ -3,6 +3,7 @@ package vistas;
 import java.util.LinkedList;
 
 import javafx.scene.canvas.GraphicsContext;
+import modelo.Posicion;
 import modelo.Tablero;
 import modelo.casilleros.Carcel;
 import modelo.casilleros.Casillero;
@@ -54,9 +55,24 @@ public class VistaTablero {
 		
 	}
 
-	public VistaCasillero getVistasCasillero(int posicionRelativa) {
+	public VistaCasillero getVistaCasilleroEn(int posicionRelativa) {
 		
 		return vistasCasilleros.get(posicionRelativa);
 	}
 
+	//
+	public VistaCasillero getVistaCasilleroEn(Posicion posicion) {
+		
+		VistaCasillero vistaBuscada = null;
+		
+		for (int i = 0; i < vistasCasilleros.size(); i++) {
+			
+			if(vistasCasilleros.get(i).getCasillero().getPosicion() == posicion) {
+				
+				vistaBuscada = vistasCasilleros.get(i);
+			}
+		}
+		
+		return vistaBuscada;
+	}
 }
