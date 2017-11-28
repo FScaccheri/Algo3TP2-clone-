@@ -15,7 +15,6 @@ public class AplicacionAP extends Application{
 	public void start(Stage stage) throws Exception {
 		
 		stage.setTitle("AlgoPoly - Grupo 3(?)");
-		
 	
 		ContenedorJuego contenedorJuego = new ContenedorJuego(stage, 3);
 		Scene escenaPrincipal = new Scene(contenedorJuego , 1200, 900);

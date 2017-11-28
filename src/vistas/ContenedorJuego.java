@@ -74,6 +74,9 @@ public class ContenedorJuego extends BorderPane{
 		Servicio AYSA = new Servicio(30000, 300, 500);
 		Servicio TRENES = new Servicio(38000, 450, 800);
 		
+		BsAsSur.asociar(BsAsNorte);
+		CordobaSur.asociar(CordobaNorte);
+		SaltaNorte.asociar(SaltaSur);
 		EDESUR.asociar(AYSA);
 		SUBTE.asociar(TRENES);
 																					// Casillero numero:
@@ -97,12 +100,6 @@ public class ContenedorJuego extends BorderPane{
 		tablero.agregar(new Casillero("Neuquen", Neuquen, 17));													//18
 		tablero.agregar(new Casillero("Retroceso dinamico", new RetrocesoDinamico(), 18));									//19
 		tablero.agregar(new Casillero("Tucuman", Tucuman, 19));													//20
-		
-		for (int i = 0; i < 20; i++) {
-			
-			tablero.agregar(tablero.getCasilleros().get(i));
-		}
-		
 		
 	}
 
