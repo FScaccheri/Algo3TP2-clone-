@@ -7,17 +7,13 @@ public class Tirada {
 	private Tirada() {}
 	
 	public static int tirar() {
-		int resultadoDadoUno = tirarUnDado();
-		int resultadoDadoDos = tirarUnDado();
+		Dado dado = new Dado();
+		int resultadoDadoUno = dado.tirar();
+		int resultadoDadoDos = dado.tirar();
 		
 		salieronDobles = (resultadoDadoUno == resultadoDadoDos);
 
 		return ultimaTirada = resultadoDadoUno + resultadoDadoDos;
-	}
-	
-	private static int tirarUnDado() {
-		Dado unDado = new Dado();
-		return unDado.tirar();
 	}
 	
 	public static int getUltimaTirada() {
@@ -31,5 +27,10 @@ public class Tirada {
 	// Existe para probar avance dinamico.
 	public static void setUltimaTirada(int tirada) {
 		ultimaTirada = tirada;
+	}
+
+	// Existe para probar AdministradorDeTurnos.
+	public static void setSalieronDobles(boolean dobles) {
+		salieronDobles = dobles;
 	}
 }
