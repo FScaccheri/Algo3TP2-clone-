@@ -1,10 +1,13 @@
 package controladores;
 
+import java.net.URL;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.media.AudioClip;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Paint;
 import modelo.Jugador;
@@ -22,12 +25,17 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 	private Button botonComprar;
 	private VistaJugador vistaJugador;
 	private ContenedorJuego contenedorJuego;
+	
+	private AudioClip audioClip;
+	final URL resource = getClass().getResource("sonidos/registradora.wav");
 
 	public BotonComprarEventHandler(ContenedorJuego contenedorJuego, GraphicsContext gc, Button botonComprar) {
 		
 		this.contenedorJuego = contenedorJuego;
 		this.gc = gc;
 		this.botonComprar = botonComprar;
+		this.audioClip = new AudioClip(resource.toString());	
+		this.audioClip.setVolume(0.1);	
 	}
 
 	@Override
@@ -53,7 +61,7 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 			gc.setFill(color);
 			gc.fillRect(posX + 5, posY + 5, 110, 25);
 		
-
+			this.audioClip.play();
 			botonComprar.setDisable(true);
 		} else if (!(aAdquirir instanceof Adquirible)) {
 			

@@ -4,9 +4,13 @@ import java.util.LinkedList;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 import modelo.Jugador;
 import modelo.Tablero;
 import modelo.casilleros.adquiribles.Propiedad;
@@ -43,21 +47,19 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 		for(int i = 0; i < propiedades.size(); i++) {
 			
 			if (propiedades.get(i).puedeCostruirCasa() || propiedades.get(i).puedeCostruirHotel()) {
-				Alert ventana = new Alert(AlertType.CONFIRMATION);
-				ventana.setTitle("Edificacion");
-				ventana.setHeaderText("Desea edificar esta propiedad?");
-				Propiedad unaPropiedad = propiedades.get(i);
-				String nombre = tablero.getCasilleros().get(unaPropiedad.getPosicionRelativa()).getNombre();
-				Button unBoton = new Button(nombre);
-				unBoton.setOnAction(new BotonEdificarUnaPropiedadEventHandler(unaPropiedad));
-				ventana.setGraphic(unBoton);
-				//ventana.setGraphic(new Button("boton"));
-				//ventana.setGraphic(new Button("boton2"));
-				ventana.showAndWait();
+				
+				// ejemplo:
+				Stage ventana = new Stage();
+				Button boton = new Button("Boton");
+				VBox contenedor = new VBox();
+				contenedor.getChildren().add(boton);
+				Scene escena = new Scene(contenedor);
+				ventana.setScene(escena);
+				ventana.show();
 				
 			}
-		}
 		
+		}
 		
 		
 		
