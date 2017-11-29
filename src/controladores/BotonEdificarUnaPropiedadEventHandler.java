@@ -27,9 +27,9 @@ public class BotonEdificarUnaPropiedadEventHandler implements EventHandler<Actio
 		
 		else {
 			
-			Alert alerta = new Alert(AlertType.ERROR);
-			alerta.setTitle("Edificacion");
-			alerta.setHeaderText("No se puede edificar mas!");
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setHeaderText("Edificacion");
+			alerta.setContentText("No se puede edificar mas!");
 			alerta.show();
 		}
 

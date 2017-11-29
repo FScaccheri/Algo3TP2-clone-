@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -22,7 +23,7 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 	private LinkedList<Propiedad> edificables;
 	private Tablero tablero;
 	
-	public BotonEdificarEventHandler(ContenedorJuego contenedorJuego, Tablero tablero) {
+	public BotonEdificarEventHandler(ContenedorJuego contenedorJuego, GraphicsContext gc, Tablero tablero) {
 		
 		this.jugadorActual = contenedorJuego.getJugadorActual();
 		this.tablero = tablero;
@@ -37,9 +38,9 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 		
 		if (propiedades.isEmpty()) {
 			
-			Alert ventana = new Alert(AlertType.ERROR);
-			ventana.setTitle("Edificacion");
-			ventana.setHeaderText("No hay propiedades para edificar!");
+			Alert ventana = new Alert(AlertType.WARNING);
+			ventana.setHeaderText("Edificacion no realizada");
+			ventana.setContentText("No tiene propiedades para edificar!");
 			ventana.show();
 			
 		}

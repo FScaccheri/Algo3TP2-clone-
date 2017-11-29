@@ -24,8 +24,7 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 	private GraphicsContext gc;
 	private Button botonComprar;
 	private VistaJugador vistaJugador;
-	private ContenedorJuego contenedorJuego;
-	
+	private ContenedorJuego contenedorJuego;	
 	private AudioClip audioClip;
 	final URL resource = getClass().getResource("sonidos/registradora.wav");
 
@@ -62,20 +61,25 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 			gc.fillRect(posX + 5, posY + 5, 110, 25);
 		
 			this.audioClip.play();
+			
+			
 			botonComprar.setDisable(true);
+			
 		} else if (!(aAdquirir instanceof Adquirible)) {
 			
-			Alert alerta = new Alert(AlertType.ERROR);
-			alerta.setTitle("Transaccion no completada");
-			alerta.setHeaderText("No se puede adquirir!");
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setHeaderText("Compra no realizada");
+			alerta.setContentText("No se puede comprar!");
+			alerta.show();
 			
 		}
 		
 		else {
 			
-			Alert alerta = new Alert(AlertType.ERROR);
-			alerta.setTitle("Transaccion no completada");
-			alerta.setHeaderText("La propiedad ya tiene duenio!");
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setHeaderText("Compra no realizada");
+			alerta.setContentText("La propiedad ya tiene duenio!");
+			alerta.show();
 		}
 	}
 

@@ -40,4 +40,5 @@ public class ColeccionDeRentables {
 	public void eliminar(Servicio servicio) {
 		servicios.remove(servicio);
 	}
+
 }

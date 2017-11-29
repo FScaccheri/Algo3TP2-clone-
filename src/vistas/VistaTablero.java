@@ -60,7 +60,6 @@ public class VistaTablero {
 		return vistasCasilleros.get(posicionRelativa);
 	}
 
-	//
 	public VistaCasillero getVistaCasilleroEn(Posicion posicion) {
 		
 		VistaCasillero vistaBuscada = null;

@@ -4,6 +4,7 @@ import modelo.Jugador;
 import modelo.Posicion;
 import modelo.casilleros.adquiribles.Adquirible;
 import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Rentable;
 
 public class Casillero {
 	private Activable efecto;
@@ -19,9 +20,19 @@ public class Casillero {
 	public Casillero(String nombre, Activable efecto, int posicion) {
 		this.efecto = efecto;
 		this.nombre = nombre;
+		this.setNombreARentable(nombre);
 		this.posicionRelativa = posicion;
 	}
 
+
+	private void setNombreARentable(String nombreRentable) {
+
+		if (efecto instanceof Rentable) {
+			
+			((Rentable) efecto).setNombre(nombreRentable);
+		}
+		
+	}
 
 	public void setPosicion(Posicion posicion) {
 		this.posicion = posicion;

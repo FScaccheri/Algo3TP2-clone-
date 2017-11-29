@@ -5,6 +5,7 @@ import controladores.BotonComprarEventHandler;
 import controladores.BotonEdificarEventHandler;
 import controladores.BotonTerminarEventHandler;
 import controladores.BotonTirarDadosEventHandler;
+import controladores.BotonVenderEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.GraphicsContext;
@@ -134,7 +135,10 @@ public class ContenedorJuego extends BorderPane{
 		BotonComprarEventHandler botonComprarEventHandler = new BotonComprarEventHandler(this, gc, botonComprar);
 		botonComprar.setOnAction(botonComprarEventHandler);
 		
-		BotonEdificarEventHandler botonEdificarEventHandler = new BotonEdificarEventHandler(this, tablero);
+		BotonVenderEventHandler botonVenderEventHandler = new BotonVenderEventHandler(this);
+		botonVender.setOnAction(botonVenderEventHandler);
+		
+		BotonEdificarEventHandler botonEdificarEventHandler = new BotonEdificarEventHandler(this, gc, tablero);
 		botonEdificar.setOnAction(botonEdificarEventHandler);
 		
 		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, jugadores, vistasJugadores, botonTirarDados, botonTerminar);

@@ -6,6 +6,7 @@ import modelo.casilleros.Activable;
 public abstract class Rentable extends Adquirible implements Activable, Alquilable{
 
 	private Rentable propDependiente;
+	private String nombre;
 	
 	public Rentable(double precio_venta) {
 		super(precio_venta);
@@ -30,6 +31,17 @@ public abstract class Rentable extends Adquirible implements Activable, Alquilab
 	
 	public Rentable getRentableAsociado() {
 		return propDependiente;
+	}
+
+	public void setNombre(String nombre) {
+		
+		this.nombre = nombre;
+		
+	}
+	
+	public String getNombre() {
+		
+		return nombre;
 	}
 
 }
