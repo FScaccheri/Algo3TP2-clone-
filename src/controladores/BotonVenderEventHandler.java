@@ -20,15 +20,16 @@ import vistas.ContenedorJuego;
 public class BotonVenderEventHandler implements EventHandler<ActionEvent>{
 
 	private Jugador jugador;
+	private ContenedorJuego contenedorJuego;
 
 	public BotonVenderEventHandler(ContenedorJuego contenedorJuego) {
-		
-		this.jugador = contenedorJuego.getJugadorActual();
+		this.contenedorJuego = contenedorJuego;
 	}
 	
 	@Override
 	public void handle(ActionEvent event) {
 
+		jugador = contenedorJuego.getJugadorActual();
 		Stage ventana = new Stage();
 		HBox contenedor = new HBox();
 		Scene escena = new Scene(contenedor);
