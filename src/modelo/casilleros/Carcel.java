@@ -25,6 +25,10 @@ public class Carcel implements Activable{
 		if ( !this.presos.containsKey(jugador)) {
 			this.presos.put(jugador, 0);
 			jugador.setMovimiento(new MovimientoNulo());
+		} else if(presos.get(jugador) < 2) {
+			this.presos.put(jugador, presos.get(jugador) + 1);
+		} else {
+			liberar(jugador);
 		}
 	}
 
