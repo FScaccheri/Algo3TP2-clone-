@@ -23,7 +23,7 @@ public class Adquirible {
 		if (this instanceof Propiedad)
 			propietario.vender( (Propiedad) this );
 		
-		else
+		else if (this instanceof Servicio)
 			propietario.vender( (Servicio) this );
 		
 		propietario = null;
