@@ -70,14 +70,13 @@ public class Jugador {
 		adquiridos.agregar(servicio);
 	}
 	
-	public void vender(Propiedad propiedad) {
-		
+	public void vender(Propiedad propiedad) {		
+		propiedad.vender();
 		adquiridos.eliminar(propiedad);
-		
 	}
 	
 	public void vender(Servicio servicio) {
-		
+		servicio.vender();
 		adquiridos.eliminar(servicio);
 	}
 	
