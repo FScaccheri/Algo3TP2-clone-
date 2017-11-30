@@ -12,6 +12,7 @@ public class Policia implements Activable{
 	}
 	
 	public void activarEfecto(Jugador jugador) {
-		jugador.setPosicion( this.carcel );		
+		jugador.setPosicion(carcel);
+		jugador.getPosicion().getCasillero().caeEn(jugador);
 	}
 }

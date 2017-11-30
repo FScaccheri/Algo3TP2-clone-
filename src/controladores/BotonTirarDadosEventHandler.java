@@ -12,6 +12,7 @@ import modelo.Jugador;
 import modelo.Posicion;
 import modelo.Tablero;
 import modelo.Tirada;
+import modelo.casilleros.Carcel;
 import vistas.CanvasTablero;
 import vistas.ContenedorJuego;
 import vistas.VistaJugador;
@@ -55,14 +56,19 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		canvas.getGraphicsContext2D().fillRect(280, 280, 240, 240);
 		
 		int tirada = Tirada.tirar();
-		if(huboDobles) {
-			
-			huboDobles = false;
-			
-		} else {
-
-			huboDobles = Tirada.fueDoble();
-		}
+		try {
+			if(!((Carcel)(jugador.getPosicion().getCasillero().getEfecto())).estaPreso(jugador)) {
+				if(huboDobles) {
+					
+					huboDobles = false;
+					
+				} else {
+					
+					huboDobles = Tirada.fueDoble();
+					
+				}
+			}
+		}catch(ClassCastException e) {}
 		
 		jugador.avanzar(tirada);
 		Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);

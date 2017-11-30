@@ -45,4 +45,10 @@ public class Carcel implements Activable{
 			this.liberar(jugador);
 	}
 
+	public int getTurnosPreso(Jugador jugador) {
+		
+		int turnos = presos.get(jugador);
+		return turnos;
+	}
+
 }
