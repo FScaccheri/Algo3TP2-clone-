@@ -57,7 +57,7 @@ public class BotonVenderEventHandler implements EventHandler<ActionEvent>{
 				Propiedad unaPropiedad = propiedades.get(i);
 			
 				Button boton = new Button(unaPropiedad.getNombre());
-				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, unaPropiedad));
+				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, unaPropiedad, contenedorJuego.getCanvasTablero().getVistaTablero()));
 				
 				contenedor.getChildren().add(boton);
 				ventana.show();
@@ -71,7 +71,7 @@ public class BotonVenderEventHandler implements EventHandler<ActionEvent>{
 				Servicio unServicio = servicios.get(i);
 			
 				Button boton = new Button(unServicio.getNombre());
-				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, unServicio));
+				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, unServicio, contenedorJuego.getCanvasTablero().getVistaTablero()));
 				
 				contenedor.getChildren().add(boton);
 				ventana.show();

@@ -74,4 +74,8 @@ public class VistaTablero {
 		
 		return vistaBuscada;
 	}
+	
+	public GraphicsContext getGC() {
+		return gc;
+	}
 }

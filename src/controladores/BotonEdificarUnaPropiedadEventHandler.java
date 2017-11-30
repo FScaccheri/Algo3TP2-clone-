@@ -23,17 +23,11 @@ public class BotonEdificarUnaPropiedadEventHandler implements EventHandler<Actio
 			
 			propiedad.construirCasa();
 		
-		else if(propiedad.puedeCostruirHotel())
+		else if(propiedad.puedeCostruirHotel()) {
 			
 			propiedad.construirHotel();
-		
-		else {
-			
-			Alert alerta = new Alert(AlertType.WARNING);
-			alerta.setHeaderText("Edificacion");
-			alerta.setContentText("No se puede edificar mas!");
-			alerta.show();
 		}
+		if (!propiedad.puedeCostruirCasa() && !propiedad.puedeCostruirHotel()) {boton.setDisable(true);}
 
 	}
 
