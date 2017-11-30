@@ -19,6 +19,13 @@ public class Adquirible {
 
 	public void vender() {
 		propietario.aumentarCapital(precioDeVenta*PORCENTAJE_DE_VENTA);
+		
+		if (this instanceof Propiedad)
+			propietario.vender( (Propiedad) this );
+		
+		else
+			propietario.vender( (Servicio) this );
+		
 		propietario = null;
 	}
 	

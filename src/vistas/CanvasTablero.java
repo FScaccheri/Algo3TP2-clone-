@@ -16,6 +16,8 @@ public class CanvasTablero extends Canvas{
 		gc = this.getGraphicsContext2D();
 		gc.setFill(Color.BISQUE);
 		gc.fillRoundRect(0, 0, 800, 800, 10, 10);
+		gc.setFill(Color.LIGHTSKYBLUE);
+		gc.fillRoundRect(280, 280, 240, 240, 10, 10);
 		
 		tablero = new VistaTablero(gc);
 		tablero.pintarTablero();

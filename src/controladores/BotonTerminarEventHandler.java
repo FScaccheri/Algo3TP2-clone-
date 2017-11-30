@@ -13,15 +13,20 @@ import vistas.VistaJugador;
 public class BotonTerminarEventHandler implements EventHandler<ActionEvent>{
 
 	private BotonTirarDados botonTirar;
+	private Button botonVender;
+	private Button botonEdificar;
 	private Button botonTerminar;
 	private LinkedList<VistaJugador> vistasJugadores;
 	private LinkedList<Jugador> jugadores;
 	private int numeroJugador;
 	private ContenedorJuego contenedorJuego;
+	
 
-	public BotonTerminarEventHandler(ContenedorJuego contenedorJuego, LinkedList<Jugador> jugadores, LinkedList<VistaJugador> vistasJugadores, BotonTirarDados botonTirarDados, Button botonTerminar) {
+	public BotonTerminarEventHandler(ContenedorJuego contenedorJuego, LinkedList<Jugador> jugadores, LinkedList<VistaJugador> vistasJugadores, BotonTirarDados botonTirarDados, Button botonVender, Button botonEdificar, Button botonTerminar) {
 
 		this.botonTirar = botonTirarDados;
+		this.botonVender = botonVender;
+		this.botonEdificar = botonEdificar;
 		this.botonTerminar = botonTerminar;
 		this.vistasJugadores = vistasJugadores;
 		this.jugadores = jugadores;
@@ -47,6 +52,8 @@ public class BotonTerminarEventHandler implements EventHandler<ActionEvent>{
 		contenedorJuego.setJugadorActual(jugador);
 		
 		botonTerminar.setDisable(true);
+		botonVender.setDisable(false);
+		botonEdificar.setDisable(false);
 		botonTirar.setDisable(false);
 		
 		

@@ -70,6 +70,17 @@ public class Jugador {
 		adquiridos.agregar(servicio);
 	}
 	
+	public void vender(Propiedad propiedad) {
+		
+		adquiridos.eliminar(propiedad);
+		
+	}
+	
+	public void vender(Servicio servicio) {
+		
+		adquiridos.eliminar(servicio);
+	}
+	
 	public int cantidadDePropiedades() {
 		return adquiridos.propiedades().size();
 	}
@@ -111,4 +122,6 @@ public class Jugador {
 	public int getPosicionRelativa() {
 		return getPosicion().getCasillero().getPosicionRelativa();
 	}
+
+	
 }

@@ -141,10 +141,10 @@ public class ContenedorJuego extends BorderPane{
 		BotonEdificarEventHandler botonEdificarEventHandler = new BotonEdificarEventHandler(this, gc, tablero);
 		botonEdificar.setOnAction(botonEdificarEventHandler);
 		
-		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, jugadores, vistasJugadores, botonTirarDados, botonTerminar);
+		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, jugadores, vistasJugadores, botonTirarDados, botonVender, botonEdificar, botonTerminar);
 		botonTerminar.setOnAction(botonTerminarEventHandler);
 		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, botonTirarDados, botonComprar, botonTerminar);
+		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, botonTirarDados, botonVender, botonEdificar, botonComprar, botonTerminar);
 		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
 		
 		//Contenedor de botones
@@ -224,5 +224,10 @@ public class ContenedorJuego extends BorderPane{
 	public Jugador getJugadorActual() {
 		
 		return jugadorActual;
+	}
+	
+	public CanvasTablero getCanvasTablero() {
+		
+		return canvasTablero;
 	}
 }
