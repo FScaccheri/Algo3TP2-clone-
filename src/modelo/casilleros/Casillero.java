@@ -2,26 +2,22 @@ package modelo.casilleros;
 
 import modelo.Jugador;
 import modelo.Posicion;
-import modelo.casilleros.adquiribles.Adquirible;
-import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Rentable;
 
 public class Casillero {
 	private Activable efecto;
 	private Posicion posicion = null;
 	private String nombre;
-	private int posicionRelativa;
 	
 	public Casillero () {
 		
 		
 	}
 	
-	public Casillero(String nombre, Activable efecto, int posicion) {
+	public Casillero(String nombre, Activable efecto) {
 		this.efecto = efecto;
 		this.nombre = nombre;
 		this.setNombreARentable(nombre);
-		this.posicionRelativa = posicion;
 	}
 
 
@@ -54,12 +50,6 @@ public class Casillero {
 	public Activable getEfecto() {
 		
 		return efecto;
-	}
-
-	public int getPosicionRelativa() {
-
-		return posicionRelativa;
-		
 	}
 	
 }

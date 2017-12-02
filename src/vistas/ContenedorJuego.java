@@ -81,26 +81,26 @@ public class ContenedorJuego extends BorderPane{
 		EDESUR.asociar(AYSA);
 		SUBTE.asociar(TRENES);
 																					// Casillero numero:
-		tablero.agregar(new Casillero("Salida", new Salida(), 0));												//1
-		tablero.agregar(new Casillero("Quini6", new Quini6(), 1));												//2
-		tablero.agregar(new Casillero("BsAs Sur", BsAsSur, 2));													//3
-		tablero.agregar(new Casillero("EDESUR", EDESUR, 3));														//4
-		tablero.agregar(new Casillero("BsAs Norte", BsAsNorte, 4));													//5
-		tablero.agregar(new Casillero("Carcel", new Carcel(), 5));												//6
-		tablero.agregar(new Casillero("Cordoba Sur", CordobaSur, 6));													//7
-		tablero.agregar(new Casillero("Avance dinamico", new AvanceDinamico(), 7));										//8
-		tablero.agregar(new Casillero("SUBTE", SUBTE, 8));														//9
-		tablero.agregar(new Casillero("Cordoba Norte", CordobaNorte, 9));												//10
-		tablero.agregar(new Casillero("Impuesto de Lujo", new ImpuestoAlLujo(), 10));										//11
-		tablero.agregar(new Casillero("Santa Fe", SantaFe, 11));													//12
-		tablero.agregar(new Casillero("AYSA", AYSA, 12));														//13
-		tablero.agregar(new Casillero("Salta Norte", SaltaNorte, 13));													//14
-		tablero.agregar(new Casillero("Salta Sur", SaltaSur, 14));													//15
-		tablero.agregar(new Casillero("Policia", new Policia(tablero.getCasilleros().get(5).getPosicion()), 15));	//16
-		tablero.agregar(new Casillero("TRENES", TRENES, 16));														//17
-		tablero.agregar(new Casillero("Neuquen", Neuquen, 17));													//18
-		tablero.agregar(new Casillero("Retroceso dinamico", new RetrocesoDinamico(), 18));									//19
-		tablero.agregar(new Casillero("Tucuman", Tucuman, 19));													//20
+		tablero.agregar(new Casillero("Salida", new Salida()));												//1
+		tablero.agregar(new Casillero("Quini6", new Quini6()));												//2
+		tablero.agregar(new Casillero("BsAs Sur", BsAsSur));													//3
+		tablero.agregar(new Casillero("EDESUR", EDESUR));														//4
+		tablero.agregar(new Casillero("BsAs Norte", BsAsNorte));													//5
+		tablero.agregar(new Casillero("Carcel", new Carcel()));												//6
+		tablero.agregar(new Casillero("Cordoba Sur", CordobaSur));													//7
+		tablero.agregar(new Casillero("Avance dinamico", new AvanceDinamico()));										//8
+		tablero.agregar(new Casillero("SUBTE", SUBTE));														//9
+		tablero.agregar(new Casillero("Cordoba Norte", CordobaNorte));												//10
+		tablero.agregar(new Casillero("Impuesto de Lujo", new ImpuestoAlLujo()));										//11
+		tablero.agregar(new Casillero("Santa Fe", SantaFe));													//12
+		tablero.agregar(new Casillero("AYSA", AYSA));														//13
+		tablero.agregar(new Casillero("Salta Norte", SaltaNorte));													//14
+		tablero.agregar(new Casillero("Salta Sur", SaltaSur));													//15
+		tablero.agregar(new Casillero("Policia", new Policia(tablero.getCasilleros().get(5).getPosicion())));	//16
+		tablero.agregar(new Casillero("TRENES", TRENES));														//17
+		tablero.agregar(new Casillero("Neuquen", Neuquen));													//18
+		tablero.agregar(new Casillero("Retroceso dinamico", new RetrocesoDinamico()));									//19
+		tablero.agregar(new Casillero("Tucuman", Tucuman));													//20
 		
 	}
 
