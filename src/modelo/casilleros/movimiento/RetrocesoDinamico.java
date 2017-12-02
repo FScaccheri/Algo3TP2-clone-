@@ -7,10 +7,10 @@ import modelo.casilleros.Activable;
 //FALTAN PRUEBAS @FrancoR
 public class RetrocesoDinamico implements Activable{
 	
-	private MovimientoDinamico movimientoDinamico = new MovimientoDinamico();
+	private Movimiento movimientoDinamicoInverso = new MovimientoDinamicoInverso();
 	
 	public void activarEfecto(Jugador unJugador) {
-		unJugador.avanzar(movimientoDinamico.mover(unJugador, Tirada.getUltimaTirada()), new MovimientoInverso());
+		unJugador.avanzar(Tirada.getUltimaTirada(), movimientoDinamicoInverso);
 	}
 
 }

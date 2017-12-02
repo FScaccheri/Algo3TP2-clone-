@@ -6,10 +6,10 @@ import modelo.casilleros.Activable;
 
 public class AvanceDinamico implements Activable{
 	
-	private MovimientoDinamico movimientoDinamico = new MovimientoDinamico();
+	private Movimiento movimientoDinamico = new MovimientoDinamico();
 	
 	public void activarEfecto(Jugador unJugador) {
-		unJugador.avanzar(movimientoDinamico.mover(unJugador, Tirada.getUltimaTirada()));
+		unJugador.avanzar(Tirada.getUltimaTirada(), movimientoDinamico);
 	}
 
 }

@@ -2,24 +2,21 @@ package modelo.casilleros.movimiento;
 
 import modelo.Jugador;
 
-public class MovimientoDinamico {
+public class MovimientoDinamico implements Movimiento {
 
-	public int mover(Jugador jugador, int ultimaTirada) {
-		
-		int porMover = 0;
-		
+	public void mover(Jugador jugador, int ultimaTirada) {
+				
 		if (2 <= ultimaTirada && ultimaTirada <= 6) {
-			porMover = (ultimaTirada - 2);
+			jugador.avanzar((ultimaTirada - 2));
 		}
 		
 		if (7 <= ultimaTirada && ultimaTirada <= 10) {
-			porMover = ((int)jugador.getCapital()%ultimaTirada);
+			jugador.avanzar((int)jugador.getCapital()%ultimaTirada);
 		}
 		
 		if ( 11 <= ultimaTirada && ultimaTirada <= 12) {
-			porMover = (ultimaTirada - (jugador.cantidadDePropiedades()+ jugador.getCantidadDeCasas() + jugador.getCantidadDeHoteles()));
+			jugador.avanzar(ultimaTirada - (jugador.cantidadDePropiedades()+ jugador.getCantidadDeCasas() + jugador.getCantidadDeHoteles()));
 		}
 		
-		return porMover;
 	}
 }
