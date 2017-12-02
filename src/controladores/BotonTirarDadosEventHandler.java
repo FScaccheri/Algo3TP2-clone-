@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -13,6 +15,7 @@ import modelo.Posicion;
 import modelo.Tablero;
 import modelo.Tirada;
 import modelo.casilleros.Carcel;
+import modelo.excepciones.CapitalInsuficiente;
 import vistas.CanvasTablero;
 import vistas.ContenedorJuego;
 import vistas.VistaJugador;
@@ -71,16 +74,32 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		}catch(ClassCastException e) {}
 		
 		jugador.avanzar(tirada);
-		Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);
+		try {
+			Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);
+		} catch (CapitalInsuficiente e) {
+			
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setHeaderText("No tiene dinero para pagar el alquiler!");
+			alerta.setContentText("Venda alguna de sus propiedades");
+			alerta.show();
+			
+			/* Ciclo que obliga al jugador a vender propiedades hasta que le alcance la plata.
+			 * Si vendio todo y aun no le alcanza, pierde y se lo elimina de la lista de jugadores.
+			while ((!jugador.getAdquiridos().propiedades().isEmpty()) && (!jugador.getAdquiridos().servicios().isEmpty()))
+				botonVender.fire();
+				*/
+		}
 		
 		vistaJugador.moverA(jugador.getPosicion());
 		canvas.getGraphicsContext2D().setFont(new Font("", 30));
-		canvas.getGraphicsContext2D().fillText("" + tirada, 340, 340);
+		canvas.getGraphicsContext2D().fillText("" + tirada, 350, 340);
 		if (huboDobles) 
 			
-			canvas.getGraphicsContext2D().fillText("DOBLES!", 400, 400);
+			canvas.getGraphicsContext2D().fillText("DOBLES!", 350, 400);
 		
 		audioClip.play();
+		
+		
 		 
 		
 		if(!huboDobles) {
