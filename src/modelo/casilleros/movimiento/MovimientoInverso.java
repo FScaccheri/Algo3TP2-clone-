@@ -6,7 +6,9 @@ public class MovimientoInverso implements Movimiento{
 	
 	@Override
 	public void mover(Jugador jugador, int posiciones) {
-		jugador.retroceder(posiciones);
+		for ( int i = 0; i < posiciones; i++ ) {
+			jugador.setPosicion(jugador.getPosicion().anterior());
+		}
 	}
 
 }

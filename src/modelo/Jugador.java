@@ -106,18 +106,6 @@ public class Jugador {
 		return adquiridos;
 	}
 
-	public void mover(int posiciones) {
-		for ( int i = 0; i < posiciones; i++ ) {
-			posicion = posicion.siguiente();
-		}
-	}
-
-	public void retroceder(int posiciones) {
-		for ( int i = 0; i < posiciones; i++ ) {
-			posicion = posicion.anterior();
-		}
-	}
-
 	public int getPosicionRelativa() {
 		return getPosicion().getCasillero().getPosicionRelativa();
 	}

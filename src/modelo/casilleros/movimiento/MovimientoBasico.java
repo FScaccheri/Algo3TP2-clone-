@@ -9,6 +9,8 @@ public class MovimientoBasico implements Movimiento {
 	 */
 	@Override
 	public void mover(Jugador jugador, int posiciones) {
-		jugador.mover(posiciones);
+		for ( int i = 0; i < posiciones; i++ ) {
+			jugador.setPosicion(jugador.getPosicion().siguiente());
+		}
 	}
 }
