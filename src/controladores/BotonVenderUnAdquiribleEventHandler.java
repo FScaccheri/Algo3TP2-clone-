@@ -21,12 +21,14 @@ public class BotonVenderUnAdquiribleEventHandler implements EventHandler<ActionE
 	private Adquirible adquirible;
 	private Button boton;
 	private VistaTablero vistaTablero;
+	private ContenedorJuego contenedorJuego;
 
-	public BotonVenderUnAdquiribleEventHandler(Button boton, Adquirible adquirible, VistaTablero vistaTablero) {
+	public BotonVenderUnAdquiribleEventHandler(Button boton, Adquirible adquirible, VistaTablero vistaTablero,ContenedorJuego contenedorJuego) {
 
 		this.boton = boton;
 		this.adquirible = adquirible;
 		this.vistaTablero = vistaTablero;
+		this.contenedorJuego = contenedorJuego;
 	}
 
 	@Override
@@ -60,6 +62,8 @@ public class BotonVenderUnAdquiribleEventHandler implements EventHandler<ActionE
 			vistaTablero.getGC().setFill(Color.BEIGE);
 			vistaTablero.getGC().fillRect(posX + 5, posY + 5, 110, 25);
 		}
+		
+		contenedorJuego.setBordeJugadores(3);//HardCoded por el momento
 	}
 
 }

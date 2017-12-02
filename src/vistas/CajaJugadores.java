@@ -1,5 +1,7 @@
 package vistas;
 
+import java.util.LinkedList;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -9,15 +11,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import modelo.Jugador;
 
 public class CajaJugadores extends VBox{
 
 	private Font fuente;
 	private int distancia;
 	private int scale;
+	private LinkedList<Jugador> jugadores;
 
-	public CajaJugadores(int cantidadJugadores) {
+	public CajaJugadores(int cantidadJugadores, LinkedList<Jugador> jugadores) {
 
+		this.jugadores = jugadores;
 		//Fuente de etiquetas
 		this.fuente = Font.font("", FontWeight.BOLD, tamanioFuente(cantidadJugadores));
 		//Distancia en pixeles entre iconos y Labels de jugadores
@@ -30,36 +35,47 @@ public class CajaJugadores extends VBox{
 		Image imagenPieza1 = new Image("file:src/vistas/imagenes/racecar.jpg", scale, scale, true, false);
 		ImageView vistaPieza1 = new ImageView(imagenPieza1);
 		Label etiqueta1 = new Label ("Jugador 1");
+		Label etiquetaCapital1 = new Label("" + jugadores.get(0).getCapital());
 		etiqueta1.setTextFill(Color.web("#DC143C"));
 		etiqueta1.setFont(fuente);
+		etiquetaCapital1.setTextFill(Color.web("#DC143C"));
+		etiquetaCapital1.setFont(fuente);
 		vistaPieza1.setTranslateY(0);
-		vistaPieza1.setTranslateY( distancia*i );
+		//vistaPieza1.setTranslateY( distancia*i );
 		etiqueta1.setTranslateY(0);
+		etiquetaCapital1.setTranslateY(0);
 
 		i = 1;
 		Image imagenPieza2 = new Image("file:src/vistas/imagenes/battleship.jpg", scale, scale, true, false);
 		ImageView vistaPieza2 = new ImageView(imagenPieza2);
 		Label etiqueta2 = new Label("Jugador 2");
+		Label etiquetaCapital2 = new Label("" + jugadores.get(1).getCapital());
 		etiqueta2.setTextFill(Color.web("#0000CD"));
 		etiqueta2.setFont(fuente);
-		vistaPieza2.setTranslateY( distancia*i ); //200
-		etiqueta2.setTranslateY( distancia*i ); //200
+		etiquetaCapital2.setTextFill(Color.web("#0000CD"));
+		etiquetaCapital2.setFont(fuente);
+		vistaPieza2.setTranslateY( 100 ); //200
+		etiqueta2.setTranslateY( 100 ); //200
+		etiquetaCapital2.setTranslateY(100);
 		
 		i = 2;
 		Image imagenPieza3 = new Image("file:src/vistas/imagenes/tophat.jpg", scale, scale, true, false);
 		ImageView vistaPieza3 = new ImageView(imagenPieza3);
 		Label etiqueta3 = new Label("Jugador 3");
+		Label etiquetaCapital3 = new Label("" + jugadores.get(2).getCapital());
 		etiqueta3.setTextFill(Color.web("#3D9140"));
 		etiqueta3.setFont(fuente);
-		vistaPieza3.setTranslateY(400);
-		vistaPieza3.setTranslateY( distancia*i ); //400
-		etiqueta3.setTranslateY( distancia*i); //400
+		etiquetaCapital3.setTextFill(Color.web("#3D9140"));
+		etiquetaCapital3.setFont(fuente);
+		vistaPieza3.setTranslateY( 300 ); //400
+		etiqueta3.setTranslateY( 300); //400
+		etiquetaCapital3.setTranslateY(300);
 		
 				
 		setAlignment(Pos.TOP_CENTER);
 		setSpacing(5);
 		setPadding(new Insets(20));
-		getChildren().addAll(vistaPieza1, etiqueta1, vistaPieza2, etiqueta2, vistaPieza3, etiqueta3);
+		getChildren().addAll(vistaPieza1, etiqueta1, etiquetaCapital1, vistaPieza2, etiqueta2, etiquetaCapital2, vistaPieza3, etiqueta3, etiquetaCapital3);
 		
 	}
 

@@ -1,34 +1,30 @@
 package controladores;
 
-
 import java.util.LinkedList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import modelo.Jugador;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Servicio;
 import vistas.ContenedorJuego;
+import modelo.Jugador;
 
-public class BotonVenderEventHandler implements EventHandler<ActionEvent>{
+public class ComprarHastaPoderPagarEventHandler implements EventHandler<ActionEvent>{
 
-	private Jugador jugador;
 	private ContenedorJuego contenedorJuego;
-
-	public BotonVenderEventHandler(ContenedorJuego contenedorJuego) {
-		this.contenedorJuego = contenedorJuego;
-	}
+	private Jugador jugador;
 	
-	@Override
+	public ComprarHastaPoderPagarEventHandler(ContenedorJuego contenedor) {
+		this.contenedorJuego = contenedor;
+	}
 	public void handle(ActionEvent event) {
-
 		jugador = contenedorJuego.getJugadorActual();
 		Stage ventana = new Stage();
 		HBox contenedor = new HBox();
@@ -39,6 +35,8 @@ public class BotonVenderEventHandler implements EventHandler<ActionEvent>{
 		ventana.setScene(escena);
 		ventana.setTitle("Sus propiedades");
 		
+		
+		ventana.setOnCloseRequest(new EventoDeCerrado(jugador,contenedorJuego));
 		if ((jugador.getAdquiridos().propiedades().isEmpty()) && (jugador.getAdquiridos().servicios().isEmpty())) {
 			
 			Alert alerta = new Alert(AlertType.WARNING);
@@ -79,6 +77,6 @@ public class BotonVenderEventHandler implements EventHandler<ActionEvent>{
 			}
 		
 		}
+		
 	}
-
 }

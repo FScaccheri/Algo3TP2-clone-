@@ -81,6 +81,8 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 			alerta.setContentText("La propiedad ya tiene duenio!");
 			alerta.show();
 		}
+
+		contenedorJuego.setBordeJugadores(3);//HardCoded por el momento
 	}
 
 }

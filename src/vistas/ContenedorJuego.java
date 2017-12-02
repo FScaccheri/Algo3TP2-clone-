@@ -3,6 +3,7 @@ package vistas;
 import java.util.LinkedList;
 import controladores.BotonComprarEventHandler;
 import controladores.BotonEdificarEventHandler;
+import controladores.BotonPagarFianzaEventHandler;
 import controladores.BotonTerminarEventHandler;
 import controladores.BotonTirarDadosEventHandler;
 import controladores.BotonVenderEventHandler;
@@ -141,10 +142,13 @@ public class ContenedorJuego extends BorderPane{
 		BotonEdificarEventHandler botonEdificarEventHandler = new BotonEdificarEventHandler(this, gc, tablero);
 		botonEdificar.setOnAction(botonEdificarEventHandler);
 		
+		BotonPagarFianzaEventHandler botonPagarFianzaEventHandler = new BotonPagarFianzaEventHandler(this, botonPagarFianza);
+		botonPagarFianza.setOnAction(botonPagarFianzaEventHandler);
+		
 		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler(this, jugadores, vistasJugadores, botonTirarDados, botonVender, botonEdificar, botonPagarFianza, botonTerminar);
 		botonTerminar.setOnAction(botonTerminarEventHandler);
 		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, botonTirarDados, botonVender, botonEdificar, botonComprar, botonTerminar);
+		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler(this, botonTirarDados, botonVender, botonEdificar, botonComprar, botonPagarFianza, botonTerminar);
 		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
 		
 		//Contenedor de botones
@@ -191,10 +195,10 @@ public class ContenedorJuego extends BorderPane{
 		
 	}
 
-	private void setBordeJugadores(int cantidadJugadores) {
+	public void setBordeJugadores(int cantidadJugadores) {
 		
 		//Contenedor de jugadores (piezas)
-		this.contenedorJugadores = new CajaJugadores(cantidadJugadores);
+		this.contenedorJugadores = new CajaJugadores(cantidadJugadores,jugadores);
 		
 		//Seteo de fondo del borde
 		Image fondoIzq = new Image("file:src/vistas/imagenes/bg1.jpg");

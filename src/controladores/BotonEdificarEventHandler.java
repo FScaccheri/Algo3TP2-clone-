@@ -73,7 +73,7 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 				Propiedad unaPropiedad = propiedades.get(i);
 				
 				Button boton = new Button(unaPropiedad.getNombre());
-				boton.setOnAction(new BotonEdificarUnaPropiedadEventHandler(boton, unaPropiedad));
+				boton.setOnAction(new BotonEdificarUnaPropiedadEventHandler(boton, unaPropiedad,contenedorJuego));
 				
 				contenedor.getChildren().add(boton);
 				ventana.show();

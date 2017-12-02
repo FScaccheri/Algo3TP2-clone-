@@ -25,6 +25,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	private Button botonTirar;
 	private Button botonVender;
 	private Button botonEdificar;
+	private Button botonPagarFianza;
 	private Button botonComprar;
 	private Button botonTerminar;
 	private boolean huboDobles;
@@ -35,7 +36,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	
 	
 	
-	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, Button botonTirarDados, Button botonVender, Button botonEdificar, Button botonComprar, Button botonTerminar) {
+	public BotonTirarDadosEventHandler(ContenedorJuego contenedorJuego, Button botonTirarDados, Button botonVender, Button botonEdificar, Button botonComprar, Button botonPagarFianza, Button botonTerminar) {
 
 		this.contenedorJuego = contenedorJuego;
 		this.canvas = contenedorJuego.getCanvasTablero();
@@ -43,6 +44,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		this.botonTirar = botonTirarDados;
 		this.botonVender = botonVender;
 		this.botonEdificar = botonEdificar;
+		this.botonPagarFianza = botonPagarFianza;
 		this.botonComprar = botonComprar;
 		this.botonTerminar = botonTerminar;
 		this.audioClip = new AudioClip(resource.toString());
@@ -82,6 +84,13 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 			alerta.setHeaderText("No tiene dinero para pagar el alquiler!");
 			alerta.setContentText("Venda alguna de sus propiedades");
 			alerta.show();
+
+			Button botonVentaHastaPagar = new Button();
+			botonVentaHastaPagar.setOnAction(new ComprarHastaPoderPagarEventHandler(contenedorJuego));
+			botonVentaHastaPagar.fire();
+			
+			
+			
 			
 			/* Ciclo que obliga al jugador a vender propiedades hasta que le alcance la plata.
 			 * Si vendio todo y aun no le alcanza, pierde y se lo elimina de la lista de jugadores.
@@ -111,6 +120,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 			botonComprar.setDisable(false);
 			botonTerminar.setDisable(false);
 		}
+		contenedorJuego.setBordeJugadores(3);//HardCoded por el momento
 		
 		
 	}
