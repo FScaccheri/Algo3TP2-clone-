@@ -15,7 +15,7 @@ public class PoliciaTest {
 	@Test
 	public void JugadorQueCaeEnPoliciaVaALaCarcel() {
 		Jugador jugador = new Jugador();
-		Casillero carcel = new Casillero("Carcel", new Carcel(), 5);
+		Casillero carcel = new Casillero("Carcel", new Carcel());
 		Posicion posicionCarcel = new Posicion(carcel);
 		carcel.setPosicion(posicionCarcel);
 		Policia policia = new Policia(posicionCarcel);

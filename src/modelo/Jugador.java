@@ -105,10 +105,5 @@ public class Jugador {
 	public ColeccionDeRentables getAdquiridos() {		
 		return adquiridos;
 	}
-
-	public int getPosicionRelativa() {
-		return getPosicion().getCasillero().getPosicionRelativa();
-	}
-
 	
 }
