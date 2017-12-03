@@ -3,6 +3,8 @@ package modelo;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import modelo.casilleros.Activable;
 import modelo.casilleros.Carcel;
 import modelo.casilleros.Casillero;
@@ -203,7 +205,8 @@ public class AlgoPoly {
 			try {
 				Jugador jugador = ((VistaJugador)vista).getJugadorAsociado();
 				if (jugador == jugadorActual) {
-					lista.eliminar(vista);
+					//lista.eliminar(vista);
+					((VistaJugador)vista).setColor(Color.web("#FFFFFF"));
 				}
 			} catch (ClassCastException e) {}
 			

@@ -74,4 +74,10 @@ public class VistaJugador implements Vista{
 		moverA();
 	}
 
+	public void setColor(Paint color) {
+
+		this.color = color;
+		
+	}
+
 }
