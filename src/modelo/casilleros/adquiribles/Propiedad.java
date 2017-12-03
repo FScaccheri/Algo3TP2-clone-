@@ -80,7 +80,7 @@ public class Propiedad extends Rentable {
 	}
 	
 	public boolean puedeCostruirHotel() {
-		return terreno.construccionDeHotelPosible() && (!estaAsociado() || (getCantidadDeCasas() == ((Propiedad) getRentableAsociado()).getCantidadDeCasas()));
+		return terreno.construccionDeHotelPosible() && (!estaAsociado() || (getCantidadDeCasas() == ((Propiedad) getRentableAsociado()).getCantidadDeCasas()) || ((Propiedad) getRentableAsociado()).tieneHotel()  );
 	}
 
 	public void setPosicionRelativa(int posicionRelativa) {

@@ -444,6 +444,28 @@ public class PropiedadTest {
 		assertEquals(capitalInicial-200, inquilino.getCapital(), 0);
 	}
 	
+	@Test
+	public void CuandoUnaPropiedadAsociadaTieneHotelLaOtraPropiedadPuedeConstruirUnHotel() {
+		Propiedad propiedad1 = new Propiedad(0, 0, 0, 0, 0, 0, 0);
+		Propiedad propiedad2 = new Propiedad(0, 200, 0, 0, 0, 0, 0);
+		propiedad1.asociar(propiedad2);
+		
+		Jugador propietario = new Jugador();
+		
+		propiedad1.adquirir(propietario);
+		propiedad2.adquirir(propietario);
+		
+		propiedad1.construirCasa();
+		propiedad1.construirCasa();
+		
+		propiedad2.construirCasa();
+		propiedad2.construirCasa();
+		
+		propiedad1.construirHotel();
+		propiedad2.construirHotel();
+		assertTrue(propiedad2.tieneHotel());
+	}
+	
 	// Pruebas 2da entrega
 	@Test
 	public void Entrega2test1() {
