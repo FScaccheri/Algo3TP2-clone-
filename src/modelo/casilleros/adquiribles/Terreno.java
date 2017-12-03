@@ -63,5 +63,9 @@ public class Terreno {
 	public boolean tieneHoteles() {
 		return getCantidadDeHoteles() != 0;
 	}
+
+	public boolean tieneCasas() {
+		return getCantidadDeCasas() != 0;
+	}
 	
 }

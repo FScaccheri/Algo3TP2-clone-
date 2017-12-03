@@ -9,6 +9,7 @@ import javafx.scene.text.Font;
 import modelo.Jugador;
 import modelo.Vista;
 import modelo.casilleros.Casillero;
+import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Rentable;
 
 public class VistaCasillero implements Vista{
@@ -109,6 +110,39 @@ public class VistaCasillero implements Vista{
 						gc.setFill(color);
 						gc.fillRect(posX + 5, posY + 5, 110, 25);					
 					}
+					try {
+						Propiedad propiedad = (Propiedad) casillero.getEfecto();
+					
+						if( propiedad.tieneCasas() || propiedad.tieneHotel()) {
+						
+							if (propiedad.getCantidadDeCasas() == 1) {
+								gc.setFill(Color.BLACK);
+								gc.fillRoundRect(posX + 7, posY + 7, 21, 21, 10, 10);
+								gc.setFill(Color.KHAKI);
+								gc.fillRoundRect(posX + 8, posY + 8, 19, 19, 10, 10);
+								
+							} else if (propiedad.getCantidadDeCasas() == 2) {
+								
+								gc.setFill(Color.BLACK);
+								gc.fillRoundRect(posX + 7, posY + 7, 21, 21, 10, 10);
+								gc.fillRoundRect(posX + 30, posY + 7, 21, 21, 10, 10);
+								gc.setFill(Color.KHAKI);
+								gc.fillRoundRect(posX + 8, posY + 8, 19, 19, 10, 10);
+								gc.fillRoundRect(posX + 31, posY + 8, 19, 19, 10, 10);
+								
+							} else {
+								
+								gc.setFill(Color.BLACK);
+								gc.fillRoundRect(posX + 7, posY + 7, 43, 21, 10, 10);
+								gc.setFill(Color.BROWN);
+								gc.fillRoundRect(posX + 8, posY + 8, 41, 19, 10, 10);
+							}
+								
+						
+						}
+						
+					
+					} catch (ClassCastException e) {}
 				}
 			}
 			

@@ -93,4 +93,8 @@ public class Propiedad extends Rentable {
 		
 		return posicionRelativa;
 	}
+
+	public boolean tieneCasas() {
+		return terreno.tieneCasas();
+	}
 }

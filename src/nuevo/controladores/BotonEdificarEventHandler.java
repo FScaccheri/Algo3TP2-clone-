@@ -31,10 +31,10 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 		LinkedList<Propiedad> propiedades = algoPoly.getPropiedadesDeJugador(jugador);
 
 		if (propiedades.isEmpty()) {			
-			Alert ventana = new Alert(AlertType.WARNING);
-			ventana.setHeaderText("Edificacion no realizada");
-			ventana.setContentText("No tiene propiedades para edificar!");
-			ventana.show();
+			Alert alerta1 = new Alert(AlertType.WARNING);
+			alerta1.setHeaderText("Edificacion no realizada");
+			alerta1.setContentText("No tiene propiedades para edificar!");
+			alerta1.show();
 			
 		}else {
 			Stage ventana = new Stage();
@@ -47,13 +47,23 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 			ventana.setTitle("Sus propiedades edificables");
 			
 			for(Propiedad propiedad:propiedades) {
-				BotonEdificarPropiedadEspecifica boton = new BotonEdificarPropiedadEspecifica(propiedad);
+				if((propiedad.puedeCostruirCasa()) || (propiedad.puedeCostruirHotel())){
+					BotonEdificarPropiedadEspecifica boton = new BotonEdificarPropiedadEspecifica(propiedad);
 				boton.setOnAction(new BotonEdificarUnaPropiedadEventHandler(propiedad));
 				algoPoly.agregarAListaDeVistas(boton);
 				
 				contenedor.getChildren().add(boton);
+				ventana.show();
+				}
 			}
-			ventana.show();
+			if(contenedor.getChildren().isEmpty()) {
+				
+				Alert alerta2 = new Alert(AlertType.WARNING);
+				alerta2.setHeaderText("Edificacion no realizada");
+				alerta2.setContentText("No tiene propiedades para edificar!");
+				alerta2.show();
+			}
+			
 			algoPoly.actualizar();
 		}
 	}

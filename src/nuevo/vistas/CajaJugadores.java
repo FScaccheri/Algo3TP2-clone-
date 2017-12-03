@@ -38,7 +38,7 @@ public class CajaJugadores extends VBox implements Vista {
 		Image imagenPieza1 = new Image("file:src/nuevo/vistas/imagenes/racecar.jpg", scale, scale, true, false);
 		ImageView vistaPieza1 = new ImageView(imagenPieza1);
 		Label etiqueta1 = new Label ("Jugador 1");
-		Label etiquetaCapital1 = new Label("" + jugadores.get(0).getCapital());
+		Label etiquetaCapital1 = new Label("$" + jugadores.get(0).getCapital());
 		etiqueta1.setTextFill(Color.web("#DC143C"));
 		etiqueta1.setFont(fuente);
 		etiquetaCapital1.setTextFill(Color.web("#DC143C"));
@@ -53,7 +53,7 @@ public class CajaJugadores extends VBox implements Vista {
 		Image imagenPieza2 = new Image("file:src/nuevo/vistas/imagenes/battleship.jpg", scale, scale, true, false);
 		ImageView vistaPieza2 = new ImageView(imagenPieza2);
 		Label etiqueta2 = new Label("Jugador 2");
-		Label etiquetaCapital2 = new Label("" + jugadores.get(1).getCapital());
+		Label etiquetaCapital2 = new Label("$" + jugadores.get(1).getCapital());
 		etiqueta2.setTextFill(Color.web("#0000CD"));
 		etiqueta2.setFont(fuente);
 		etiquetaCapital2.setTextFill(Color.web("#0000CD"));
@@ -68,7 +68,7 @@ public class CajaJugadores extends VBox implements Vista {
 		Image imagenPieza3 = new Image("file:src/nuevo/vistas/imagenes/tophat.jpg", scale, scale, true, false);
 		ImageView vistaPieza3 = new ImageView(imagenPieza3);
 		Label etiqueta3 = new Label("Jugador 3");
-		Label etiquetaCapital3 = new Label("" + jugadores.get(2).getCapital());
+		Label etiquetaCapital3 = new Label("$" + jugadores.get(2).getCapital());
 		etiqueta3.setTextFill(Color.web("#3D9140"));
 		etiqueta3.setFont(fuente);
 		etiquetaCapital3.setTextFill(Color.web("#3D9140"));

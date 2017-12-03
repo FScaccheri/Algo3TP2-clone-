@@ -51,8 +51,6 @@ public class ContenedorJuego extends BorderPane{
 		BotonPagarFianza botonPagarFianza = new BotonPagarFianza();
 		BotonTerminarTurno botonTerminar = new BotonTerminarTurno();
 		BotonGanar botonGanar = new BotonGanar();
-				
-		//GraphicsContext gc = canvasTablero.getGraphicsContext2D();
 		
 		BotonComprarEventHandler botonComprarEventHandler = new BotonComprarEventHandler();
 		botonComprar.setOnAction(botonComprarEventHandler);
