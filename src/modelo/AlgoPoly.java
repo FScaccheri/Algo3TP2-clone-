@@ -29,7 +29,8 @@ public class AlgoPoly {
 	private AdministradorDeTurnos admin;
 	private Tablero tablero;
 	private ListaDeVistas lista;
-
+	private Carcel carcel;
+	
 	private AlgoPoly() {
 		tablero = Tablero.getInstancia();
 		admin = new AdministradorDeTurnos();
@@ -66,13 +67,16 @@ public class AlgoPoly {
 		SaltaNorte.asociar(SaltaSur);
 		EDESUR.asociar(AYSA);
 		SUBTE.asociar(TRENES);
-																					// Casillero numero:
+		
+		carcel = new Carcel();
+		
+		// Casillero numero:
 		tablero.agregar(new Casillero("Salida", new Salida()));												//1
 		tablero.agregar(new Casillero("Quini6", new Quini6()));												//2
 		tablero.agregar(new Casillero("BsAs Sur", BsAsSur));													//3
 		tablero.agregar(new Casillero("EDESUR", EDESUR));														//4
 		tablero.agregar(new Casillero("BsAs Norte", BsAsNorte));													//5
-		tablero.agregar(new Casillero("Carcel", new Carcel()));												//6
+		tablero.agregar(new Casillero("Carcel", carcel));												//6
 		tablero.agregar(new Casillero("Cordoba Sur", CordobaSur));													//7
 		tablero.agregar(new Casillero("Avance dinamico", new AvanceDinamico()));										//8
 		tablero.agregar(new Casillero("SUBTE", SUBTE));														//9
@@ -159,6 +163,16 @@ public class AlgoPoly {
 	public LinkedList<Propiedad> getPropiedadesDeJugador(Jugador jugador) {
 		ColeccionDeRentables colleccion = jugador.getAdquiridos();
 		return new LinkedList<Propiedad>(colleccion.propiedades());
+	}
+
+	public boolean jugadorActualPreso() {
+		Jugador jugador = getJugadorActual();
+		return carcel.estaPreso(jugador);
+	}
+
+	public void liberarJugadorActualPorFianza() {
+		Jugador jugador = getJugadorActual();
+		carcel.liberarJugadorPorFianza(jugador);
 	}
 
 }

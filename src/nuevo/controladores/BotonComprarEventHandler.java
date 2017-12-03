@@ -30,15 +30,6 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 	private AudioClip audioClip;
 	final URL resource = getClass().getResource("sonidos/registradora.wav");
 
-	public BotonComprarEventHandler() {
-		
-//		this.contenedorJuego = contenedorJuego;
-//		this.gc = gc;
-//		this.botonComprar = botonComprar;
-//		this.audioClip = new AudioClip(resource.toString());	
-//		this.audioClip.setVolume(0.1);	
-	}
-
 	@Override
 	public void handle(ActionEvent event) {
 		

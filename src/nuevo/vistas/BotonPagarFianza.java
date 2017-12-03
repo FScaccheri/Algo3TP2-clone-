@@ -1,6 +1,7 @@
 package nuevo.vistas;
 
 import javafx.scene.control.Button;
+import modelo.AlgoPoly;
 import modelo.Vista;
 
 public class BotonPagarFianza extends Button implements Vista{
@@ -11,7 +12,8 @@ public class BotonPagarFianza extends Button implements Vista{
 	
 	@Override
 	public void actualizar() {
-//		this.setDisable(AdministradorDeTurnos2.getInstancia().lanzoLosDados()); 
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
+		this.setDisable( !algoPoly.jugadorActualPreso() || algoPoly.lanzoLosDados() ); 
 	}
 
 }

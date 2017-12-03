@@ -5,6 +5,8 @@ import java.util.HashMap;
 import modelo.Jugador;
 import modelo.casilleros.movimiento.MovimientoBasico;
 import modelo.casilleros.movimiento.MovimientoNulo;
+import modelo.excepciones.CapitalInsuficiente;
+import modelo.excepciones.LiberacionInvalida;
 
 public class Carcel implements Activable{
 
@@ -37,12 +39,17 @@ public class Carcel implements Activable{
 	}
 
 	public void liberar(Jugador jugador) {
+		if(presos.get(jugador) == 0)
+			throw new LiberacionInvalida();
 		this.presos.remove(jugador);
 		jugador.setMovimiento(new MovimientoBasico());
 	}
 	public void liberarJugadorPorFianza(Jugador jugador) {
-			jugador.disminuirCapital(FIANZA);
-			this.liberar(jugador);
+		if(jugador.getCapital() < FIANZA)
+			throw new CapitalInsuficiente();
+		
+		this.liberar(jugador);
+		jugador.disminuirCapital(FIANZA);
 	}
 
 	public int getTurnosPreso(Jugador jugador) {
