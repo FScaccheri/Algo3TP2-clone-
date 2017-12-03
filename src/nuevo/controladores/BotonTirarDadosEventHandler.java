@@ -52,7 +52,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		}
 		algoPoly.actualizar();
 		
-		//		VistaJugador vistaJugador = contenedorJuego.getVistaJugadorActual();
+//		VistaJugador vistaJugador = contenedorJuego.getVistaJugadorActual();
 //
 //		Jugador jugador = contenedorJuego.getJugadorActual();
 //		

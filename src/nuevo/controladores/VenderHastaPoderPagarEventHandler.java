@@ -41,9 +41,11 @@ public class VenderHastaPoderPagarEventHandler implements EventHandler<ActionEve
 		if ((jugador.getAdquiridos().propiedades().isEmpty()) && (jugador.getAdquiridos().servicios().isEmpty())) {
 			
 			Alert alerta = new Alert(AlertType.WARNING);
-			alerta.setHeaderText("Venta no realizada");
+			alerta.setHeaderText("Perdio!");
 			alerta.setContentText("No tiene propiedades para vender!");
 			alerta.show();
+			
+			algoPoly.eliminarJugadorDelJuego(algoPoly.getJugadorActual());
 		}
 		
 		else {

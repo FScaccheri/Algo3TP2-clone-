@@ -50,4 +50,10 @@ public class AdministradorDeTurnos {
 	public ArrayList<Jugador> getJugadores() {
 		return new ArrayList<Jugador>(jugadores);
 	}
+
+	public void eliminarJugador(Jugador jugadorActual) {
+		
+		jugadores.remove(jugadorActual);
+		
+	}
 }

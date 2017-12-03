@@ -187,4 +187,10 @@ public class AlgoPoly {
 		return admin.getJugadorActual().getNombre();
 	}
 
+	public void eliminarJugadorDelJuego(Jugador jugadorActual) {
+		
+		admin.eliminarJugador(jugadorActual);
+		
+	}
+
 }
