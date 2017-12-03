@@ -50,7 +50,6 @@ public class ContenedorJuego extends BorderPane{
 		BotonComprarPropiedad botonComprar = new BotonComprarPropiedad();
 		BotonPagarFianza botonPagarFianza = new BotonPagarFianza();
 		BotonTerminarTurno botonTerminar = new BotonTerminarTurno();
-		BotonGanar botonGanar = new BotonGanar();
 		
 		BotonComprarEventHandler botonComprarEventHandler = new BotonComprarEventHandler();
 		botonComprar.setOnAction(botonComprarEventHandler);
@@ -74,7 +73,7 @@ public class ContenedorJuego extends BorderPane{
 		contenedorBotones = new VBox();
 		contenedorBotones.setSpacing(20);
 		contenedorBotones.setPadding(new Insets(20));
-		contenedorBotones.getChildren().addAll(botonTirarDados, botonVender, botonEdificar, botonComprar, botonPagarFianza, botonTerminar, botonGanar);
+		contenedorBotones.getChildren().addAll(botonTirarDados, botonVender, botonEdificar, botonComprar, botonPagarFianza, botonTerminar);
 		
 		this.setRight(contenedorBotones);
 		
@@ -85,7 +84,6 @@ public class ContenedorJuego extends BorderPane{
 		algoPoly.agregarAListaDeVistas(botonComprar);
 		algoPoly.agregarAListaDeVistas(botonPagarFianza);
 		algoPoly.agregarAListaDeVistas(botonTerminar);
-		algoPoly.agregarAListaDeVistas(botonGanar);
 	}
 
 	private void setTableroDeJuego() {
