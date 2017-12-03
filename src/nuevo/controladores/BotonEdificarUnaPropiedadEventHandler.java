@@ -4,36 +4,34 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
+import modelo.AlgoPoly;
 import modelo.casilleros.adquiribles.Propiedad;
-import nuevo.vistas.ContenedorJuego;
+import modelo.excepciones.CapitalInsuficiente;
 
 public class BotonEdificarUnaPropiedadEventHandler implements EventHandler<ActionEvent> {
 
 	private Propiedad propiedad;
-	private Button boton;
-	private ContenedorJuego contenedorJuego;
 	
-	public BotonEdificarUnaPropiedadEventHandler (Button boton,Propiedad propiedad, ContenedorJuego contenedorJuego) {
+	public BotonEdificarUnaPropiedadEventHandler (Propiedad propiedad) {
 		this.propiedad = propiedad;
-		this.boton = boton;
-		this.contenedorJuego = contenedorJuego;
 	}
+	
 	@Override
 	public void handle(ActionEvent event) {
-
-		if(propiedad.puedeCostruirCasa())
-			
-			propiedad.construirCasa();
-		
-		else if(propiedad.puedeCostruirHotel()) {
-			
-			propiedad.construirHotel();
+		try {
+			if(propiedad.puedeCostruirCasa())			
+				propiedad.construirCasa();
+			else if(propiedad.puedeCostruirHotel()) {
+				propiedad.construirHotel();
+			}			
+		} catch (CapitalInsuficiente e) {
+			Alert ventana = new Alert(AlertType.WARNING);
+			ventana.setHeaderText("Edificacion no realizada!");
+			ventana.setContentText("No tiene capital suficiente para edificar");
+			ventana.show();
 		}
-		if (!propiedad.puedeCostruirCasa() && !propiedad.puedeCostruirHotel()) {boton.setDisable(true);}
-
-
-		contenedorJuego.setBordeJugadores(3);//HardCoded por el momento
+		
+		AlgoPoly.getInstancia().actualizar();
 	}
 
 }

@@ -23,14 +23,11 @@ import nuevo.vistas.VistaJugador;
 
 public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	
-	private ContenedorJuego contenedorJuego;
 	private AudioClip audioClip;
-	final URL resource = getClass().getResource("sonidos/dados.wav");
-	private CanvasTablero canvas;
+	final URL RESOURCE = getClass().getResource("sonidos/dados.wav");
 	
 	public BotonTirarDadosEventHandler() {
-		
-		this.audioClip = new AudioClip(resource.toString());
+		this.audioClip = new AudioClip(RESOURCE.toString());
 		this.audioClip.setVolume(0.1);
 	}
 		
@@ -40,7 +37,7 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		algoPoly.lanzarDados();
 		audioClip.play();
-		algoPoly.avanzarJugadorActual();		
+		algoPoly.avanzarJugadorActual();
 		algoPoly.actualizar();
 		
 		//		VistaJugador vistaJugador = contenedorJuego.getVistaJugadorActual();

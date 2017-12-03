@@ -124,6 +124,9 @@ public class AlgoPoly {
 	public void avanzarJugadorActual() {
 		Jugador jugador = getJugadorActual();
 		jugador.avanzar(getUltimaTirada());
+		Activable efecto = tablero.getCasillero(jugador.getPosicion()).getEfecto();
+		if(efecto instanceof RetrocesoDinamico || efecto instanceof AvanceDinamico)
+			tablero.getCasillero(jugador.getPosicion()).caeEn(jugador);
 		tablero.getCasillero(jugador.getPosicion()).caeEn(jugador);
 	}
 	
@@ -148,7 +151,7 @@ public class AlgoPoly {
 		}
 	}
 
-	public void comprarRentableActal() {
+	public void comprarRentableActual() {
 		Rentable rentable = ((Rentable) getActivableActual());
 		getJugadorActual().adquirir(rentable);
 	}

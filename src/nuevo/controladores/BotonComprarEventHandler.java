@@ -23,16 +23,11 @@ import nuevo.vistas.VistaJugador;
 
 public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 
-	private GraphicsContext gc;
-	private Button botonComprar;
-	private VistaJugador vistaJugador;
-	private ContenedorJuego contenedorJuego;	
 	private AudioClip audioClip;
-	final URL resource = getClass().getResource("sonidos/registradora.wav");
+	final URL RESOURCE = getClass().getResource("sonidos/registradora.wav");
 
 	public BotonComprarEventHandler() {
-		
-		this.audioClip = new AudioClip(resource.toString());
+		this.audioClip = new AudioClip(RESOURCE.toString());
 		this.audioClip.setVolume(0.1);
 	}
 	
@@ -41,9 +36,8 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 		
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		try {
-			algoPoly.comprarRentableActal();
+			algoPoly.comprarRentableActual();
 			audioClip.play();
-			
 		} catch (CapitalInsuficiente e) {
 			Alert ventana = new Alert(AlertType.ERROR);
 			ventana.setHeaderText("Capital Insuficiente!");
