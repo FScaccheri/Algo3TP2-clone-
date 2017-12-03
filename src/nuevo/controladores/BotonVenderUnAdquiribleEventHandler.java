@@ -8,10 +8,14 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import modelo.AlgoPoly;
+import modelo.Jugador;
 import modelo.Posicion;
 import modelo.Tablero;
 import modelo.casilleros.Casillero;
 import modelo.casilleros.adquiribles.Adquirible;
+import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Servicio;
 import nuevo.vistas.ContenedorJuego;
 import nuevo.vistas.VistaCasillero;
 import nuevo.vistas.VistaTablero;
@@ -21,49 +25,27 @@ public class BotonVenderUnAdquiribleEventHandler implements EventHandler<ActionE
 	private Adquirible adquirible;
 	private Button boton;
 	private VistaTablero vistaTablero;
-	private ContenedorJuego contenedorJuego;
+	private Jugador jugador;
 
-	public BotonVenderUnAdquiribleEventHandler(Button boton, Adquirible adquirible, VistaTablero vistaTablero,ContenedorJuego contenedorJuego) {
+	public BotonVenderUnAdquiribleEventHandler(Button boton, Jugador jugador, Adquirible adquirible) {
 
 		this.boton = boton;
+		this.jugador = jugador;
 		this.adquirible = adquirible;
-		this.vistaTablero = vistaTablero;
-		this.contenedorJuego = contenedorJuego;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
 		
-		adquirible.vender();
-		//Falta que "despinte" el casillero que se vendio. @FScaccheri
+		if (adquirible instanceof Propiedad)
+			jugador.vender((Propiedad) adquirible);
+		else
+			jugador.vender((Servicio) adquirible);
 		boton.setDisable(true);
-		
-		this.limpiar();
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
+		algoPoly.actualizar();
 	}
 	
-	public void limpiar() {
-		
-		LinkedList<Casillero> casilleros = Tablero.getInstancia().getCasilleros();
-		boolean encontrado = false;
-		Posicion posicion = null;
-		for (int i = 1; i <= casilleros.size(); i++ ) {
-			if (casilleros.get(i).getEfecto() == adquirible) {
-				encontrado = true;
-				posicion = casilleros.get(i).getPosicion();
-			}
-		}
-		
-		if (encontrado) {
-			
-			VistaCasillero vistaCasillero = vistaTablero.getVistaCasilleroEn(posicion);
-			int posX = vistaCasillero.getPosX();
-			int posY = vistaCasillero.getPosY();
 	
-			vistaTablero.getGC().setFill(Color.BEIGE);
-			vistaTablero.getGC().fillRect(posX + 5, posY + 5, 110, 25);
-		}
-		
-		contenedorJuego.setBordeJugadores(3);//HardCoded por el momento
-	}
 
 }

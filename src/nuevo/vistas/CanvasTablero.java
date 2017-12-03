@@ -37,4 +37,8 @@ public class CanvasTablero extends Canvas implements Vista{
 			getGraphicsContext2D().fillText("DOBLES!", 350, 400);
 			
 	}
+	
+	public GraphicsContext getGC() {
+		return this.gc;
+	}
 }

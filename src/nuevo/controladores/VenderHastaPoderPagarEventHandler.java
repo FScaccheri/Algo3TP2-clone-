@@ -16,12 +16,12 @@ import modelo.casilleros.adquiribles.Servicio;
 import nuevo.vistas.ContenedorJuego;
 import modelo.Jugador;
 
-public class ComprarHastaPoderPagarEventHandler implements EventHandler<ActionEvent>{
+public class VenderHastaPoderPagarEventHandler implements EventHandler<ActionEvent>{
 
 	private ContenedorJuego contenedorJuego;
 	private Jugador jugador;
 	
-	public ComprarHastaPoderPagarEventHandler(ContenedorJuego contenedor) {
+	public VenderHastaPoderPagarEventHandler(ContenedorJuego contenedor) {
 		this.contenedorJuego = contenedor;
 	}
 	public void handle(ActionEvent event) {

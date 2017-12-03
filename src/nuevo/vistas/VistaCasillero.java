@@ -92,20 +92,26 @@ public class VistaCasillero implements Vista{
 		return casillero;
 	}
 
-
-
 	@Override
 	public void actualizar() {
+		
 		try {
 			Jugador jugador = ((Rentable) casillero.getEfecto()).getPropietario();
-			for(VistaJugador vistaJugador:vistasJugadores) {
-				if(vistaJugador.getJugadorAsociado() == jugador) {
-					Paint color = vistaJugador.getColor();
+			if (jugador == null) {
+				gc.setFill(Color.BEIGE);
+				gc.fillRect(posX + 5, posY + 5, 110, 25);	
+			} else {
+				
+				for(VistaJugador vistaJugador:vistasJugadores) {
+					if(vistaJugador.getJugadorAsociado() == jugador) {
+						Paint color = vistaJugador.getColor();
 					
-					gc.setFill(color);
-					gc.fillRect(posX + 5, posY + 5, 110, 25);					
+						gc.setFill(color);
+						gc.fillRect(posX + 5, posY + 5, 110, 25);					
+					}
 				}
 			}
+			
 		} catch (ClassCastException e) {}
 	}
 

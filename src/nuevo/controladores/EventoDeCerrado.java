@@ -19,10 +19,12 @@ public class EventoDeCerrado implements EventHandler<WindowEvent>{
 	
 	@Override
 	public void handle(WindowEvent event) {
-		try {Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);
+		try {
+			Tablero.getInstancia().getCasillero(jugador.getPosicion()).caeEn(jugador);
+			
 		} catch (CapitalInsuficiente e) {
 			Button boton = new Button();
-			boton.setOnAction(new ComprarHastaPoderPagarEventHandler(contenedor));
+			boton.setOnAction(new VenderHastaPoderPagarEventHandler(contenedor));
 			boton.fire();
 		}
 	}

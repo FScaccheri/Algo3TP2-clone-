@@ -27,12 +27,19 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	private AudioClip audioClip;
 	final URL resource = getClass().getResource("sonidos/dados.wav");
 	private CanvasTablero canvas;
+	
+	public BotonTirarDadosEventHandler() {
+		
+		this.audioClip = new AudioClip(resource.toString());
+		this.audioClip.setVolume(0.1);
+	}
 		
 	@Override
 	public void handle(ActionEvent event) {
 		
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		algoPoly.lanzarDados();
+		audioClip.play();
 		algoPoly.avanzarJugadorActual();		
 		algoPoly.actualizar();
 		

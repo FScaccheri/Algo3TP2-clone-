@@ -44,7 +44,6 @@ public class CajaJugadores extends VBox implements Vista {
 		etiquetaCapital1.setTextFill(Color.web("#DC143C"));
 		etiquetaCapital1.setFont(fuente);
 		vistaPieza1.setTranslateY(0);
-		//vistaPieza1.setTranslateY( distancia*i );
 		etiqueta1.setTranslateY(0);
 		etiquetaCapital1.setTranslateY(0);
 
@@ -74,9 +73,9 @@ public class CajaJugadores extends VBox implements Vista {
 		etiqueta3.setFont(fuente);
 		etiquetaCapital3.setTextFill(Color.web("#3D9140"));
 		etiquetaCapital3.setFont(fuente);
-		vistaPieza3.setTranslateY( 300 ); //400
-		etiqueta3.setTranslateY( 300); //400
-		etiquetaCapital3.setTranslateY(300);
+		vistaPieza3.setTranslateY( 200 ); //400
+		etiqueta3.setTranslateY( 200); //400
+		etiquetaCapital3.setTranslateY( 200 );
 		
 				
 		setAlignment(Pos.TOP_CENTER);

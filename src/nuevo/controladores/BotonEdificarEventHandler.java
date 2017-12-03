@@ -61,19 +61,9 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 		for(Propiedad propiedad:propiedades) {
 			if (propiedad.puedeCostruirCasa() || propiedad.puedeCostruirHotel()) {
 				
-				// ejemplo:
-//				Stage ventana = new Stage();
-//				Button boton = new Button("Boton");
-//				VBox contenedor = new VBox();
-//				contenedor.getChildren().add(boton);
-//				Scene escena = new Scene(contenedor);
-//				ventana.setScene(escena);
-//				ventana.show();
 				
-				Propiedad unaPropiedad = propiedad;
-				
-				Button boton = new Button(unaPropiedad.getNombre());
-				boton.setOnAction(new BotonEdificarUnaPropiedadEventHandler(boton, unaPropiedad,contenedorJuego));
+				Button boton = new Button(propiedad.getNombre());
+				boton.setOnAction(new BotonEdificarUnaPropiedadEventHandler(boton, propiedad, contenedorJuego));
 				
 				contenedor.getChildren().add(boton);
 				ventana.show();
