@@ -1,7 +1,7 @@
-package vistas;
+package nuevo.vistas;
 
-import controladores.BotonJugarEventHandler;
-import controladores.BotonSalidaEventHandler;
+import nuevo.controladores.BotonJugarEventHandler;
+import nuevo.controladores.BotonSalidaEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -45,7 +45,7 @@ public class ContenedorBienvenida extends VBox{
 		this.setSpacing(30);
 		this.setPadding(new Insets(100));
 		this.getChildren().addAll(botonJugar, botonSalida);
-		Image imagen = new Image("file:src/vistas/imagenes/logo1.jpg");
+		Image imagen = new Image("file:src/nuevo/vistas/imagenes/logo1.jpg");
 		BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
 		this.setBackground(new Background(imagenDeFondo));
 

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import modelo.casilleros.adquiribles.Adquirible;
 import modelo.casilleros.adquiribles.Propiedad;
+import modelo.casilleros.adquiribles.Rentable;
 import modelo.casilleros.adquiribles.Servicio;
 import modelo.casilleros.movimiento.Movimiento;
 import modelo.casilleros.movimiento.MovimientoBasico;
@@ -59,15 +60,9 @@ public class Jugador {
 		movimiento.mover(this, posiciones);
 	}
 
-	
-	public void adquirir(Propiedad propiedad) { 
-		propiedad.adquirir(this);
-		adquiridos.agregar(propiedad);
-	}
-
-	public void adquirir(Servicio servicio) { 
-		servicio.adquirir(this);
-		adquiridos.agregar(servicio);
+	public void adquirir(Rentable rentable) { 
+		rentable.adquirir(this);
+		adquiridos.agregar(rentable);
 	}
 	
 	public void vender(Propiedad propiedad) {		

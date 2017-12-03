@@ -1,4 +1,4 @@
-package controladores;
+package nuevo.controladores;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import modelo.casilleros.adquiribles.Propiedad;
-import vistas.ContenedorJuego;
+import nuevo.vistas.ContenedorJuego;
 
 public class BotonEdificarUnaPropiedadEventHandler implements EventHandler<ActionEvent> {
 

@@ -1,10 +1,12 @@
-package vistas;
+package nuevo.vistas;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javafx.scene.canvas.GraphicsContext;
 import modelo.Posicion;
 import modelo.Tablero;
+import modelo.Vista;
 import modelo.casilleros.Carcel;
 import modelo.casilleros.Casillero;
 import modelo.casilleros.ImpuestoAlLujo;
@@ -16,20 +18,22 @@ import modelo.casilleros.adquiribles.Servicio;
 import modelo.casilleros.movimiento.AvanceDinamico;
 import modelo.casilleros.movimiento.RetrocesoDinamico;
 
-public class VistaTablero {
+public class VistaTablero implements Vista{
 	
 	private LinkedList<VistaCasillero> vistasCasilleros;
+	private ArrayList<VistaJugador> vistasJugador;
 	private GraphicsContext gc;
 	private Tablero tablero;
 	
 	public VistaTablero(GraphicsContext gc) {
-		
 		this.gc = gc;
-		this.vistasCasilleros = new LinkedList<VistaCasillero>();
+		vistasCasilleros = new LinkedList<VistaCasillero>();
+		vistasJugador = new ArrayList<VistaJugador>();
 		this.tablero = Tablero.getInstancia();
 	}
 
 	public void pintarTablero() {
+		VistaCasillero.setVistasJugadores(vistasJugador);
 		
 		vistasCasilleros.add(new VistaCasillero("SALIDA", tablero.getCasilleros().get(0), 640, 640, gc));						//1
 		vistasCasilleros.add(new VistaCasillero("QUINI 6", tablero.getCasilleros().get(1), 520, 640, gc));						//2
@@ -77,5 +81,15 @@ public class VistaTablero {
 	
 	public GraphicsContext getGC() {
 		return gc;
+	}
+	
+	public void agregarVistaJugador(VistaJugador vistaJugador) {
+		vistasJugador.add(vistaJugador);
+	}
+	
+	@Override
+	public void actualizar() {
+		for(VistaCasillero vistaCasillero:vistasCasilleros)
+			vistaCasillero.actualizar();
 	}
 }

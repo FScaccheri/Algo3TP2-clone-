@@ -3,7 +3,6 @@ package modelo;
 import java.util.LinkedList;
 
 import modelo.casilleros.Casillero;
-import vistas.VistaJugador;
 public class Tablero {
 	
 	private static Tablero instancia = null;

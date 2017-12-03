@@ -4,24 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import modelo.AdministradorDeTurnos2;
+import modelo.AdministradorDeTurnos;
 import modelo.Jugador;
 import modelo.Tirada;
 import modelo.excepciones.LanzamientoImposible;
 
 public class AdministradorDeTurnosTest {
-
-	@Test
-	public void AdministradorDeTurnosRecibeUnJugador() {
-		new AdministradorDeTurnos2(new Jugador());
-		assertTrue(true);
-	}
-
-	@Test
-	public void AdministradorDeTurnosRecibeVariosJugadores() {
-		new AdministradorDeTurnos2(new Jugador(), new Jugador(), new Jugador(), new Jugador());
-		assertTrue(true);
-	}
 	
 	@Test
 	public void ElPrimerTurnoEsElDelPrimerJugador() {
@@ -30,7 +18,13 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
+
 		assertEquals(admin.getJugadorActual(), jugador1);
 	}
 
@@ -41,7 +35,12 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+		
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
 		
 		admin.lanzarDados();
 		Tirada.setSalieronDobles(false);
@@ -57,7 +56,12 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+		
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
 		
 		admin.lanzarDados();
 		Tirada.setSalieronDobles(false);
@@ -83,7 +87,12 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+		
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
 		
 		admin.lanzarDados();
 		try {
@@ -101,7 +110,12 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+		
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
 		
 		admin.lanzarDados();
 		Tirada.setSalieronDobles(true);
@@ -116,7 +130,12 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+		
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
 		
 		admin.lanzarDados();
 		Tirada.setSalieronDobles(true);
@@ -135,7 +154,13 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+		
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
+		
 		assertFalse(admin.lanzoLosDados());
 	}
 
@@ -146,8 +171,15 @@ public class AdministradorDeTurnosTest {
 		Jugador jugador3 = new Jugador();
 		Jugador jugador4 = new Jugador();
 		
-		AdministradorDeTurnos2 admin = new  AdministradorDeTurnos2(jugador1, jugador2, jugador3 , jugador4);
+		AdministradorDeTurnos admin = new  AdministradorDeTurnos();
+		
+		admin.agregarJugador(jugador1);
+		admin.agregarJugador(jugador2);
+		admin.agregarJugador(jugador3);
+		admin.agregarJugador(jugador4);
+		
 		admin.lanzarDados();
+		
 		assertTrue(admin.lanzoLosDados());
 	}
 }

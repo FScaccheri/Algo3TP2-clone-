@@ -1,19 +1,30 @@
-package vistas;
+package nuevo.vistas;
+
+import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import modelo.Jugador;
+import modelo.Vista;
 import modelo.casilleros.Casillero;
-import modelo.casilleros.adquiribles.Adquirible;
+import modelo.casilleros.adquiribles.Rentable;
 
-public class VistaCasillero {
+public class VistaCasillero implements Vista{
 	
 	private int posX;
 	private int posY;
+	private GraphicsContext gc;
 	private Casillero casillero;
+	private static ArrayList<VistaJugador> vistasJugadores;
+	
+	public static void setVistasJugadores(ArrayList<VistaJugador> lasVistasJugadores) {
+		vistasJugadores = lasVistasJugadores;
+	}
 	
 	public VistaCasillero(String titulo, Casillero casillero, int posicionX, int posicionY, GraphicsContext gc) {
-		
+		this.gc = gc;
 		this.posX = posicionX;
 		this.posY = posicionY;
 		this.casillero = casillero;
@@ -79,6 +90,23 @@ public class VistaCasillero {
 	public Casillero getCasillero() {
 		
 		return casillero;
+	}
+
+
+
+	@Override
+	public void actualizar() {
+		try {
+			Jugador jugador = ((Rentable) casillero.getEfecto()).getPropietario();
+			for(VistaJugador vistaJugador:vistasJugadores) {
+				if(vistaJugador.getJugadorAsociado() == jugador) {
+					Paint color = vistaJugador.getColor();
+					
+					gc.setFill(color);
+					gc.fillRect(posX + 5, posY + 5, 110, 25);					
+				}
+			}
+		} catch (ClassCastException e) {}
 	}
 
 }

@@ -1,4 +1,4 @@
-package controladores;
+package nuevo.controladores;
 
 import java.util.LinkedList;
 
@@ -12,9 +12,9 @@ import modelo.Posicion;
 import modelo.Tablero;
 import modelo.casilleros.Casillero;
 import modelo.casilleros.adquiribles.Adquirible;
-import vistas.ContenedorJuego;
-import vistas.VistaCasillero;
-import vistas.VistaTablero;
+import nuevo.vistas.ContenedorJuego;
+import nuevo.vistas.VistaCasillero;
+import nuevo.vistas.VistaTablero;
 
 public class BotonVenderUnAdquiribleEventHandler implements EventHandler<ActionEvent> {
 

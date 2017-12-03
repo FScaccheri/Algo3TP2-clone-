@@ -1,42 +1,53 @@
 package modelo;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
-//Esta clase no tiene pruebas pues es solo una propuesta de resolucion a la cuestion de administracion de turnos @FrancoR
+import modelo.excepciones.DebeLanzarLosDados;
+import modelo.excepciones.LanzamientoImposible;
+
 public class AdministradorDeTurnos {
-
-	private LinkedList<TieneAccionFinTurno> accionesFinDeTurno;
-	private LinkedList<TieneAccionInicioTurno> accionesInicioDeTurno;
-	private LinkedList<Jugador> jugadores;
-	private Jugador jugadorActual;
+	ListaCircular<Jugador> jugadores;
+	private int actual;
+	private boolean lanzoLosDados;
+	private int cantidadDeDobles;
 	
-	public void agregarAccionFinTurno(TieneAccionFinTurno accionPorAgregar) {
-		accionesFinDeTurno.add(accionPorAgregar);
+	public AdministradorDeTurnos() {
+		this.jugadores = new ListaCircular<Jugador>();
 	}
-	public void agregarAccionInicioTurno(TieneAccionInicioTurno accionPorAgregar) {
-		accionesInicioDeTurno.add(accionPorAgregar);
+	
+	public void agregarJugador(Jugador jugador) {
+		jugadores.add(jugador);
 	}
 	
 	public void finalizarTurno() {
-		for (int i = 0; i < accionesFinDeTurno.size(); i++) {
-			accionesFinDeTurno.get(i).accionFinDeTurno();
+		if(!lanzoLosDados())
+			throw new DebeLanzarLosDados();
+		
+		if((!Tirada.fueDoble()) || (cantidadDeDobles == 1)) {
+			actual++;
+			cantidadDeDobles = -1;
 		}
-		jugadorActual = this.siguienteJugador(jugadorActual,jugadores);
+		cantidadDeDobles++;
+		
+		lanzoLosDados = false;
 	}
 	
-	public void iniciarTurno() {
-		for (int i = 0; i < accionesInicioDeTurno.size(); i++) {
-			accionesInicioDeTurno.get(i).accionInicioDeTurno();
-		}
+	public Jugador getJugadorActual() {
+		return jugadores.get(actual);
 	}
 	
-	private Jugador siguienteJugador(Jugador jugadorActual, LinkedList<Jugador> jugadores) {
-		Jugador jugadorPorDevolver;
-		try {
-			jugadorPorDevolver = jugadores.get(jugadores.indexOf(jugadorActual) + 1);
-		} catch (IndexOutOfBoundsException e) {
-			jugadorPorDevolver = jugadores.get(0);
-		}
-		return jugadorPorDevolver;
+	public void lanzarDados() {
+		if(lanzoLosDados())
+			throw new LanzamientoImposible();
+		Tirada.tirar();
+		lanzoLosDados = true;
+	}
+	
+	public boolean lanzoLosDados() {
+		return lanzoLosDados;
+	}
+
+	public ArrayList<Jugador> getJugadores() {
+		return new ArrayList<Jugador>(jugadores);
 	}
 }

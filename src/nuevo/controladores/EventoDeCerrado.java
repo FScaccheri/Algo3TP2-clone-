@@ -1,4 +1,4 @@
-package controladores;
+package nuevo.controladores;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -6,7 +6,7 @@ import javafx.stage.WindowEvent;
 import modelo.Jugador;
 import modelo.Tablero;
 import modelo.excepciones.CapitalInsuficiente;
-import vistas.ContenedorJuego;
+import nuevo.vistas.ContenedorJuego;
 
 public class EventoDeCerrado implements EventHandler<WindowEvent>{
 	

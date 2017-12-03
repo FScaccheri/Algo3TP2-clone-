@@ -9,24 +9,21 @@ public class Casillero {
 	private Posicion posicion = null;
 	private String nombre;
 	
-	public Casillero () {
-		
-		
-	}
+	public Casillero () {}
 	
 	public Casillero(String nombre, Activable efecto) {
 		this.efecto = efecto;
 		this.nombre = nombre;
-		this.setNombreARentable(nombre);
+		setNombreARentable(nombre);
 	}
 
 
 	private void setNombreARentable(String nombreRentable) {
 
-		if (efecto instanceof Rentable) {
-			
-			((Rentable) efecto).setNombre(nombreRentable);
-		}
+	//		if (efecto instanceof Rentable) {
+	//			
+	//			((Rentable) efecto).setNombre(nombreRentable);
+	//		}
 		
 	}
 

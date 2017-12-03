@@ -1,4 +1,4 @@
-package controladores;
+package nuevo.controladores;
 
 import java.net.URL;
 
