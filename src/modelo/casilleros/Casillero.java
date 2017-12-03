@@ -20,10 +20,10 @@ public class Casillero {
 
 	private void setNombreARentable(String nombreRentable) {
 
-	//		if (efecto instanceof Rentable) {
-	//			
-	//			((Rentable) efecto).setNombre(nombreRentable);
-	//		}
+			if (efecto instanceof Rentable) {
+				
+				((Rentable) efecto).setNombre(nombreRentable);
+			}
 		
 	}
 

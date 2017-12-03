@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import modelo.casilleros.Activable;
 import modelo.casilleros.Carcel;
@@ -112,7 +113,7 @@ public class AlgoPoly {
 		admin.finalizarTurno();
 	}
 
-	private Jugador getJugadorActual() {
+	public Jugador getJugadorActual() {
 		return admin.getJugadorActual();
 	}
 	
@@ -130,7 +131,6 @@ public class AlgoPoly {
 		return Tirada.fueDoble();
 	}
 	
-	
 	private Activable getActivableActual() {
 		return getJugadorActual().getPosicion().getCasillero().getEfecto();
 	}
@@ -147,6 +147,18 @@ public class AlgoPoly {
 	public void comprarRentableActal() {
 		Rentable rentable = ((Rentable) getActivableActual());
 		getJugadorActual().adquirir(rentable);
+	}
+
+	public LinkedList<Rentable> getRentablesDeJugador(Jugador jugador) {
+		ColeccionDeRentables colleccion = jugador.getAdquiridos();
+		LinkedList<Rentable> rentables = new LinkedList<Rentable>(colleccion.propiedades());
+		rentables.addAll(colleccion.servicios());
+		return rentables;
+	}
+
+	public LinkedList<Propiedad> getPropiedadesDeJugador(Jugador jugador) {
+		ColeccionDeRentables colleccion = jugador.getAdquiridos();
+		return new LinkedList<Propiedad>(colleccion.propiedades());
 	}
 
 }

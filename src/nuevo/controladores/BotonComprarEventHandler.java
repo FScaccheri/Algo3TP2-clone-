@@ -17,6 +17,7 @@ import modelo.casilleros.adquiribles.Adquirible;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Rentable;
 import modelo.casilleros.adquiribles.Servicio;
+import modelo.excepciones.CapitalInsuficiente;
 import nuevo.vistas.ContenedorJuego;
 import nuevo.vistas.VistaJugador;
 
@@ -42,7 +43,14 @@ public class BotonComprarEventHandler implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
-		algoPoly.comprarRentableActal();
+		try {
+			algoPoly.comprarRentableActal();			
+		} catch (CapitalInsuficiente e) {
+			Alert ventana = new Alert(AlertType.ERROR);
+			ventana.setHeaderText("Capital Insuficiente!");
+			ventana.setContentText("No tiene sufiente capital para realizar la compra");
+			ventana.show();
+		}
 		algoPoly.actualizar();
 //		
 //		vistaJugador = contenedorJuego.getVistaJugadorActual();
