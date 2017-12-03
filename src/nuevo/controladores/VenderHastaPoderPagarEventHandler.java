@@ -46,6 +46,7 @@ public class VenderHastaPoderPagarEventHandler implements EventHandler<ActionEve
 			alerta.show();
 			
 			algoPoly.eliminarJugadorDelJuego(algoPoly.getJugadorActual());
+			algoPoly.actualizar();
 		}
 		
 		else {

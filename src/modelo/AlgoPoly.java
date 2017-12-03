@@ -15,6 +15,7 @@ import modelo.casilleros.adquiribles.Rentable;
 import modelo.casilleros.adquiribles.Servicio;
 import modelo.casilleros.movimiento.AvanceDinamico;
 import modelo.casilleros.movimiento.RetrocesoDinamico;
+import nuevo.vistas.VistaJugador;
 
 public class AlgoPoly {
 	
@@ -189,8 +190,24 @@ public class AlgoPoly {
 
 	public void eliminarJugadorDelJuego(Jugador jugadorActual) {
 		
+		eliminarVistaConJugadorAsociado(jugadorActual);
 		admin.eliminarJugador(jugadorActual);
 		
+		
+	}
+
+	private void eliminarVistaConJugadorAsociado(Jugador jugadorActual) {
+		
+		for(Vista vista: lista.getVistas()) {
+			
+			try {
+				Jugador jugador = ((VistaJugador)vista).getJugadorAsociado();
+				if (jugador == jugadorActual) {
+					lista.eliminar(vista);
+				}
+			} catch (ClassCastException e) {}
+			
+		}
 	}
 
 }

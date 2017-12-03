@@ -18,4 +18,13 @@ public class ListaDeVistas implements Vista{
 	public void agregar(Vista vista) {
 		vistas.add(vista);
 	}
+
+	public ArrayList<Vista> getVistas() {
+		return vistas;
+	}
+
+	public void eliminar(Vista vista) {
+		vistas.remove(vista);
+		
+	}
 }
