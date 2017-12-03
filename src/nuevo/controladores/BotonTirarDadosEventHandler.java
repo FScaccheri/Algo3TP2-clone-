@@ -37,7 +37,19 @@ public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		algoPoly.lanzarDados();
 		audioClip.play();
-		algoPoly.avanzarJugadorActual();
+		try {
+			algoPoly.avanzarJugadorActual();
+		} catch (CapitalInsuficiente e) {
+
+			Button botonVentaHastaPagar = new Button();
+			botonVentaHastaPagar.setOnAction(new VenderHastaPoderPagarEventHandler());
+			botonVentaHastaPagar.fire();
+			
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setHeaderText("No tiene dinero para pagar el alquiler!");
+			alerta.setContentText("Venda alguna de sus propiedades");
+			alerta.show();
+		}
 		algoPoly.actualizar();
 		
 		//		VistaJugador vistaJugador = contenedorJuego.getVistaJugadorActual();

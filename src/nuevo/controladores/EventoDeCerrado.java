@@ -11,9 +11,8 @@ import nuevo.vistas.ContenedorJuego;
 public class EventoDeCerrado implements EventHandler<WindowEvent>{
 	
 	private Jugador jugador;
-	private ContenedorJuego contenedor;
 	
-	public EventoDeCerrado(Jugador jugador, ContenedorJuego contenedor) {
+	public EventoDeCerrado(Jugador jugador) {
 		this.jugador = jugador;
 	}
 	
@@ -24,7 +23,7 @@ public class EventoDeCerrado implements EventHandler<WindowEvent>{
 			
 		} catch (CapitalInsuficiente e) {
 			Button boton = new Button();
-			boton.setOnAction(new VenderHastaPoderPagarEventHandler(contenedor));
+			boton.setOnAction(new VenderHastaPoderPagarEventHandler());
 			boton.fire();
 		}
 	}

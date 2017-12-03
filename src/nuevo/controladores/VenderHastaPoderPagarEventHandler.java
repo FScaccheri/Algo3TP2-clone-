@@ -14,69 +14,61 @@ import javafx.stage.Stage;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Servicio;
 import nuevo.vistas.ContenedorJuego;
+import modelo.AlgoPoly;
 import modelo.Jugador;
 
 public class VenderHastaPoderPagarEventHandler implements EventHandler<ActionEvent>{
-
-	private ContenedorJuego contenedorJuego;
-	private Jugador jugador;
 	
-	public VenderHastaPoderPagarEventHandler(ContenedorJuego contenedor) {
-		this.contenedorJuego = contenedor;
+	public VenderHastaPoderPagarEventHandler() {
+		
 	}
 	public void handle(ActionEvent event) {
-//		jugador = contenedorJuego.getJugadorActual();
-//		Stage ventana = new Stage();
-//		HBox contenedor = new HBox();
-//		Scene escena = new Scene(contenedor);
-//		// Cambiar el contenedor a un contenedor(root/ VBox) principal y agregar dos subcontenedores
-//		// (roots/ HBox) distintos. @FScaccheri
-//		contenedor.setPadding(new Insets(25));
-//		ventana.setScene(escena);
-//		ventana.setTitle("Sus propiedades");
-//		
-//		
-//		ventana.setOnCloseRequest(new EventoDeCerrado(jugador,contenedorJuego));
-//		if ((jugador.getAdquiridos().propiedades().isEmpty()) && (jugador.getAdquiridos().servicios().isEmpty())) {
-//			
-//			Alert alerta = new Alert(AlertType.WARNING);
-//			alerta.setHeaderText("Venta no realizada");
-//			alerta.setContentText("No tiene propiedades para vender!");
-//			alerta.show();
-//		}
-//		
-//		else {
-//			
-//			for(int i = 0; i < jugador.getAdquiridos().propiedades().size(); i++) {
-//		
-//
-//				LinkedList<Propiedad> propiedades = jugador.getAdquiridos().propiedades();
-//			
-//				Propiedad unaPropiedad = propiedades.get(i);
-//			
-//				Button boton = new Button(unaPropiedad.getNombre());
-//				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, unaPropiedad, contenedorJuego.getCanvasTablero().getVistaTablero(),contenedorJuego));
-//				
-//				contenedor.getChildren().add(boton);
-//				ventana.show();
-//			
-//			}
-//		
-//			for(int i = 0; i < jugador.getAdquiridos().servicios().size(); i++) {
-//
-//				LinkedList<Servicio> servicios = jugador.getAdquiridos().servicios();
-//			
-//				Servicio unServicio = servicios.get(i);
-//			
-//				Button boton = new Button(unServicio.getNombre());
-//				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, unServicio, contenedorJuego.getCanvasTablero().getVistaTablero(),contenedorJuego));
-//				
-//				contenedor.getChildren().add(boton);
-//				ventana.show();
-//			
-//			}
-//		
-//		}
-//		
+		
+		AlgoPoly algoPoly = AlgoPoly.getInstancia();
+		Jugador jugador =  algoPoly.getJugadorActual();
+		
+		Stage ventana = new Stage();
+		HBox contenedor = new HBox();
+		Scene escena = new Scene(contenedor);
+		// Cambiar el contenedor a un contenedor(root/ VBox) principal y agregar dos subcontenedores
+		// (roots/ HBox) distintos. @FScaccheri
+		contenedor.setPadding(new Insets(25));
+		ventana.setScene(escena);
+		ventana.setTitle("Sus propiedades");
+
+		ventana.setOnCloseRequest(new EventoDeCerrado(jugador));
+		
+		if ((jugador.getAdquiridos().propiedades().isEmpty()) && (jugador.getAdquiridos().servicios().isEmpty())) {
+			
+			Alert alerta = new Alert(AlertType.WARNING);
+			alerta.setHeaderText("Venta no realizada");
+			alerta.setContentText("No tiene propiedades para vender!");
+			alerta.show();
+		}
+		
+		else {
+			
+			for (Propiedad propiedad: jugador.getAdquiridos().propiedades()) {
+			
+				Button boton = new Button(propiedad.getNombre());
+				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, jugador, propiedad));
+				
+				contenedor.getChildren().add(boton);
+				ventana.show();
+			
+			}
+		
+			for (Servicio servicio: jugador.getAdquiridos().servicios()) {
+			
+				Button boton = new Button(servicio.getNombre());
+				boton.setOnAction(new BotonVenderUnAdquiribleEventHandler(boton, jugador, servicio));
+				
+				contenedor.getChildren().add(boton);
+				ventana.show();
+			
+			}
+		
+		}
+		
 	}
 }
