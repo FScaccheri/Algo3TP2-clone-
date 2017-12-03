@@ -35,6 +35,9 @@ public class CanvasTablero extends Canvas implements Vista{
 		
 		if(algoPoly.salieronDobles())
 			getGraphicsContext2D().fillText("DOBLES!", 350, 400);
+		
+		getGraphicsContext2D().setFont(new Font("",20));
+		getGraphicsContext2D().fillText("Turno del Jugador " + algoPoly.getNombreDeJugadorActual(), 300, 440);
 			
 	}
 	

@@ -38,12 +38,17 @@ public class AlgoPoly {
 		
 		crearTablero();
 		
-		for (int j = 0; j < 3; j++) {
-			Jugador jugador = new Jugador();
-			jugador.setPosicion(tablero.getCasilleros().get(0).getPosicion());
-			admin.agregarJugador(jugador);
-		}
+		Jugador jugador = new Jugador("Rojo");
+		jugador.setPosicion(tablero.getCasilleros().get(0).getPosicion());
+		admin.agregarJugador(jugador);
 		
+		jugador = new Jugador("Azul");
+		jugador.setPosicion(tablero.getCasilleros().get(0).getPosicion());
+		admin.agregarJugador(jugador);
+		
+		jugador = new Jugador("Verde");
+		jugador.setPosicion(tablero.getCasilleros().get(0).getPosicion());
+		admin.agregarJugador(jugador);
 	}
 	
 	private void crearTablero() {
@@ -176,6 +181,10 @@ public class AlgoPoly {
 	public void liberarJugadorActualPorFianza() {
 		Jugador jugador = getJugadorActual();
 		carcel.liberarJugadorPorFianza(jugador);
+	}
+	
+	public String getNombreDeJugadorActual() {
+		return admin.getJugadorActual().getNombre();
 	}
 
 }

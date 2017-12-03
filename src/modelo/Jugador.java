@@ -16,10 +16,21 @@ public class Jugador {
 	private Posicion posicion = null;
 	private Movimiento movimiento;
 	private ColeccionDeRentables adquiridos;
+	private String nombre = "";
 	
 	public Jugador() {
 		movimiento = new MovimientoBasico();
 		adquiridos = new ColeccionDeRentables();
+	}
+	
+	public Jugador(String nombre) {
+		movimiento = new MovimientoBasico();
+		adquiridos = new ColeccionDeRentables();
+		this.nombre = nombre;
+	}
+	
+	public String getNombre() {
+		return nombre;
 	}
 	
 	public double getCapital() {
