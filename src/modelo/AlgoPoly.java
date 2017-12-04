@@ -1,10 +1,12 @@
 package modelo;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import modelo.casilleros.Activable;
@@ -19,7 +21,9 @@ import modelo.casilleros.adquiribles.Rentable;
 import modelo.casilleros.adquiribles.Servicio;
 import modelo.casilleros.movimiento.AvanceDinamico;
 import modelo.casilleros.movimiento.RetrocesoDinamico;
+import nuevo.controladores.Player;
 import nuevo.vistas.VistaJugador;
+
 
 public class AlgoPoly {
 	
@@ -35,6 +39,7 @@ public class AlgoPoly {
 	private Tablero tablero;
 	private ListaDeVistas lista;
 	private Carcel carcel;
+	private Player player;
 	
 	private AlgoPoly() {
 		tablero = Tablero.getInstancia();
@@ -42,6 +47,8 @@ public class AlgoPoly {
 		lista = new ListaDeVistas();
 		
 		crearTablero();
+		
+		player = new Player();
 		
 		Jugador jugador = new Jugador("Rojo");
 		jugador.setPosicion(tablero.getCasilleros().get(0).getPosicion());
@@ -55,7 +62,7 @@ public class AlgoPoly {
 		jugador.setPosicion(tablero.getCasilleros().get(0).getPosicion());
 		admin.agregarJugador(jugador);
 	}
-	
+
 	private void crearTablero() {
 		Propiedad BsAsSur = new Propiedad(20000, 2000, 3000, 3500, 5000, 5000, 8000);
 		Propiedad BsAsNorte = new Propiedad(25000, 2500, 3500, 4000, 6000, 5500, 9000);
@@ -117,6 +124,7 @@ public class AlgoPoly {
 			Alert win = new Alert(AlertType.INFORMATION);
 			win.setHeaderText("Gano el Jugador " + getJugadorActual().getNombre());
 			win.setContentText("Gracias por jugar!");
+			player.play();
 			
 		}
 	}

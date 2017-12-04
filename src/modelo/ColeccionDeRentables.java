@@ -2,8 +2,6 @@ package modelo;
 
 import java.util.LinkedList;
 
-import modelo.casilleros.adquiribles.Adquirible;
-import modelo.casilleros.adquiribles.Alquilable;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Rentable;
 import modelo.casilleros.adquiribles.Servicio;
@@ -25,14 +23,6 @@ public class ColeccionDeRentables {
 	public LinkedList<Servicio> servicios(){
 		return new LinkedList<Servicio>(servicios);
 	}
-	
-//	public void agregar(Propiedad propiedad) {
-//		propiedades.add(propiedad);
-//	}
-//	
-//	public void agregar(Servicio servicio) {
-//		servicios.add(servicio);
-//	}
 
 	public void agregar(Rentable rentable) {
 		try {
