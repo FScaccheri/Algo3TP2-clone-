@@ -25,18 +25,26 @@ public class CanvasTablero extends Canvas implements Vista{
 	public void actualizar() {
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		
-		getGraphicsContext2D().setFill(Color.LIGHTSKYBLUE);
-		getGraphicsContext2D().fillRect(280, 280, 240, 240);
+		gc.setFill(Color.LIGHTSKYBLUE);
+		gc.fillRect(280, 280, 240, 240);
 
-		getGraphicsContext2D().setFill(Color.GREEN);
-		getGraphicsContext2D().setFont(new Font("", 30));
-		getGraphicsContext2D().fillText("" + algoPoly.getUltimaTirada(), 350, 340);
+		gc.setFill(Color.WHITE);
+		gc.setStroke(Color.BLACK);
+		gc.setFont(new Font("", 30));
+		gc.fillText("Dados: " + algoPoly.getUltimaTirada(), 350, 410); 
+		gc.strokeText("Dados: " + algoPoly.getUltimaTirada(), 350, 410); 
 		
-		if(algoPoly.salieronDobles())
-			getGraphicsContext2D().fillText("DOBLES!", 350, 400);
+		if(algoPoly.salieronDobles()) {
+			
+			gc.setFill(Color.GOLD);
+			gc.fillText("DOBLES!", 350, 450); 
+			gc.strokeText("DOBLES!", 350, 450); 
+		}
 		
-		getGraphicsContext2D().setFont(new Font("",20));
-		getGraphicsContext2D().fillText("Turno del Jugador " + algoPoly.getNombreDeJugadorActual(), 300, 440);
+		gc.setFill(Color.WHITE);
+		gc.setFont(new Font("", 20));
+		gc.fillText("Turno del Jugador " + algoPoly.getNombreDeJugadorActual(), 300, 350); 
+		gc.strokeText("Turno del Jugador " + algoPoly.getNombreDeJugadorActual(), 300, 350); 
 			
 	}
 	

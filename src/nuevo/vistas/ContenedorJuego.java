@@ -2,12 +2,6 @@ package nuevo.vistas;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import nuevo.controladores.BotonComprarEventHandler;
-import nuevo.controladores.BotonEdificarEventHandler;
-import nuevo.controladores.BotonPagarFianzaEventHandler;
-import nuevo.controladores.BotonTerminarEventHandler;
-import nuevo.controladores.BotonTirarDadosEventHandler;
-import nuevo.controladores.BotonVenderEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.GraphicsContext;
@@ -50,30 +44,13 @@ public class ContenedorJuego extends BorderPane{
 		BotonComprarPropiedad botonComprar = new BotonComprarPropiedad();
 		BotonPagarFianza botonPagarFianza = new BotonPagarFianza();
 		BotonTerminarTurno botonTerminar = new BotonTerminarTurno();
-		
-		BotonComprarEventHandler botonComprarEventHandler = new BotonComprarEventHandler();
-		botonComprar.setOnAction(botonComprarEventHandler);
-		
-		BotonVenderEventHandler botonVenderEventHandler = new BotonVenderEventHandler();
-		botonVender.setOnAction(botonVenderEventHandler);
-		
-		BotonEdificarEventHandler botonEdificarEventHandler = new BotonEdificarEventHandler();
-		botonEdificar.setOnAction(botonEdificarEventHandler);
-		
-		BotonPagarFianzaEventHandler botonPagarFianzaEventHandler = new BotonPagarFianzaEventHandler();
-		botonPagarFianza.setOnAction(botonPagarFianzaEventHandler);
-		
-		BotonTerminarEventHandler botonTerminarEventHandler = new BotonTerminarEventHandler();
-		botonTerminar.setOnAction(botonTerminarEventHandler);
-		
-		BotonTirarDadosEventHandler botonTirarDadosEventHandler = new BotonTirarDadosEventHandler();
-		botonTirarDados.setOnAction(botonTirarDadosEventHandler);
+		BotonSalirDelJuego botonSalir = new BotonSalirDelJuego();
 		
 		//Contenedor de botones
 		contenedorBotones = new VBox();
 		contenedorBotones.setSpacing(20);
 		contenedorBotones.setPadding(new Insets(20));
-		contenedorBotones.getChildren().addAll(botonTirarDados, botonVender, botonEdificar, botonComprar, botonPagarFianza, botonTerminar);
+		contenedorBotones.getChildren().addAll(botonTirarDados, botonVender, botonEdificar, botonComprar, botonPagarFianza, botonTerminar, botonSalir);
 		
 		this.setRight(contenedorBotones);
 		

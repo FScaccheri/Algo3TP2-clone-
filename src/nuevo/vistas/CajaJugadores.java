@@ -16,8 +16,6 @@ import modelo.Vista;
 public class CajaJugadores extends VBox implements Vista {
 
 	private Font fuente;
-	private int distancia;
-	private int scale;
 	private ArrayList<Label> etiquetas;
 	private ArrayList<Jugador> jugadores;
 
@@ -25,20 +23,13 @@ public class CajaJugadores extends VBox implements Vista {
 		etiquetas = new ArrayList<Label>();
 		this.jugadores = jugadores;
 		int cantidadJugadores = jugadores.size();
-		
-		//Fuente de etiquetas
+
 		this.fuente = Font.font("", FontWeight.BOLD, tamanioFuente(cantidadJugadores));
-		//Distancia en pixeles entre iconos y Labels de jugadores
-		this.distancia = 600/cantidadJugadores;
-		//Scaling en pixeles de los iconos de los jugadores
-		this.scale = 300/cantidadJugadores;
-		
-		int i = 0;
-		// Seteo de imagenes de jugadores (sus piezas)
-		Image imagenPieza1 = new Image("file:src/nuevo/vistas/imagenes/racecar.jpg", scale, scale, true, false);
+
+		Image imagenPieza1 = new Image("file:src/nuevo/vistas/imagenes/racecar.jpg", 100, 100, true, false);
 		ImageView vistaPieza1 = new ImageView(imagenPieza1);
 		Label etiqueta1 = new Label ("Jugador 1");
-		Label etiquetaCapital1 = new Label("$" + jugadores.get(0).getCapital());
+		Label etiquetaCapital1 = new Label();
 		etiqueta1.setTextFill(Color.web("#DC143C"));
 		etiqueta1.setFont(fuente);
 		etiquetaCapital1.setTextFill(Color.web("#DC143C"));
@@ -49,32 +40,30 @@ public class CajaJugadores extends VBox implements Vista {
 
 		etiquetas.add(etiquetaCapital1);
 
-		i = 1;
-		Image imagenPieza2 = new Image("file:src/nuevo/vistas/imagenes/battleship.jpg", scale, scale, true, false);
+		Image imagenPieza2 = new Image("file:src/nuevo/vistas/imagenes/battleship.jpg", 100, 100, true, false);
 		ImageView vistaPieza2 = new ImageView(imagenPieza2);
 		Label etiqueta2 = new Label("Jugador 2");
-		Label etiquetaCapital2 = new Label("$" + jugadores.get(1).getCapital());
+		Label etiquetaCapital2 = new Label();
 		etiqueta2.setTextFill(Color.web("#0000CD"));
 		etiqueta2.setFont(fuente);
 		etiquetaCapital2.setTextFill(Color.web("#0000CD"));
 		etiquetaCapital2.setFont(fuente);
-		vistaPieza2.setTranslateY( 100 ); //200
-		etiqueta2.setTranslateY( 100 ); //200
+		vistaPieza2.setTranslateY( 100 ); 
+		etiqueta2.setTranslateY( 100 ); 
 		etiquetaCapital2.setTranslateY(100);
 		
 		etiquetas.add(etiquetaCapital2);
-		
-		i = 2;
-		Image imagenPieza3 = new Image("file:src/nuevo/vistas/imagenes/tophat.jpg", scale, scale, true, false);
+
+		Image imagenPieza3 = new Image("file:src/nuevo/vistas/imagenes/tophat.jpg", 100, 100, true, false);
 		ImageView vistaPieza3 = new ImageView(imagenPieza3);
 		Label etiqueta3 = new Label("Jugador 3");
-		Label etiquetaCapital3 = new Label("$" + jugadores.get(2).getCapital());
+		Label etiquetaCapital3 = new Label();
 		etiqueta3.setTextFill(Color.web("#3D9140"));
 		etiqueta3.setFont(fuente);
 		etiquetaCapital3.setTextFill(Color.web("#3D9140"));
 		etiquetaCapital3.setFont(fuente);
-		vistaPieza3.setTranslateY( 200 ); //400
-		etiqueta3.setTranslateY( 200); //400
+		vistaPieza3.setTranslateY( 200 ); 
+		etiqueta3.setTranslateY( 200); 
 		etiquetaCapital3.setTranslateY( 200 );
 		
 				
@@ -93,7 +82,7 @@ public class CajaJugadores extends VBox implements Vista {
 	@Override
 	public void actualizar() {
 		for (int i = 0; i < jugadores.size(); i++) {
-			etiquetas.get(i).setText(""+jugadores.get(i).getCapital());
+			etiquetas.get(i).setText("$ " + (int)jugadores.get(i).getCapital());
 		}
 		
 	}

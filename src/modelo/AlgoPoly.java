@@ -17,6 +17,7 @@ import modelo.casilleros.adquiribles.Rentable;
 import modelo.casilleros.adquiribles.Servicio;
 import modelo.casilleros.movimiento.AvanceDinamico;
 import modelo.casilleros.movimiento.RetrocesoDinamico;
+import nuevo.controladores.EventoDeFinalizacion;
 import nuevo.controladores.Player;
 import nuevo.vistas.VistaJugador;
 
@@ -120,7 +121,10 @@ public class AlgoPoly {
 			Alert win = new Alert(AlertType.INFORMATION);
 			win.setHeaderText("Gano el Jugador " + getJugadorActual().getNombre());
 			win.setContentText("Gracias por jugar!");
+			win.setOnCloseRequest(new EventoDeFinalizacion());
+			win.show();
 			player.play();
+			
 			
 		}
 	}

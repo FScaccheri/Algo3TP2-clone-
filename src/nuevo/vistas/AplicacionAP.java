@@ -16,7 +16,7 @@ public class AplicacionAP extends Application{
 		
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		
-		stage.setTitle("AlgoPoly - Grupo 3(?)");
+		stage.setTitle("AlgoPoly");
 
 		ContenedorJuego contenedorJuego = new ContenedorJuego(stage, algoPoly.getJugadores().size());
 		Scene escenaPrincipal = new Scene(contenedorJuego , 1200, 900);

@@ -65,7 +65,7 @@ public class BotonEdificarEventHandler implements EventHandler<ActionEvent>{
 				ventana.show();
 				}
 			}
-			if(contenedor.getChildren().isEmpty()) {
+			if(subcontenedor2.getChildren().isEmpty()) {
 				
 				Alert alerta2 = new Alert(AlertType.WARNING);
 				alerta2.setHeaderText("Edificacion no realizada");
