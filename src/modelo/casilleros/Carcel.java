@@ -17,12 +17,6 @@ public class Carcel implements Activable{
 		this.presos = new HashMap<Jugador, Integer>();
 	}
 
-	private int turnosTranscurridos(Jugador jugador) {
-		int turnosTranscurridos = this.presos.get(jugador);
-		return turnosTranscurridos;
-	}
-
-
 	public void activarEfecto(Jugador jugador) {
 		if ( !this.presos.containsKey(jugador)) {
 			this.presos.put(jugador, 0);

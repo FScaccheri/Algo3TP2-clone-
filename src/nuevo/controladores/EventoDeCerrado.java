@@ -6,7 +6,6 @@ import javafx.stage.WindowEvent;
 import modelo.Jugador;
 import modelo.Tablero;
 import modelo.excepciones.CapitalInsuficiente;
-import nuevo.vistas.ContenedorJuego;
 
 public class EventoDeCerrado implements EventHandler<WindowEvent>{
 	

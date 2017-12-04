@@ -1,5 +1,7 @@
 package nuevo.controladores;
 
+import java.net.URL;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -11,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import modelo.casilleros.adquiribles.Propiedad;
@@ -20,9 +23,9 @@ import modelo.Jugador;
 
 public class VenderHastaPoderPagarEventHandler implements EventHandler<ActionEvent>{
 	
-	public VenderHastaPoderPagarEventHandler() {
-		
-	}
+	private AudioClip audioClip;
+	final URL RESOURCE = getClass().getResource("sonidos/perdedor.wav");
+
 	public void handle(ActionEvent event) {
 		
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
@@ -58,6 +61,9 @@ public class VenderHastaPoderPagarEventHandler implements EventHandler<ActionEve
 			alerta.setHeaderText("Perdio!");
 			alerta.setContentText("No tiene propiedades para vender!");
 			alerta.show();
+			audioClip = new AudioClip(RESOURCE.toString());
+			audioClip.setVolume(0.1);
+			audioClip.play();
 			
 			algoPoly.eliminarJugadorDelJuego(algoPoly.getJugadorActual());
 			algoPoly.actualizar();

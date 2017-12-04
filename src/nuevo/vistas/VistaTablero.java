@@ -7,16 +7,6 @@ import javafx.scene.canvas.GraphicsContext;
 import modelo.Posicion;
 import modelo.Tablero;
 import modelo.Vista;
-import modelo.casilleros.Carcel;
-import modelo.casilleros.Casillero;
-import modelo.casilleros.ImpuestoAlLujo;
-import modelo.casilleros.Policia;
-import modelo.casilleros.Quini6;
-import modelo.casilleros.Salida;
-import modelo.casilleros.adquiribles.Propiedad;
-import modelo.casilleros.adquiribles.Servicio;
-import modelo.casilleros.movimiento.AvanceDinamico;
-import modelo.casilleros.movimiento.RetrocesoDinamico;
 
 public class VistaTablero implements Vista{
 	

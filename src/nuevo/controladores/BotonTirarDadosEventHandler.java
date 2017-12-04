@@ -1,25 +1,14 @@
 package nuevo.controladores;
 
 import java.net.URL;
-import java.util.LinkedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.media.AudioClip;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import modelo.AlgoPoly;
-import modelo.Jugador;
-import modelo.Posicion;
-import modelo.Tablero;
-import modelo.Tirada;
-import modelo.casilleros.Carcel;
 import modelo.excepciones.CapitalInsuficiente;
-import nuevo.vistas.CanvasTablero;
-import nuevo.vistas.ContenedorJuego;
-import nuevo.vistas.VistaJugador;
 
 public class BotonTirarDadosEventHandler implements EventHandler<ActionEvent>{
 	

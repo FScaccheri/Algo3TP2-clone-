@@ -20,10 +20,6 @@ import modelo.casilleros.adquiribles.Servicio;
 
 public class BotonVenderEventHandler implements EventHandler<ActionEvent>{
 
-
-	public BotonVenderEventHandler() {
-
-	}
 	
 	@Override
 	public void handle(ActionEvent event) {

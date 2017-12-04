@@ -1,14 +1,10 @@
 package modelo;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import modelo.casilleros.Activable;
 import modelo.casilleros.Carcel;
 import modelo.casilleros.Casillero;

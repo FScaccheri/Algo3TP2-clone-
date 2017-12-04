@@ -1,7 +1,6 @@
 package nuevo.vistas;
 
 import javafx.scene.control.Button;
-import modelo.AdministradorDeTurnos;
 import modelo.AlgoPoly;
 import modelo.Vista;
 

@@ -1,37 +1,32 @@
 package nuevo.controladores;
 
-import java.util.LinkedList;
+import java.net.URL;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+import javafx.scene.media.AudioClip;
 import modelo.AlgoPoly;
 import modelo.Jugador;
-import modelo.Posicion;
-import modelo.Tablero;
-import modelo.casilleros.Casillero;
 import modelo.casilleros.adquiribles.Adquirible;
 import modelo.casilleros.adquiribles.Propiedad;
 import modelo.casilleros.adquiribles.Servicio;
-import nuevo.vistas.ContenedorJuego;
-import nuevo.vistas.VistaCasillero;
-import nuevo.vistas.VistaTablero;
 
 public class BotonVenderUnAdquiribleEventHandler implements EventHandler<ActionEvent> {
 
 	private Adquirible adquirible;
 	private Button boton;
-	private VistaTablero vistaTablero;
 	private Jugador jugador;
+	private AudioClip clip;
+	final URL RESOURCE = getClass().getResource("sonidos/registradora2.mp3");
 
 	public BotonVenderUnAdquiribleEventHandler(Button boton, Jugador jugador, Adquirible adquirible) {
 
 		this.boton = boton;
 		this.jugador = jugador;
 		this.adquirible = adquirible;
+		this.clip = new AudioClip(RESOURCE.toString());
+		clip.setVolume(0.1);
 	}
 
 	@Override
@@ -42,6 +37,7 @@ public class BotonVenderUnAdquiribleEventHandler implements EventHandler<ActionE
 		else
 			jugador.vender((Servicio) adquirible);
 		boton.setDisable(true);
+		clip.play();
 		AlgoPoly algoPoly = AlgoPoly.getInstancia();
 		algoPoly.actualizar();
 	}

@@ -5,7 +5,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import modelo.AlgoPoly;
-import modelo.Tirada;
 import modelo.Vista;
 import javafx.scene.text.Font;
 
