@@ -30,7 +30,6 @@ public class BotonSalidaEventHandler implements EventHandler<ActionEvent>{
 			System.exit(0);
 		}
 		
-		alerta.show();
 		
 	}
 
