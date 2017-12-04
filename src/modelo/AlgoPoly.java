@@ -3,6 +3,8 @@ package modelo;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import modelo.casilleros.Activable;
@@ -111,6 +113,12 @@ public class AlgoPoly {
 
 	public void actualizar() {
 		lista.actualizar();
+		if (admin.getJugadores().size() == 1) {
+			Alert win = new Alert(AlertType.INFORMATION);
+			win.setHeaderText("Gano el Jugador " + getJugadorActual().getNombre());
+			win.setContentText("Gracias por jugar!");
+			
+		}
 	}
 
 	public boolean lanzoLosDados() {
@@ -205,7 +213,6 @@ public class AlgoPoly {
 			try {
 				Jugador jugador = ((VistaJugador)vista).getJugadorAsociado();
 				if (jugador == jugadorActual) {
-					//lista.eliminar(vista);
 					((VistaJugador)vista).setColor(Color.web("#FFFFFF"));
 				}
 			} catch (ClassCastException e) {}
